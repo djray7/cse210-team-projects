@@ -11,6 +11,8 @@ namespace unit03_jumper
         string _guy;
         List<string> _parachute;
 
+        List<string> _board;
+
 
         //---------------------------------------------------------------------
         // Constructors
@@ -25,14 +27,14 @@ namespace unit03_jumper
             _parachute = [" --- ", "/   \ ", " --- ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ ", "     ", ",,,,,,,"]
 
             // print jumper guy graphic
-            Console.WriteLine(" --- ");
-            Console.WriteLine("/   \ ");
-            Console.WriteLine(" --- ");
-            Console.WriteLine("\   /");
-            Console.WriteLine(" \ / ");
-            Console.WriteLine("  0  ");
-            Console.WriteLine(" /|\ ");
-            Console.WriteLine(" / \ ");
+            // Console.WriteLine(" --- ");
+            // Console.WriteLine("/   \ ");
+            // Console.WriteLine(" --- ");
+            // Console.WriteLine("\   /");
+            // Console.WriteLine(" \ / ");
+            // Console.WriteLine("  0  ");
+            // Console.WriteLine(" /|\ ");
+            // Console.WriteLine(" / \ ");
 
         }
         public void changeGraphic()
@@ -42,6 +44,9 @@ namespace unit03_jumper
         public string printBoard()
         {
             // print _ _ _ _ _ this stuff according to length of word being used
+            // get word
+            // length word to know how many _ for the board
+
         }
         public void changeBoard()
         {
