@@ -19,7 +19,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         public void startGame()
         {
-
+            Console.WriteLine("Starting game!");
         }
     }
 }
