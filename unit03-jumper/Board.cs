@@ -24,7 +24,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         public string printGraphic()
         {
-            _parachute = [" --- ", "/   \ ", " --- ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ ", "     ", ",,,,,,,"]
+            _parachute = [" --- ", "/   \ ", " --- ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ ", "     ", ",,,,,,,"];
 
             // print jumper guy graphic
             // Console.WriteLine(" --- ");
