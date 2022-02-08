@@ -26,7 +26,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         // Member Functions
         //---------------------------------------------------------------------
-        public List<string> printGraphic()
+        public List<string> getJumper()
         {            
             // print jumper guy graphic
             // Console.WriteLine(" --- ");
@@ -39,13 +39,17 @@ namespace unit03_jumper
             // Console.WriteLine(" / \ ");
             return _parachute;
         }
-        public void changeGraphic()
+        public void changeJumper()
         {
             // change graphic conditional upon if user input was correct or not
             int mistakesMade = _mistakesAllowed - _guyLife;
             for (int i = 0; i < mistakesMade; i++)
             {
                 _parachute[i] = "";
+            }
+            if (mistakesMade == _mistakesAllowed)
+            {
+                _parachute[5] = " x ";
             }
         }
         public string printBoard(string wordToGuess)
