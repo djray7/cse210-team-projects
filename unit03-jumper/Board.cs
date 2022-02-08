@@ -67,5 +67,3 @@ namespace unit03_jumper
         }
     }
 }
-// this is a conflict- Kavyn
-// this is a conflict - Marcel
