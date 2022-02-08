@@ -9,7 +9,7 @@ namespace unit03_jumper
         // Member Variables
         //---------------------------------------------------------------------
         string _guy;
-        List<string> _parachute;
+        List<string> _parachute = new List<string>{" --- ", "/   \" ", " --- ", "\"   /", " \" / ", "  0  ", " /|\" ", " / \" ", "     ", ",,,,,,,"};
 
         List<string> _board;
 
@@ -24,7 +24,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         public string printGraphic()
         {
-            _parachute = [" --- ", "/   \ ", " --- ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ ", "     ", ",,,,,,,"];
+            
 
             string pizza = "word";
             // print jumper guy graphic
@@ -45,6 +45,8 @@ namespace unit03_jumper
         }
         public string printBoard()
         {
+            string banana = "banana";
+            return banana;
             // print _ _ _ _ _ this stuff according to length of word being used
             // get word
             // length word to know how many _ for the board
