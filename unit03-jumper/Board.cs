@@ -49,14 +49,14 @@ namespace unit03_jumper
             }
             if (mistakesMade == _mistakesAllowed)
             {
-                _parachute[5] = " x "
+                _parachute[5] = " x ";
             }
         }
         public string printBoard(string wordToGuess)
         {
             int count = wordToGuess.Length;
             
-            _board = // this is a string list 
+            //_board = // this is a string list 
 
 
             string banana = "banana";
