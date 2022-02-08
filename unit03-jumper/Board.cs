@@ -45,7 +45,7 @@ namespace unit03_jumper
             int mistakesMade = _mistakesAllowed - _guyLife;
             for (int i = 0; i < mistakesMade; i++)
             {
-                _parachute[i] = ""
+                _parachute[i] = "";
             }
         }
         public string printBoard(string wordToGuess)
