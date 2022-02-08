@@ -24,8 +24,9 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         public string printGraphic()
         {
-            _parachute = [" --- ", "/   \ ", " --- ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ ", "     ", ",,,,,,,"]
+            _parachute = [" --- ", "/   \"", " --- ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ ", "     ", ",,,,,,,"];
 
+            string pizza = "word";
             // print jumper guy graphic
             // Console.WriteLine(" --- ");
             // Console.WriteLine("/   \ ");
@@ -35,8 +36,8 @@ namespace unit03_jumper
             // Console.WriteLine("  0  ");
             // Console.WriteLine(" /|\ ");
             // Console.WriteLine(" / \ ");
-            return " ";
 
+            return pizza;
         }
         public void changeGraphic()
         {
@@ -47,7 +48,7 @@ namespace unit03_jumper
             // print _ _ _ _ _ this stuff according to length of word being used
             // get word
             // length word to know how many _ for the board
-
+            return "";
         }
         public void changeBoard()
         {
