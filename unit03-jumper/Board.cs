@@ -8,25 +8,26 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         // Member Variables
         //---------------------------------------------------------------------
-        string _guy;
-        List<string> _parachute = new List<string>{" --- ", "/   \" ", " --- ", "\"   /", " \" / ", "  0  ", " /|\" ", " / \" ", "     ", ",,,,,,,"};
-
+        int _mistakesAllowed;
+        int _guyLife;
+        List<string> _parachute;
         List<string> _board;
-
 
         //---------------------------------------------------------------------
         // Constructors
         //---------------------------------------------------------------------
-
+        public Board()
+        {
+            _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ ", "     ", ",,,,,,,"};
+            _mistakesAllowed = 5;
+            _guyLife = 5;            
+        }
 
         //---------------------------------------------------------------------
         // Member Functions
         //---------------------------------------------------------------------
-        public string printGraphic()
-        {
-            
-
-            string pizza = "word";
+        public List<string> printGraphic()
+        {            
             // print jumper guy graphic
             // Console.WriteLine(" --- ");
             // Console.WriteLine("/   \ ");
@@ -36,15 +37,21 @@ namespace unit03_jumper
             // Console.WriteLine("  0  ");
             // Console.WriteLine(" /|\ ");
             // Console.WriteLine(" / \ ");
-
-            return pizza;
+            return _parachute;
         }
         public void changeGraphic()
         {
             // change graphic conditional upon if user input was correct or not
+            int mistakesMade = _mistakesAllowed - _guyLife;
+            for (int i = 0; i < mistakesMade; i++)
+            {
+                _parachute[i] = "";
+            }
         }
-        public string printBoard()
+        public string printBoard(string wordToGuess)
         {
+            int count = wordToGuess.Length;
+            
             string banana = "banana";
             return banana;
             // print _ _ _ _ _ this stuff according to length of word being used
