@@ -8,9 +8,9 @@ namespace unit03_jumper
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            _director = new Director();
+            Director game = new Director();
 
-            _director.startGame();
+            game.startGame();
             
         }
     }
