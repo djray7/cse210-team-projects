@@ -52,6 +52,9 @@ namespace unit03_jumper
         {
             int count = wordToGuess.Length;
             
+            _board = // this is a string list 
+
+
             string banana = "banana";
             return banana;
             // print _ _ _ _ _ this stuff according to length of word being used

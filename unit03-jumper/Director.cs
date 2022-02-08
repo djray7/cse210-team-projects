@@ -21,7 +21,7 @@ namespace unit03_jumper
         {
             Console.WriteLine("Starting game!");
             Dictionary words = new Dictionary();
-            string guessword = words.dictionary();
+            string guessword = words.getRandomWord();
         }
     }
 }
