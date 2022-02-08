@@ -39,8 +39,5 @@ namespace unit03_jumper
             Console.WriteLine(jumper);
         }
 
-
-
-
     }
 }
