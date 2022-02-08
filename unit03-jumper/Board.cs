@@ -35,6 +35,7 @@ namespace unit03_jumper
             // Console.WriteLine("  0  ");
             // Console.WriteLine(" /|\ ");
             // Console.WriteLine(" / \ ");
+            return " ";
 
         }
         public void changeGraphic()
@@ -52,5 +53,7 @@ namespace unit03_jumper
         {
             // add letters to board if correct
         }
+
     }
 }
+//Anna 
