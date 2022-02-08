@@ -26,7 +26,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         // Member Functions
         //---------------------------------------------------------------------
-        public List<string> printJumper()
+        public List<string> getJumper()
         {            
             // print jumper guy graphic
             // Console.WriteLine(" --- ");
