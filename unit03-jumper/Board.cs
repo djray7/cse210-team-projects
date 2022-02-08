@@ -26,6 +26,7 @@ namespace unit03_jumper
         {
             _parachute = [" --- ", "/   \ ", " --- ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ ", "     ", ",,,,,,,"];
 
+            string pizza = "word";
             // print jumper guy graphic
             // Console.WriteLine(" --- ");
             // Console.WriteLine("/   \ ");
@@ -36,7 +37,7 @@ namespace unit03_jumper
             // Console.WriteLine(" /|\ ");
             // Console.WriteLine(" / \ ");
 
-            return _parachute;
+            return pizza;
         }
         public void changeGraphic()
         {
