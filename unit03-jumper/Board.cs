@@ -24,7 +24,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         public string printGraphic()
         {
-            _parachute = [" --- ", "/   \"", " --- ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ ", "     ", ",,,,,,,"];
+            _parachute = [" --- ", "/   \", " --- ", "\   /", " \ / ", "  0  ", " /|\ ", " / \ ", "     ", ",,,,,,,"];
 
             string pizza = "word";
             // print jumper guy graphic
@@ -57,4 +57,3 @@ namespace unit03_jumper
 
     }
 }
-//Anna 
