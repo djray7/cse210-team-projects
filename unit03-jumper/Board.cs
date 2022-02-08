@@ -45,8 +45,10 @@ namespace unit03_jumper
         {
             // change graphic conditional upon if user input was correct or not
         }
-        public string printBoard()
+        public string printBoard(string wordToGuess)
         {
+            int count = wordToGuess.Length;
+            
             string banana = "banana";
             return banana;
             // print _ _ _ _ _ this stuff according to length of word being used

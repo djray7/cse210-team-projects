@@ -20,6 +20,8 @@ namespace unit03_jumper
         public void startGame()
         {
             Console.WriteLine("Starting game!");
+            Dictionary words = new Dictionary();
+            string guessword = words.dictionary();
         }
     }
 }
