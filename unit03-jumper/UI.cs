@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace unit03_jumper
 {
@@ -27,7 +28,7 @@ namespace unit03_jumper
             return Console.ReadLine();
         }
         /// draws our guess board 
-        public void DrawBoard(list<string> line)
+        public void DrawBoard(List<string> line)
         {
             Console.WriteLine(line);
         }
