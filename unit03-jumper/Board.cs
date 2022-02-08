@@ -51,8 +51,13 @@ namespace unit03_jumper
         public string printBoard(string wordToGuess)
         {
             int count = wordToGuess.Length;
-            
-            _board = // this is a string list 
+            // with worlf count is equal to 5
+
+            for (int i = 0; i < count; i++)// not right but thats the idea
+            {
+                _board.Add("_");
+            }
+            // maybe have this all in other method called createBoard
 
 
             string banana = "banana";
