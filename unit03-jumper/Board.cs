@@ -20,7 +20,8 @@ namespace unit03_jumper
         {
             _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ ", "     ", ",,,,,,,"};
             _mistakesAllowed = 5;
-            _guyLife = 5;            
+            _guyLife = 5;
+            _board = new List<string>{};            
         }
 
         //---------------------------------------------------------------------
@@ -52,23 +53,24 @@ namespace unit03_jumper
                 _parachute[5] = " x ";
             }
         }
-        public string printBoard(string wordToGuess)
+        public List<string> printBoard(string wordToGuess)
         {
             int count = wordToGuess.Length;
             // with worlf count is equal to 5
+            // Console.WriteLine(count);
 
-            for (int i = 0; i < count; i++)// not right but thats the idea
+            for (int i = 0; i < count; i++)
             {
                 _board.Add("_");
             }
+
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write($"{_board[i]} ");
+            } 
+
+            return _board;
             // maybe have this all in other method called createBoard
-
-
-            string banana = "banana";
-            return banana;
-            // print _ _ _ _ _ this stuff according to length of word being used
-            // get word
-            // length word to know how many _ for the board
         }
         public void changeBoard()
         {

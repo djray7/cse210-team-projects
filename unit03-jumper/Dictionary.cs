@@ -25,7 +25,7 @@ namespace unit03_jumper
             string[] words = {"big", "bad", "worlf", "supercalifragilisticexpialidocious"};
             List<string> _wordList = new List<string>();
             _wordList.AddRange(words);
-            Console.WriteLine(words[3]);
+            // Console.WriteLine(words[3]);
             string word = words[2];
             return word;
             // string[] animals = { "Cow", "Camel", "Elephant" };
