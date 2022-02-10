@@ -71,12 +71,20 @@ namespace unit03_jumper
                 Console.Write($"{_board[i]} ");
             } 
 
+            Console.WriteLine();
             return _board;
             // maybe have this all in other method called createBoard
         }
-        public void changeBoard()
+        public void changeBoard(char guess, string word)
         {
-
+            Console.WriteLine(guess);
+            // add letters to board if correct
+            foreach (char c in word){
+                if (guess == c){
+                    int position = word.IndexOf(c);
+                }
+            }
+            
         }
     }
 }

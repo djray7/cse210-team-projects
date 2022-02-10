@@ -40,6 +40,8 @@ namespace unit03_jumper
             Board first_one = new Board();
             Console.WriteLine(guessword);
             first_one.printBoard(guessword);
+            char guess = _ui.UserGuess();
+            first_one.changeBoard(guess, guessword);
             isPlaying = false; // stopping it here because currently without other parts of the game it will continue to print the board in an endless loop.
         }
         public void DoUpdates()
