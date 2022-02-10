@@ -22,9 +22,10 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         
         /// get input from the user 
-        public string UserGuess()
+        public char UserGuess()
         {
             Console.WriteLine("Guess a letter [a-z]: ");
+            string = 
             return Console.ReadLine();
         }
         /// prints all the words we want 

@@ -7,12 +7,16 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         // Member Variables
         //---------------------------------------------------------------------
-        
+        bool isPlaying;
         
         //---------------------------------------------------------------------
         // Constructors
         //---------------------------------------------------------------------
-        private bool IsPlaying = true;
+        public Director ()
+        {
+            isPlaying = true;
+        }
+        
 
         //---------------------------------------------------------------------
         // Member Functions
@@ -20,40 +24,32 @@ namespace unit03_jumper
         public void startGame()
         {
             Console.WriteLine("Starting game!");
-            Dictionary words = new Dictionary();
-            string guessword = words.dictionary();
-            string guessword = words.getRandomWord();
 
-            while(IsPlaying)
+            while (isPlaying)
             {
                 GetInputs();
                 DoUpdates();
-                DoOutputs();
+                DoOutputs();    
             }
-            
         }
-        private void GetInputs()
+        public void GetInputs()
         {
-
+            Dictionary words = new Dictionary();
+            string guessword = words.dictionary();
+            string guessword = words.getRandomWord();
+            Board first_one = new Board();
+            first_one.printBoard(guessword);
+            isPlaying = false; // stopping it here because currently without other parts of the game it will continue to print the board in an endless loop.
         }
-
-        /// <summary>
-        /// Keeps watch on where the seeker is moving.
-        /// </summary>
-        private void DoUpdates()
+        public void DoUpdates()
         {
-
+            //stuff
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private void DoOutputs()
+        public void DoOutputs()
         {
-
+            //really cool stuff
         }
         
-
 
     }
 }

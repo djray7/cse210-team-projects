@@ -20,13 +20,14 @@ namespace unit03_jumper
         {
             _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ ", "     ", ",,,,,,,"};
             _mistakesAllowed = 5;
-            _guyLife = 5;            
+            _guyLife = 5;
+            _board = new List<string>{};            
         }
 
         //---------------------------------------------------------------------
         // Member Functions
         //---------------------------------------------------------------------
-        public List<string> printGraphic()
+        public List<string> getJumper()
         {            
             // print jumper guy graphic
             // Console.WriteLine(" --- ");
@@ -39,7 +40,7 @@ namespace unit03_jumper
             // Console.WriteLine(" / \ ");
             return _parachute;
         }
-        public void changeGraphic()
+        public void changeJumper()
         {
             // change graphic conditional upon if user input was correct or not
             int mistakesMade = _mistakesAllowed - _guyLife;
@@ -47,19 +48,29 @@ namespace unit03_jumper
             {
                 _parachute[i] = "";
             }
+            if (mistakesMade == _mistakesAllowed)
+            {
+                _parachute[5] = " x ";
+            }
         }
-        public string printBoard(string wordToGuess)
+        public List<string> printBoard(string wordToGuess)
         {
             int count = wordToGuess.Length;
-            
-            _board = // this is a string list 
+            // with worlf count is equal to 5
+            // Console.WriteLine(count);
 
+            for (int i = 0; i < count; i++)
+            {
+                _board.Add("_");
+            }
 
-            string banana = "banana";
-            return banana;
-            // print _ _ _ _ _ this stuff according to length of word being used
-            // get word
-            // length word to know how many _ for the board
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write($"{_board[i]} ");
+            } 
+
+            return _board;
+            // maybe have this all in other method called createBoard
         }
         public void changeBoard()
         {
