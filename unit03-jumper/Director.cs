@@ -8,6 +8,7 @@ namespace unit03_jumper
         // Member Variables
         //---------------------------------------------------------------------
         bool isPlaying;
+        UI _ui;
         
         //---------------------------------------------------------------------
         // Constructors
@@ -15,8 +16,8 @@ namespace unit03_jumper
         public Director ()
         {
             isPlaying = true;
+            _ui = new UI();
         }
-        
 
         //---------------------------------------------------------------------
         // Member Functions
