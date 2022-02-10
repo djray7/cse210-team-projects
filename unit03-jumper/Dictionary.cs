@@ -19,7 +19,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         // Member Functions
         //---------------------------------------------------------------------
-        public string dictionary()
+        public string getRandomWord()
         {
 
             string[] words = {"big", "bad", "worlf", "supercalifragilisticexpialidocious"};

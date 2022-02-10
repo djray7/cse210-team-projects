@@ -12,7 +12,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         // Constructors
         //---------------------------------------------------------------------
-        private bool isPlaying = true;
+        private bool IsPlaying = true;
 
         //---------------------------------------------------------------------
         // Member Functions
@@ -22,12 +22,15 @@ namespace unit03_jumper
             Console.WriteLine("Starting game!");
             Dictionary words = new Dictionary();
             string guessword = words.dictionary();
+            string guessword = words.getRandomWord();
+
             while(IsPlaying)
             {
                 GetInputs();
                 DoUpdates();
                 DoOutputs();
             }
+            
         }
         private void GetInputs()
         {
