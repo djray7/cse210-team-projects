@@ -7,8 +7,7 @@ namespace unit03_jumper
     {
         //---------------------------------------------------------------------
         // Member Variables
-        //---------------------------------------------------------------------
-        int _mistakesAllowed;
+        //---------------------------------------------------------------------        
         int _guyLife;
         List<string> _parachute;
         List<string> _board;
@@ -18,8 +17,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         public Board()
         {
-            _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ ", "     ", ",,,,,,,"};
-            _mistakesAllowed = 5;
+            _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ ", "     ", ",,,,,,,"};            
             _guyLife = 5;
             _board = new List<string>{};            
         }
@@ -48,11 +46,15 @@ namespace unit03_jumper
             {
                 _parachute[5] = " x ";
             }
-            if (mistakesMade == _mistakesAllowed)
+            else
             {
-                _parachute[5] = " x ";
-            }
+                for (int i = 0; i < mistakesMade; i++)
+                {
+                    _parachute[i] = "";
+                }
+            }            
         }
+
         public List<string> printBoard(string wordToGuess)
         {
             int count = wordToGuess.Length;
