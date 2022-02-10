@@ -37,6 +37,7 @@ namespace unit03_jumper
             Dictionary words = new Dictionary();
             string guessword = words.getRandomWord();
             Board first_one = new Board();
+            Console.WriteLine(guessword);
             first_one.printBoard(guessword);
             isPlaying = false; // stopping it here because currently without other parts of the game it will continue to print the board in an endless loop.
         }
