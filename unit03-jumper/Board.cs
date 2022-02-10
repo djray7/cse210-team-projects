@@ -76,7 +76,7 @@ namespace unit03_jumper
         }
         public void changeBoard()
         {
-            // add letters to board if correct
+
         }
     }
 }
