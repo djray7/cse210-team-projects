@@ -17,7 +17,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         public Board()
         {
-            _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ ", "     ", ",,,,,,,"};            
+            _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ "};            
             _guyLife = 5;
             _board = new List<string>{};            
         }
@@ -66,12 +66,12 @@ namespace unit03_jumper
                 _board.Add("_");
             }
 
-            for (int i = 0; i < count; i++)
-            {
-                Console.Write($"{_board[i]} ");
-            } 
+            // for (int i = 0; i < count; i++)
+            // {
+            //     Console.Write($"{_board[i]} ");
+            // } 
 
-            Console.WriteLine();
+            //Console.WriteLine();
             return _board;
             // maybe have this all in other method called createBoard
         }

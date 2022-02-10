@@ -38,7 +38,12 @@ namespace unit03_jumper
         /// draws our guess board 
         public void DrawBoard(List<string> line)
         {
-            Console.WriteLine(line);
+            Console.WriteLine(",,,,,,,", "\n     ");
+            foreach (string s in line)
+            {
+                Console.Write($" {s} ");
+            }
+            Console.WriteLine("     ", "\n,,,,,,,");
         }
 
 
