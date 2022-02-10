@@ -36,14 +36,23 @@ namespace unit03_jumper
 
         }
         /// draws our guess board 
-        public void DrawBoard(List<string> line)
+        public void DrawBoard(Board board, string guessword)
         {
-            Console.WriteLine(",,,,,,,", "\n     ");
-            foreach (string s in line)
+            List<string> jumper = board.getJumper();
+            List<string> dash = board.getDash();
+            
+            Console.WriteLine(",,,,,,,");
+            Console.WriteLine("     ");
+            DrawJumper(jumper);            
+            Console.WriteLine("     ");
+            Console.WriteLine(",,,,,,,");
+            // Temporarily prints guessword so we know
+            Console.WriteLine(guessword);
+            foreach (string s in dash)
             {
                 Console.Write($" {s} ");
             }
-            Console.WriteLine("     ", "\n,,,,,,,");
+            Console.WriteLine();
         }
 
 

@@ -10,7 +10,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------        
         int _guyLife;
         List<string> _parachute;
-        List<string> _board;
+        List<string> _dash;
 
         //---------------------------------------------------------------------
         // Constructors
@@ -19,7 +19,7 @@ namespace unit03_jumper
         {
             _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ "};            
             _guyLife = 5;
-            _board = new List<string>{};            
+            _dash = new List<string>{};            
         }
 
         //---------------------------------------------------------------------
@@ -55,7 +55,7 @@ namespace unit03_jumper
             }            
         }
 
-        public List<string> printBoard(string wordToGuess)
+        public void createDash(string wordToGuess)
         {
             int count = wordToGuess.Length;
             // with worlf count is equal to 5
@@ -63,7 +63,7 @@ namespace unit03_jumper
 
             for (int i = 0; i < count; i++)
             {
-                _board.Add("_");
+                _dash.Add("_");
             }
 
             // for (int i = 0; i < count; i++)
@@ -72,13 +72,23 @@ namespace unit03_jumper
             // } 
 
             //Console.WriteLine();
-            return _board;
+            //return _board;
             // maybe have this all in other method called createBoard
         }
-        public void changeBoard(char guess)
+        public List<string> getDash()
+        {
+            return _dash;
+        }
+        public void changeBoard(char guess, string word)
         {
             Console.WriteLine(guess);
             // add letters to board if correct
+            foreach (char c in word){
+                if (guess == c){
+                    int position = word.IndexOf(c);
+                }
+            }
+            
         }
     }
 }

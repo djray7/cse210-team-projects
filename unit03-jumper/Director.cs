@@ -39,18 +39,15 @@ namespace unit03_jumper
             Dictionary words = new Dictionary();
             string guessword = words.getRandomWord();
             // Creates board object
-            Board first_one = new Board();
-            // Draws jumper
-            _ui.DrawJumper(first_one.getJumper());
-            // Temporarily prints guessword so we know
-            Console.WriteLine(guessword);
-            // Draws the board
-            //first_one.printBoard(guessword);
-            _ui.DrawBoard(first_one.printBoard(guessword));
+            Board board = new Board();
+            board.createDash(guessword);
+            // Draws the board            
+            _ui.DrawBoard(board, guessword);
+            
             // gets user input for guess
             char guess = _ui.UserGuess();
             // Bringing in the user guess & board to manipulate TODO
-            first_one.changeBoard(guess);
+            //board.changeBoard(guess, guessword);
             // stopping it here because currently without other parts of the game it will continue to print the board in an endless loop.
             isPlaying = false;
         }
