@@ -21,6 +21,13 @@ namespace unit03_jumper
             _guyLife = 5;
             _dash = new List<string>{};            
         }
+        public Board(string guessword)
+        {
+            _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ "};            
+            _guyLife = 5;
+            _dash = new List<string>{};
+            createDash(guessword);
+        }
 
         //---------------------------------------------------------------------
         // Member Functions
@@ -65,20 +72,31 @@ namespace unit03_jumper
             {
                 _dash.Add("_");
             }
-
-            // for (int i = 0; i < count; i++)
-            // {
-            //     Console.Write($"{_board[i]} ");
-            // } 
-
-            //Console.WriteLine();
-            //return _board;
-            // maybe have this all in other method called createBoard
         }
         public List<string> getDash()
         {
             return _dash;
         }
+        public void changeDash(string wordToGuess, List<char> userGuesses)
+        {
+            
+            foreach (char charGuess in userGuesses)
+            {
+                for (int i = 0; i < _dash.Count; i++)
+                {
+                    if (charGuess == wordToGuess[i])
+                    {
+                        _dash[i] = charGuess.ToString();
+                    }
+                    else
+                    {
+                        _dash[i] = "_";
+                    }
+                }
+            }
+            
+        }
+
         public void changeBoard(char guess, string word)
         {
             Console.WriteLine(guess);

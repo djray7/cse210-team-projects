@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace unit03_jumper
 {
@@ -7,16 +8,18 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         // Member Variables
         //---------------------------------------------------------------------
-        bool isPlaying;
+        bool _isPlaying;
         UI _ui;
+        List<char> _userGuesses;
         
         //---------------------------------------------------------------------
         // Constructors
         //---------------------------------------------------------------------
         public Director ()
         {
-            isPlaying = true;
+            _isPlaying = true;
             _ui = new UI();
+            _userGuesses = new List<char>();
         }
 
         //---------------------------------------------------------------------
@@ -26,30 +29,34 @@ namespace unit03_jumper
         {
             Console.WriteLine("Starting game!");
 
-            while (isPlaying)
+            while (_isPlaying)
             {
                 GetInputs();
                 DoUpdates();
                 DoOutputs();    
             }
         }
+
         public void GetInputs()
         {
             // Creates dictionary and get random word
             Dictionary words = new Dictionary();
             string guessword = words.getRandomWord();
             // Creates board object
-            Board board = new Board();
-            board.createDash(guessword);
+            Board board = new Board(guessword);            
             // Draws the board            
             _ui.DrawBoard(board, guessword);
             
             // gets user input for guess
             char guess = _ui.UserGuess();
-            // Bringing in the user guess & board to manipulate TODO
-            //board.changeBoard(guess, guessword);
+            // adds user input to list of guesses
+            _userGuesses.Add(guess);
+            // update board
+            board.changeDash(guessword, _userGuesses);
+            _ui.DrawBoard(board, guessword);
+            
             // stopping it here because currently without other parts of the game it will continue to print the board in an endless loop.
-            isPlaying = false;
+            _isPlaying = false;
         }
         public void DoUpdates()
         {

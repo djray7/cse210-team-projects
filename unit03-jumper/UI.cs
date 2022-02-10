@@ -48,15 +48,20 @@ namespace unit03_jumper
             Console.WriteLine(",,,,,,,");
             // Temporarily prints guessword so we know
             Console.WriteLine(guessword);
+            DrawDashes(dash);
+            Console.WriteLine();
+        }
+
+        /// draws the dashes and stuff
+        public void DrawDashes(List<string> dash)
+        {
             foreach (string s in dash)
             {
                 Console.Write($" {s} ");
             }
-            Console.WriteLine();
         }
 
-
-        ///draws our jumper dude
+        /// draws our jumper dude
         public void DrawJumper(List<string> jumper)
         {
             foreach (string s in jumper)
