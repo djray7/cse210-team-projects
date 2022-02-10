@@ -27,6 +27,7 @@ namespace unit03_jumper
             Console.WriteLine("Guess a letter [a-z]: ");
             string guessedNumber = Console.ReadLine();
             return char.Parse(guessedNumber);
+            
         }
         /// prints all the words we want 
         public void PrintWords(string words)
