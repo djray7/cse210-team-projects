@@ -43,10 +43,10 @@ namespace unit03_jumper
         public void changeJumper()
         {
             // change graphic conditional upon if user input was correct or not
-            int mistakesMade = _mistakesAllowed - _guyLife;
-            for (int i = 0; i < mistakesMade; i++)
+            int mistakesMade = 5 - _guyLife;
+            if (mistakesMade >= 5)
             {
-                _parachute[i] = "";
+                _parachute[5] = " x ";
             }
             if (mistakesMade == _mistakesAllowed)
             {
