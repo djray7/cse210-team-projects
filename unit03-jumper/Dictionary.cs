@@ -29,12 +29,6 @@ namespace unit03_jumper
             string word = words[2];
             // return word;
 
-            // string[] animals = { "Cow", "Camel", "Elephant" };
-            // // Create a List and add a collection
-            // List<string> animalsList = new List<string>();
-            // animalsList.AddRange(animals);
-            // foreach (string a in animalsList)
-            // Console.WriteLine(a);
             Random randomGen = new Random();
             string returnword = _wordList[randomGen.Next(0, _wordList.Count - 1)];
             return returnword;

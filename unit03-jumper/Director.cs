@@ -8,6 +8,7 @@ namespace unit03_jumper
         // Member Variables
         //---------------------------------------------------------------------
         bool isPlaying;
+        UI _ui;
         
         //---------------------------------------------------------------------
         // Constructors
@@ -15,8 +16,8 @@ namespace unit03_jumper
         public Director ()
         {
             isPlaying = true;
+            _ui = new UI();
         }
-        
 
         //---------------------------------------------------------------------
         // Member Functions
@@ -35,7 +36,6 @@ namespace unit03_jumper
         public void GetInputs()
         {
             Dictionary words = new Dictionary();
-            string guessword = words.dictionary();
             string guessword = words.getRandomWord();
             Board first_one = new Board();
             first_one.printBoard(guessword);

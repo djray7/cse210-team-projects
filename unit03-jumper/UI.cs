@@ -44,7 +44,10 @@ namespace unit03_jumper
         ///draws our jumper dude
         public void DrawJumper(List<string> jumper)
         {
-            Console.WriteLine(jumper);
+            foreach (string s in jumper)
+            {
+                Console.WriteLine(s);
+            }            
         }
 
     }
