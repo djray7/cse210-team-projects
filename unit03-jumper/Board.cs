@@ -37,7 +37,7 @@ namespace unit03_jumper
             // Console.WriteLine(" /|\ ");
             // Console.WriteLine(" / \ ");
             return _parachute;
-        }
+        }        
         public void changeJumper()
         {
             // change graphic conditional upon if user input was correct or not
