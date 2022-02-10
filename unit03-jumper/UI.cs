@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace unit03_jumper
 {
@@ -26,8 +27,14 @@ namespace unit03_jumper
             Console.WriteLine("Guess a letter [a-z]: ");
             return Console.ReadLine();
         }
+        /// prints all the words we want 
+        public void PrintWords(string words)
+        {
+            Console.WriteLine(words);
+
+        }
         /// draws our guess board 
-        public void DrawBoard(list<string> line)
+        public void DrawBoard(List<string> line)
         {
             Console.WriteLine(line);
         }
