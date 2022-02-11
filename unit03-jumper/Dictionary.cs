@@ -22,7 +22,7 @@ namespace unit03_jumper
         public string getRandomWord()
         {
 
-            string[] words = {"big", "bald", "wolf", "pizza", "banana", "astronomical", "supercalifragilisticexpialidocious", "code", "do", "medical", "calculate", "nitrate", "bingo", "peroxide", "Jumper", "spanish", "Zebra", "axile"};
+            string[] words = {"big", "bald", "wolf", "pizza", "banana", "astronomical", "code", "do", "medical", "calculate", "nitrate", "bingo", "peroxide", "jumper", "spanish", "zebra", "axile"};
             List<string> _wordList = new List<string>();
             _wordList.AddRange(words);
             // Console.WriteLine(words[3]);
