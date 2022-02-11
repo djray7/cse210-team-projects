@@ -14,7 +14,9 @@ namespace unit03_jumper
         Dictionary _dictionary;
         Board _board;
         List<char> _userGuesses;
+        char _userGuess;
         string _wordToGuess;
+        string _message;
         
         //---------------------------------------------------------------------
         // Constructors
@@ -26,7 +28,7 @@ namespace unit03_jumper
             _ui = new UI();
             _dictionary = new Dictionary();
             _board = new Board();
-            _userGuesses = new List<char>();
+            //_userGuesses = new List<char>();
             _wordToGuess = "tacos";
         }
 
@@ -53,25 +55,34 @@ namespace unit03_jumper
         public void GetInputs()
         {                                                                                           
             // gets user input for guess
-            char guess = _ui.UserGuess();
+            _userGuess = _ui.UserGuess();            
             // adds user input to list of guesses
-            _userGuesses.Add(guess);                                               
+            //_userGuesses.Add(guess);                                               
         }
         public void DoUpdates()
         {
             // update board
-            _board.changeBoard(_wordToGuess, _userGuesses);            
+            _board.changeBoard(_wordToGuess, _userGuess);            
             
             // stop conditions
+            if (_board.getJumperLife() <= 0)
+            {
+                _isPlaying = false;
+                _message = "Sorry, you died!";                
+            }
             if (isWordFound())
             {                
                 _isPlaying = false;
+                _message = "Congrats, you found the word!";                
             }            
         }
         public void DoOutputs()
         {
-            // Draws the board            
             _ui.DrawBoard(_board, _wordToGuess);
+            if (_isPlaying == false)
+            {
+                _ui.PrintWords(_message);
+            }                       
         }
         
         public bool isWordFound()

@@ -8,7 +8,7 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         // Member Variables
         //---------------------------------------------------------------------        
-        int _guyLife;
+        int _jumperLife;
         List<string> _parachute;
         List<string> _dash;
 
@@ -18,13 +18,13 @@ namespace unit03_jumper
         public Board()
         {
             _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ "};            
-            _guyLife = 5;
+            _jumperLife = 5;
             _dash = new List<string>{};            
         }
         public Board(string guessword)
         {
             _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ "};            
-            _guyLife = 5;
+            _jumperLife = 5;
             _dash = new List<string>{};
             createDash(guessword);
         }
@@ -48,9 +48,10 @@ namespace unit03_jumper
         public void changeJumper()
         {
             // change graphic conditional upon if user input was correct or not
-            int mistakesMade = 5 - _guyLife;
+            int mistakesMade = 5 - _jumperLife;
             if (mistakesMade >= 5)
-            {
+            {                
+                _parachute[4] = "";
                 _parachute[5] = "  x  ";
             }
             else
@@ -60,6 +61,10 @@ namespace unit03_jumper
                     _parachute[i] = "";
                 }
             }            
+        }
+        public int getJumperLife()
+        {
+            return _jumperLife;
         }
 
         public void createDash(string wordToGuess)
@@ -77,26 +82,44 @@ namespace unit03_jumper
         {
             return _dash;
         }
-        public void changeDash(string wordToGuess, List<char> userGuesses)
+        public void changeDash(int index, char letter)
         {
-            foreach (char charGuess in userGuesses)
+            _dash[index] = letter.ToString();
+        }
+        // public void changeDash(string wordToGuess, List<char> userGuesses)
+        // {
+        //     foreach (char charGuess in userGuesses)
+        //     {
+        //         for (int i = 0; i < _dash.Count; i++)
+        //         {
+        //             if (charGuess == wordToGuess[i])
+        //             {
+        //                 _dash[i] = charGuess.ToString();
+        //             }                                      
+        //         }
+        //     }
+        // }        
+
+        public void changeBoard(string wordToGuess, char userGuess)
+        {
+            // checks if user made a mistake
+            bool madeMistake = true;
+            for (int i = 0; i < _dash.Count; i++)
             {
-                for (int i = 0; i < _dash.Count; i++)
+                if (userGuess == wordToGuess[i])
                 {
-                    if (charGuess == wordToGuess[i])
-                    {
-                        _dash[i] = charGuess.ToString();
-                    }                                      
+                    _dash[i] = userGuess.ToString();
+                    madeMistake = false;
                 }
             }
-        }        
-
-        public void changeBoard(string wordToGuess, List<char> userGuesses)
-        {            
+            if (madeMistake)
+            {
+                _jumperLife -= 1;
+            }
             // updates jumper guy
             changeJumper();
             // updates dashes
-            changeDash(wordToGuess, userGuesses);
+            //changeDash(wordToGuess, userGuesses);
         }
     }
 }
