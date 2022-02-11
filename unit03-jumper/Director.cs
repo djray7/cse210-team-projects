@@ -9,11 +9,11 @@ namespace unit03_jumper
         // Member Variables
         //---------------------------------------------------------------------
         bool _isPlaying;
-        bool _isGuessingWord;
+        // bool _isGuessingWord;
         UI _ui;        
         Dictionary _dictionary;
         Board _board;
-        List<char> _userGuesses;
+        // List<char> _userGuesses;
         char _userGuess;
         string _wordToGuess;
         string _message;
@@ -24,7 +24,7 @@ namespace unit03_jumper
         public Director ()
         {
             _isPlaying = true;
-            _isGuessingWord = false;
+            // _isGuessingWord = false;
             _ui = new UI();
             _dictionary = new Dictionary();
             _board = new Board();
