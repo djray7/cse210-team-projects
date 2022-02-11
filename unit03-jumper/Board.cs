@@ -51,7 +51,7 @@ namespace unit03_jumper
             int mistakesMade = 5 - _guyLife;
             if (mistakesMade >= 5)
             {
-                _parachute[5] = " x ";
+                _parachute[5] = "  x  ";
             }
             else
             {
@@ -79,7 +79,6 @@ namespace unit03_jumper
         }
         public void changeDash(string wordToGuess, List<char> userGuesses)
         {
-            
             foreach (char charGuess in userGuesses)
             {
                 for (int i = 0; i < _dash.Count; i++)
@@ -87,26 +86,17 @@ namespace unit03_jumper
                     if (charGuess == wordToGuess[i])
                     {
                         _dash[i] = charGuess.ToString();
-                    }
-                    else
-                    {
-                        _dash[i] = "_";
-                    }
+                    }                                      
                 }
             }
-            
-        }
+        }        
 
-        public void changeBoard(char guess, string word)
-        {
-            Console.WriteLine(guess);
-            // add letters to board if correct
-            foreach (char c in word){
-                if (guess == c){
-                    int position = word.IndexOf(c);
-                }
-            }
-            
+        public void changeBoard(string wordToGuess, List<char> userGuesses)
+        {            
+            // updates jumper guy
+            changeJumper();
+            // updates dashes
+            changeDash(wordToGuess, userGuesses);
         }
     }
 }
