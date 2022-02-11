@@ -8,18 +8,25 @@ namespace unit03_jumper
         //---------------------------------------------------------------------
         // Member Variables
         //---------------------------------------------------------------------        
-        int _guyLife;
+        int _jumperLife;
         List<string> _parachute;
-        List<string> _board;
+        List<string> _dash;
 
         //---------------------------------------------------------------------
         // Constructors
         //---------------------------------------------------------------------
         public Board()
         {
-            _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ ", "     ", ",,,,,,,"};            
-            _guyLife = 5;
-            _board = new List<string>{};            
+            _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ "};            
+            _jumperLife = 5;
+            _dash = new List<string>{};            
+        }
+        public Board(string guessword)
+        {
+            _parachute = new List<string>{" --- ", "/   \\ ", " --- ", "\\   /", " \\ / ", "  0  ", " /|\\ ", " / \\ "};            
+            _jumperLife = 5;
+            _dash = new List<string>{};
+            createDash(guessword);
         }
 
         //---------------------------------------------------------------------
@@ -41,10 +48,11 @@ namespace unit03_jumper
         public void changeJumper()
         {
             // change graphic conditional upon if user input was correct or not
-            int mistakesMade = 5 - _guyLife;
+            int mistakesMade = 5 - _jumperLife;
             if (mistakesMade >= 5)
-            {
-                _parachute[5] = " x ";
+            {                
+                _parachute[4] = "";
+                _parachute[5] = "  x  ";
             }
             else
             {
@@ -54,8 +62,12 @@ namespace unit03_jumper
                 }
             }            
         }
+        public int getJumperLife()
+        {
+            return _jumperLife;
+        }
 
-        public List<string> printBoard(string wordToGuess)
+        public void createDash(string wordToGuess)
         {
             int count = wordToGuess.Length;
             // with worlf count is equal to 5
@@ -63,20 +75,51 @@ namespace unit03_jumper
 
             for (int i = 0; i < count; i++)
             {
-                _board.Add("_");
+                _dash.Add("_");
             }
-
-            for (int i = 0; i < count; i++)
-            {
-                Console.Write($"{_board[i]} ");
-            } 
-
-            return _board;
-            // maybe have this all in other method called createBoard
         }
-        public void changeBoard()
+        public List<string> getDash()
         {
-            // add letters to board if correct
+            return _dash;
+        }
+        public void changeDash(int index, char letter)
+        {
+            _dash[index] = letter.ToString();
+        }
+        // public void changeDash(string wordToGuess, List<char> userGuesses)
+        // {
+        //     foreach (char charGuess in userGuesses)
+        //     {
+        //         for (int i = 0; i < _dash.Count; i++)
+        //         {
+        //             if (charGuess == wordToGuess[i])
+        //             {
+        //                 _dash[i] = charGuess.ToString();
+        //             }                                      
+        //         }
+        //     }
+        // }        
+
+        public void changeBoard(string wordToGuess, char userGuess)
+        {
+            // checks if user made a mistake
+            bool madeMistake = true;
+            for (int i = 0; i < _dash.Count; i++)
+            {
+                if (userGuess == wordToGuess[i])
+                {
+                    _dash[i] = userGuess.ToString();
+                    madeMistake = false;
+                }
+            }
+            if (madeMistake)
+            {
+                _jumperLife -= 1;
+            }
+            // updates jumper guy
+            changeJumper();
+            // updates dashes
+            //changeDash(wordToGuess, userGuesses);
         }
     }
 }
