@@ -1,4 +1,4 @@
-namespace Unit04.Game.Casting
+namespace unit04_greed
 {
     /// <summary>
     /// <para>A distance from a relative origin (0, 0).</para>

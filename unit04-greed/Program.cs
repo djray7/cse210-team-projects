@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using unit04_greed;
+using unit04_greed.Services;
 
 
-namespace Unit04_greed
+namespace unit04_greed
 {
     /// <summary>
     /// The program's entry point.
@@ -19,7 +21,8 @@ namespace Unit04_greed
         private static int COLS = 60;
         private static int ROWS = 40;
         private static string CAPTION = "Robot Finds Kitten";
-        private static string DATA_PATH = "Data/messages.txt";
+        //
+        //private static string DATA_PATH = "Data/messages.txt";
         private static Color WHITE = new Color(255, 255, 255);
         private static int DEFAULT_ARTIFACTS = 40;
 
@@ -34,12 +37,12 @@ namespace Unit04_greed
             Cast cast = new Cast();
 
             // create the banner
-            Actor banner = new Actor();
-            banner.SetText("");
-            banner.SetFontSize(FONT_SIZE);
-            banner.SetColor(WHITE);
-            banner.SetPosition(new Point(CELL_SIZE, 0));
-            cast.AddActor("banner", banner);
+            //Actor banner = new Actor();
+            //banner.SetText("");
+            //banner.SetFontSize(FONT_SIZE);
+            //banner.SetColor(WHITE);
+            //banner.SetPosition(new Point(CELL_SIZE, 0));
+            //cast.AddActor("banner", banner);
 
             // create the robot
             Actor robot = new Actor();
@@ -50,14 +53,14 @@ namespace Unit04_greed
             cast.AddActor("robot", robot);
 
             // load the messages
-            List<string> messages = File.ReadAllLines(DATA_PATH).ToList<string>();
+            // List<string> messages = File.ReadAllLines(DATA_PATH).ToList<string>();
 
             // create the artifacts
             Random random = new Random();
             for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
             {
                 string text = ((char)random.Next(33, 126)).ToString();
-                string message = messages[i];
+                //string message = messages[i];
 
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);

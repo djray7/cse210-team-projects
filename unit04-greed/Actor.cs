@@ -1,7 +1,7 @@
 using System;
 
 
-namespace Unit04.Game.Casting
+namespace unit04_greed
 {
     /// <summary>
     /// <para>A thing that participates in the game.</para>

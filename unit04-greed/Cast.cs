@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 
-namespace Unit04.Game.Casting
+namespace unit04_greed
 {
     /// <summary>
     /// <para>A collection of actors.</para>

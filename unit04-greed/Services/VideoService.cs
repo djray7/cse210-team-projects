@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using Raylib_cs;
-using Unit04.Game.Casting;
+using unit04_greed;
 
 
-namespace unit04_greed
+namespace unit04_greed.Services
 {
+
     /// <summary>
     /// <para>Outputs the game state.</para>
     /// <para>
@@ -67,7 +68,7 @@ namespace unit04_greed
             int x = actor.GetPosition().GetX();
             int y = actor.GetPosition().GetY();
             int fontSize = actor.GetFontSize();
-            Casting.Color c = actor.GetColor();
+            Color c = actor.GetColor();
             Raylib_cs.Color color = ToRaylibColor(c);
             Raylib.DrawText(text, x, y, fontSize, color);
         }
@@ -158,7 +159,7 @@ namespace unit04_greed
         /// </summary>
         /// <param name="color">The color to convert.</param>
         /// <returns>A Raylib color.</returns>
-        private Raylib_cs.Color ToRaylibColor(Casting.Color color)
+        private Raylib_cs.Color ToRaylibColor(Color color)
         {
             int r = color.GetRed();
             int g = color.GetGreen();

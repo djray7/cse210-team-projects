@@ -2,9 +2,9 @@ using System;
 
 namespace unit04_greed
 {
-    class Program
+    class ScoreBoard
     {
-        static void Main(string[] args)
+        static void Score(string[] args)
         {
             Console.WriteLine("Hello World!");
         }
