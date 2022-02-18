@@ -2,11 +2,8 @@ using System;
 
 namespace unit04_greed
 {
-    class ScoreBoard
+    class ScoreBoard : Actor
     {
-        static void Score(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+     
     }
 }

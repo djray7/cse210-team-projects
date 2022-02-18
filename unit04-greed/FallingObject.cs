@@ -2,11 +2,8 @@ using System;
 
 namespace unit04_greed
 {
-    class FallingObject 
+    class FallingObject : Actor
     {
-        static void main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+        
     }
 }
