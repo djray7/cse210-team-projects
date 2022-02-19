@@ -67,13 +67,13 @@ namespace unit04_greed
         private void DoUpdates(Cast cast)
         {
             //Actor banner = cast.GetFirstActor("banner");
-            //Actor robot = cast.GetFirstActor("robot");
+            Actor robot = cast.GetFirstActor("robot");
             //List<Actor> artifacts = cast.GetActors("artifacts");
 
             //banner.SetText("");
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
-            //robot.MoveNext(maxX, maxY);
+            robot.MoveNext(maxX, maxY);
 
             //foreach (Actor actor in artifacts)
             //{
