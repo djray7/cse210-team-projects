@@ -15,7 +15,8 @@ namespace unit04_greed
     {
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
-
+        
+        private int _score = 0;
         /// <summary>
         /// Constructs a new instance of Director using the given KeyboardService and VideoService.
         /// </summary>
@@ -66,7 +67,8 @@ namespace unit04_greed
         /// <param name="cast">The given cast.</param>
         private void DoUpdates(Cast cast)
         {
-            //Actor banner = cast.GetFirstActor("banner");
+            Actor banner = cast.GetFirstActor("banner");
+            ScoreBoard score = new ScoreBoard();
             Actor robot = cast.GetFirstActor("robot");
             //List<Actor> artifacts = cast.GetActors("artifacts");
 

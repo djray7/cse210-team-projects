@@ -37,15 +37,15 @@ namespace unit04_greed
             Cast cast = new Cast();
 
             // create the banner
-            //Actor banner = new Actor();
-            //banner.SetText("");
-            //banner.SetFontSize(FONT_SIZE);
-            //banner.SetColor(WHITE);
-            //banner.SetPosition(new Point(CELL_SIZE, 0));
-            //cast.AddActor("banner", banner);
+            ScoreBoard banner = new ScoreBoard();
+            banner.SetText($"Score: " );
+            banner.SetFontSize(30);
+            banner.SetColor(WHITE);
+            banner.SetPosition(new Point(CELL_SIZE, 0));
+            cast.AddActor("banner", banner);
 
             // create the robot
-            Actor robot = new Actor();
+            Player robot = new Player();
             robot.SetText("#");
             robot.SetFontSize(FONT_SIZE);
             robot.SetColor(WHITE);
