@@ -75,6 +75,7 @@ namespace unit04_greed.Services
 
         /// <summary>
         /// Draws the given list of actors on the screen.
+        //pritns everything 
         /// </summary>
         /// <param name="actors">The list of actors to draw.</param>
         public void DrawActors(List<Actor> actors)

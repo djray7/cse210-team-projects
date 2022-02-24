@@ -38,7 +38,7 @@ namespace unit04_greed
 
             // create the banner
             ScoreBoard banner = new ScoreBoard();
-            banner.SetText($"Score: " );
+            //banner.SetText($"Score: " );
             banner.SetFontSize(30);
             banner.SetColor(WHITE);
             banner.SetPosition(new Point(CELL_SIZE, 0));
