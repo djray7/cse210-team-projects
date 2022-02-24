@@ -82,6 +82,7 @@ namespace unit04_greed.Services
         {
             foreach (Actor actor in actors)
             {
+                
                 DrawActor(actor);
             }
         }

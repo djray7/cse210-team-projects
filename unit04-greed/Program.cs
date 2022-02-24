@@ -24,7 +24,7 @@ namespace unit04_greed
         //
         //private static string DATA_PATH = "Data/messages.txt";
         private static Color WHITE = new Color(255, 255, 255);
-        private static int DEFAULT_ARTIFACTS = 40;
+        private static int DEFAULT_ARTIFACTS = 4;
 
 
         /// <summary>
