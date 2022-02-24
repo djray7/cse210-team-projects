@@ -38,7 +38,7 @@ namespace unit04_greed
 
             // create the banner
             ScoreBoard banner = new ScoreBoard();
-            banner.SetText($"Score: " );
+            //banner.SetText($"Score: " );
             banner.SetFontSize(30);
             banner.SetColor(WHITE);
             banner.SetPosition(new Point(CELL_SIZE, 0));
@@ -94,6 +94,8 @@ namespace unit04_greed
                 Color coly = new Color(re, gr, bl);
             fall.SetColor(coly);
             fall.SetPosition(new Point(rand_num, 3));
+            fall.SetVelocity(new Point(0, 20));
+            // fall.Scale(1);
             cast.AddActor("fall", fall);
 
             FallingObject falls = new FallingObject();
