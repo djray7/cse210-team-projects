@@ -9,11 +9,11 @@ namespace unit04_greed
         {
 
         }
-        public int GetScore(int score)
+    
+        public int UpdateScore(int newScore)
         {
-            _score = score;
+            _score = _score + newScore;
             return _score;
-
         }
 
 
