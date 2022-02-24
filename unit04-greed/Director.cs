@@ -92,6 +92,10 @@ namespace unit04_greed
             //        //banner.SetText(message);
             //    }
             //} 
+
+            Actor fall = cast.GetFirstActor("fall");
+            // FallingObject fall = new FallingObject();
+            fall.MoveNext();
         }
 
         /// <summary>

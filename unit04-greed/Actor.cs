@@ -15,8 +15,8 @@ namespace unit04_greed
         private string text = "";
         private int fontSize = 15;
         private Color color = new Color(255, 255, 255); // white
-        private Point position = new Point(0, 0);
-        private Point velocity = new Point(0, 0);
+        protected Point position = new Point(0, 0);
+        protected Point velocity = new Point(0, 0);
 
         /// <summary>
         /// Constructs a new instance of Actor.
