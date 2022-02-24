@@ -73,7 +73,7 @@ namespace unit04_greed
             
             banner.SetText($"Score: {_score}" );
             //_score = _score + adding or subbtracting points;
-            cast.AddActor("banner", banner);
+            //cast.AddActor("banner", banner);
 
             Actor robot = cast.GetFirstActor("robot");
             //List<Actor> artifacts = cast.GetActors("artifacts");
