@@ -81,6 +81,20 @@ namespace unit04_greed
                 // cast.AddActor("artifacts", artifact);
             }
 
+            Random rnd = new Random();
+            int rand_num = rnd.Next(0,900);
+
+            FallingObject fall = new FallingObject();
+            fall.SetText("*");
+            fall.SetFontSize(FONT_SIZE);
+            int re = (89);
+                int gr = (173);
+                int bl = (247);
+                Color coly = new Color(re, gr, bl);
+            fall.SetColor(coly);
+            fall.SetPosition(new Point(rand_num, 3));
+            cast.AddActor("fall", fall);
+
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
             VideoService videoService 
