@@ -80,10 +80,14 @@ namespace unit04_greed
                 // artifact.SetMessage(message);
                 // cast.AddActor("artifacts", artifact);
             }
-            // GEM
+
             Random rnd = new Random();
+            for (int i = 0; i < 5; i++) 
+            {
+            // GEM
+            
             int rand_num = rnd.Next(0,900);
-            int new_num = rnd.Next(0, 900);
+            
 
             FallingObject fall = new FallingObject();
             fall.SetText("*");
@@ -97,7 +101,11 @@ namespace unit04_greed
             fall.SetVelocity(new Point(0, 20));
             // fall.Scale(1);
             cast.AddActor("fall", fall);
+            }
 
+            for (int i = 0; i < 10; i++) 
+            {
+            int new_num = rnd.Next(0, 900);
             FallingObject falls = new FallingObject();
             falls.SetText("O");
             falls.SetFontSize(FONT_SIZE);
@@ -107,16 +115,18 @@ namespace unit04_greed
                 Color colys = new Color(red, gre, blu);
             falls.SetColor(colys);
             falls.SetPosition(new Point(new_num, 3));
+            falls.SetVelocity(new Point(0, 20));
             cast.AddActor("fall bad", falls);
+            }
 
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
             VideoService videoService 
                 = new VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE, false);
             Director director = new Director(keyboardService, videoService);
+            
             director.StartGame(cast);
 
-            
         }
     }
 }
