@@ -79,9 +79,9 @@ namespace unit04_greed
             //List<Actor> artifacts = cast.GetActors("artifacts");
 
             //banner.SetText("");
-            int maxX = videoService.GetWidth();
-            int maxY = videoService.GetHeight();
-            robot.MoveNext(maxX, maxY);
+            int max = videoService.GetWidth();
+            int may = videoService.GetHeight();
+            robot.MoveNext(max, may);
 
             //foreach (Actor actor in artifacts)
             //{
@@ -92,12 +92,21 @@ namespace unit04_greed
             //        //banner.SetText(message);
             //    }
             //} 
+
+            Actor fall = cast.GetFirstActor("fall");
+            fall.SetVelocity(new Point(0, 20));
+            FallingObject fo = new FallingObject(fall);
+            fo.MoveNext();
+            // fall = fo.GetActor();
+            // cast.AddActor("fall", fall);
         }
 
         /// <summary>
         /// Draws the actors on the screen.
         /// </summary>
         /// <param name="cast">The given cast.</param>
+
+
         public void DoOutputs(Cast cast)
         {
             List<Actor> actors = cast.GetAllActors();

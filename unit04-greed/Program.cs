@@ -98,7 +98,7 @@ namespace unit04_greed
                 Color coly = new Color(re, gr, bl);
             fall.SetColor(coly);
             fall.SetPosition(new Point(rand_num, 3));
-            fall.SetVelocity(new Point(0, 20));
+            // fall.SetVelocity(new Point(0, 20));
             // fall.Scale(1);
             cast.AddActor("fall", fall);
             }
