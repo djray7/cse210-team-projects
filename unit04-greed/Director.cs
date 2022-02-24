@@ -68,7 +68,9 @@ namespace unit04_greed
         private void DoUpdates(Cast cast)
         {
             Actor banner = cast.GetFirstActor("banner");
-            ScoreBoard score = new ScoreBoard();
+            ScoreBoard scorebanner = new ScoreBoard();
+            scorebanner.GetScore(_score);
+            scorebanner.UpdateScore();
             Actor robot = cast.GetFirstActor("robot");
             //List<Actor> artifacts = cast.GetActors("artifacts");
 
