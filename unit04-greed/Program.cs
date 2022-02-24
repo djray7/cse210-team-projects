@@ -21,10 +21,9 @@ namespace unit04_greed
         private static int COLS = 60;
         private static int ROWS = 40;
         private static string CAPTION = "Greed Game";
-        //
-        //private static string DATA_PATH = "Data/messages.txt";
+
         private static Color WHITE = new Color(255, 255, 255);
-        private static int DEFAULT_ARTIFACTS = 4;
+        private static int DEFAULT_FallingO = 4;
 
 
         /// <summary>
@@ -57,13 +56,13 @@ namespace unit04_greed
 
             // create the artifacts
             Random random = new Random();
-            for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
+            for (int i = 0; i < DEFAULT_FallingO; i++)
             {
-                string text = ((char)random.Next(33, 126)).ToString();
+                //string text = ((char)random.Next(33, 126)).ToString();
                 //string message = messages[i];
 
                 int x = random.Next(1, COLS);
-                int y = random.Next(1, ROWS);
+                int y = 0;
                 Point position = new Point(x, y);
                 position = position.Scale(CELL_SIZE);
 
@@ -72,53 +71,52 @@ namespace unit04_greed
                 int b = random.Next(0, 256);
                 Color color = new Color(r, g, b);
 
-                // Artifact artifact = new Artifact();
-                // artifact.SetText(text);
-                // artifact.SetFontSize(FONT_SIZE);
-                // artifact.SetColor(color);
-                // artifact.SetPosition(position);
-                // artifact.SetMessage(message);
-                // cast.AddActor("artifacts", artifact);
+                FallingObject falling = new FallingObject();
+                falling.SetText("Fall");
+                falling.SetFontSize(FONT_SIZE);
+                falling.SetColor(color);
+                falling.SetPosition(position);
+                cast.AddActor("falling", falling);
             }
 
-            Random rnd = new Random();
-            for (int i = 0; i < 5; i++) 
-            {
+            //Random rnd = new Random();
+            //for (int i = 0; i < 5; i++) 
+            //{
             // GEM
             
-            int rand_num = rnd.Next(0,900);
-            
-
-            FallingObject fall = new FallingObject();
-            fall.SetText("*");
-            fall.SetFontSize(FONT_SIZE);
-            int re = (89);
-                int gr = (173);
-                int bl = (247);
-                Color coly = new Color(re, gr, bl);
-            fall.SetColor(coly);
-            fall.SetPosition(new Point(rand_num, 3));
-            // fall.SetVelocity(new Point(0, 20));
-            // fall.Scale(1);
-            cast.AddActor("fall", fall);
-            }
-
-            for (int i = 0; i < 10; i++) 
-            {
-            int new_num = rnd.Next(0, 900);
-            FallingObject falls = new FallingObject();
-            falls.SetText("O");
-            falls.SetFontSize(FONT_SIZE);
-            int red = (89);
-                int gre = (173);
-                int blu = (247);
-                Color colys = new Color(red, gre, blu);
-            falls.SetColor(colys);
-            falls.SetPosition(new Point(new_num, 3));
-            falls.SetVelocity(new Point(0, 20));
-            cast.AddActor("fall bad", falls);
-            }
-
+            //int rand_num = rnd.Next(0,900);
+            //
+//
+            //FallingObject fall = new FallingObject();
+            //fall.SetText("*");
+            //fall.SetFontSize(FONT_SIZE);
+            //int re = (89);
+            //    int gr = (173);
+            //    int bl = (247);
+            //    Color coly = new Color(re, gr, bl);
+            //fall.SetColor(coly);
+            //fall.SetPosition(new Point(rand_num, 3));
+            //// fall.SetVelocity(new Point(0, 20));
+            //// fall.Scale(1);
+            //cast.AddActor("fall", fall);
+            //}
+//
+            //for (int i = 0; i < 10; i++) 
+            //{
+            //int new_num = rnd.Next(0, 900);
+            //FallingObject falls = new FallingObject();
+            //falls.SetText("O");
+            //falls.SetFontSize(FONT_SIZE);
+            //int red = (89);
+            //    int gre = (173);
+            //    int blu = (247);
+            //    Color colys = new Color(red, gre, blu);
+            //falls.SetColor(colys);
+            //falls.SetPosition(new Point(new_num, 3));
+            //falls.SetVelocity(new Point(0, 20));
+            //cast.AddActor("fall bad", falls);
+            //}
+//
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
             VideoService videoService 

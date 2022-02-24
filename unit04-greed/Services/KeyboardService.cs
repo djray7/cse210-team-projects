@@ -28,30 +28,32 @@ namespace unit04_greed.Services
         /// Gets the selected direction based on the currently pressed keys.
         /// </summary>
         /// <returns>The direction as an instance of Point.</returns>
-        public Point GetDirection()
+        public Point GetDirection(string moveFall)
         {
             int dx = 0;
             int dy = 0;
-
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+            if (moveFall == "down")
             {
-                dx = -1;
+                dy = 1;
             }
-
-            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
+            else 
             {
-                dx = 1;
-            }
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+                {
+                    dx = -1;
+                }
 
+                if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
+                {
+                    dx = 1;
+                }
+            }
             //if (Raylib.IsKeyDown(KeyboardKey.KEY_UP))
             //{
             //    dy = -1;
             //}
-
-            //if (Raylib.IsKeyDown(KeyboardKey.KEY_DOWN))
-            //{
-            //    dy = 1;
-            //}
+            
+            
 
             Point direction = new Point(dx, dy);
             direction = direction.Scale(cellSize);

@@ -57,8 +57,12 @@ namespace unit04_greed
         private void GetInputs(Cast cast)
         {
             Actor robot = cast.GetFirstActor("robot");
-            Point velocity = keyboardService.GetDirection();
-            robot.SetVelocity(velocity);     
+            Point velocity = keyboardService.GetDirection("dontMove");
+            robot.SetVelocity(velocity);
+
+            Actor falling = cast.GetFirstActor("falling");
+            Point velocityF = keyboardService.GetDirection("down");
+            falling.SetVelocity(velocityF);
         }
 
         /// <summary>
@@ -77,14 +81,17 @@ namespace unit04_greed
             //cast.AddActor("banner", banner);
 
             Actor robot = cast.GetFirstActor("robot");
-            //List<Actor> artifacts = cast.GetActors("artifacts");
+ 
+            Actor falling = cast.GetFirstActor("falling");
+            //List<Actor> falling = cast.GetActors("falling");
 
-            //banner.SetText("");
             int max = videoService.GetWidth();
             int may = videoService.GetHeight();
             robot.MoveNext(max, may);
+            
+            falling.MoveNext(max, may);
 
-            //foreach (Actor actor in artifacts)
+            //foreach (Actor actor in falling)
             //{
             //    if (robot.GetPosition().Equals(actor.GetPosition()))
             //    {//
@@ -94,10 +101,12 @@ namespace unit04_greed
             //    }
             //} 
 
-            Actor fall = cast.GetFirstActor("fall");
-            fall.SetVelocity(new Point(0, 20));
-            FallingObject fo = new FallingObject(fall);
-            fo.MoveNext();
+
+            //Actor fall = cast.GetFirstActor("fall");
+            //fall.SetVelocity(new Point(0, 20));
+            //FallingObject fo = new FallingObject(fall);
+            //fo.MoveNext();
+
             // fall = fo.GetActor();
             // cast.AddActor("fall", fall);
         }
