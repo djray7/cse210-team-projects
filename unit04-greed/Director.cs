@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using unit04_greed.Services;
 //using unit04-greed.Services;
@@ -15,6 +16,7 @@ namespace unit04_greed
     {
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
+        private static int FONT_SIZE = 15;
         
         private int _score = 0;
         /// <summary>
@@ -60,9 +62,37 @@ namespace unit04_greed
             Point velocity = keyboardService.GetDirection("dontMove");
             robot.SetVelocity(velocity);
 
-            Actor falling = cast.GetFirstActor("falling");
+        
+            
+            Random random = new Random();
+            int x = random.Next(1, 890);
+
+            int r = random.Next(0, 256);
+            int g = random.Next(0, 256);
+            int b = random.Next(0, 256);
+            Color color = new Color(r, g, b);
+            FallingObject falling = new FallingObject();
+            falling.SetText("O");
+            falling.SetFontSize(FONT_SIZE);
+            falling.SetColor(color);
+            falling.SetPosition(new Point(x,0));
             Point velocityF = keyboardService.GetDirection("down");
             falling.SetVelocity(velocityF);
+
+            
+
+            //Point velocityF = keyboardService.GetDirection("down");
+            //falling.SetVelocity(VelocityF)
+            cast.AddActor("falling", falling);
+
+            
+            int max = videoService.GetWidth();
+            int may = videoService.GetHeight();
+            
+            falling.MoveNext(max, may);
+
+    
+
         }
 
         /// <summary>
@@ -75,15 +105,15 @@ namespace unit04_greed
             ScoreBoard bannerScore = new ScoreBoard();
             _score = bannerScore.UpdateScore(_score);
             banner.SetText($"Score: {_score}" );
+
             // this code will be for adding to the score board.
             //if colide then _score = _score + add or subtract  
-            //_score = _score + adding or subbtracting points;
-            //cast.AddActor("banner", banner);
+            //_score = _score + 10;
 
             Actor robot = cast.GetFirstActor("robot");
- 
+
+            //Actor falling = cast.GetFirstActor("falling");
             Actor falling = cast.GetFirstActor("falling");
-            //List<Actor> falling = cast.GetActors("falling");
 
             int max = videoService.GetWidth();
             int may = videoService.GetHeight();
@@ -91,15 +121,20 @@ namespace unit04_greed
             
             falling.MoveNext(max, may);
 
-            //foreach (Actor actor in falling)
-            //{
-            //    if (robot.GetPosition().Equals(actor.GetPosition()))
-            //    {//
-            //        //Artifact artifact = (Artifact) actor;
-            //        //string message = artifact.GetMessage();
-            //        //banner.SetText(message);
-            //    }
-            //} 
+            if (robot.GetPosition() == (falling.GetPosition()))
+            {
+                _score = bannerScore.UpdateScore(_score);
+            }
+
+            List<Actor> fallings = cast.GetActors("falling");
+            foreach (Actor actor in fallings)
+            {
+                
+                if (robot.GetPosition().Equals(falling.GetPosition()))
+                {
+                    _score = _score + 10;
+                }
+            } 
 
 
             //Actor fall = cast.GetFirstActor("fall");
