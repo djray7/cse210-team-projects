@@ -76,6 +76,13 @@ namespace unit04_greed
             falling.SetFontSize(FONT_SIZE);
             falling.SetColor(color);
             falling.SetPosition(new Point(x,0));
+
+            // List<Actor> fallings = cast.GetActors("falling");
+            // foreach (Actor faller in fallings)
+            // {
+            //     Point velocityF = keyboardService.GetDirection("down");
+            // falling.SetVelocity(velocityF);
+            // }
             Point velocityF = keyboardService.GetDirection("down");
             falling.SetVelocity(velocityF);
 
