@@ -18,8 +18,8 @@ namespace unit04_greed
         private static int MAX_Y = 600;
         private static int CELL_SIZE = 15;
         private static int FONT_SIZE = 15;
-        private static int COLS = 60;
-        private static int ROWS = 40;
+        //private static int COLS = 60;
+        //private static int ROWS = 40;
         private static string CAPTION = "Greed Game";
 
         private static Color WHITE = new Color(255, 255, 255);
@@ -51,72 +51,7 @@ namespace unit04_greed
             robot.SetPosition(new Point(MAX_X / 2, 580));
             cast.AddActor("robot", robot);
 
-            // load the messages
-            // List<string> messages = File.ReadAllLines(DATA_PATH).ToList<string>();
-
-            // create the artifacts
-            Random random = new Random();
-            for (int i = 0; i < DEFAULT_FallingO; i++)
-            {
-                //string text = ((char)random.Next(33, 126)).ToString();
-                //string message = messages[i];
-
-                int x = random.Next(1, COLS);
-                int y = 0;
-                Point position = new Point(x, y);
-                position = position.Scale(CELL_SIZE);
-
-                int r = random.Next(0, 256);
-                int g = random.Next(0, 256);
-                int b = random.Next(0, 256);
-                Color color = new Color(r, g, b);
-
-                FallingObject falling = new FallingObject();
-                falling.SetText("Fall");
-                falling.SetFontSize(FONT_SIZE);
-                falling.SetColor(color);
-                falling.SetPosition(position);
-                cast.AddActor("falling", falling);
-            }
-
-            //Random rnd = new Random();
-            //for (int i = 0; i < 5; i++) 
-            //{
-            // GEM
-            
-            //int rand_num = rnd.Next(0,900);
-            //
-//
-            //FallingObject fall = new FallingObject();
-            //fall.SetText("*");
-            //fall.SetFontSize(FONT_SIZE);
-            //int re = (89);
-            //    int gr = (173);
-            //    int bl = (247);
-            //    Color coly = new Color(re, gr, bl);
-            //fall.SetColor(coly);
-            //fall.SetPosition(new Point(rand_num, 3));
-            //// fall.SetVelocity(new Point(0, 20));
-            //// fall.Scale(1);
-            //cast.AddActor("fall", fall);
-            //}
-//
-            //for (int i = 0; i < 10; i++) 
-            //{
-            //int new_num = rnd.Next(0, 900);
-            //FallingObject falls = new FallingObject();
-            //falls.SetText("O");
-            //falls.SetFontSize(FONT_SIZE);
-            //int red = (89);
-            //    int gre = (173);
-            //    int blu = (247);
-            //    Color colys = new Color(red, gre, blu);
-            //falls.SetColor(colys);
-            //falls.SetPosition(new Point(new_num, 3));
-            //falls.SetVelocity(new Point(0, 20));
-            //cast.AddActor("fall bad", falls);
-            //}
-//
+           
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
             VideoService videoService 
