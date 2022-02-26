@@ -92,9 +92,9 @@ namespace unit04_greed
         private void DoUpdates(Cast cast)
         {
             Actor banner = cast.GetFirstActor("banner");
-            ScoreBoard bannerScore = new ScoreBoard();
-            _score = bannerScore.UpdateScore(_score);
-            banner.SetText($"Score: {_score}" );
+            //ScoreBoard bannerScore = new ScoreBoard();
+            //_score = bannerScore.UpdateScore(_score);
+            banner.SetText($"Score: {_score}");
 
             // this code will be for adding to the score board.
             //if colide then _score = _score + add or subtract  
@@ -116,6 +116,13 @@ namespace unit04_greed
                 {
                     cast.RemoveActor("falling", f);
                 }
+                Point robotPosition = robot.GetPosition();
+                Point fPosition = f.GetPosition();
+                if (robotPosition.GetY() - fPosition.GetY() <= 1)
+                {
+                    _score += 10;
+                    //Console.WriteLine("Score activated");
+                }
             }
 
             // SCORE STUFF???
@@ -130,16 +137,7 @@ namespace unit04_greed
             //     {
             //         _score = _score + 10;
             //     }
-            // } 
-
-            // FALLING OBJECT STUFF
-            //Actor fall = cast.GetFirstActor("fall");
-            //fall.SetVelocity(new Point(0, 20));
-            //FallingObject fo = new FallingObject(fall);
-            //fo.MoveNext();
-
-            // fall = fo.GetActor();
-            // cast.AddActor("fall", fall);
+            // }            
         }
 
         /// <summary>
