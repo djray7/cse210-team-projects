@@ -66,22 +66,26 @@ namespace unit04_greed
             if (fallings.Count < 10)
             {
                 Random random = new Random();
-                int x = random.Next(1, 890);
+                int spawn = random.Next(1, 10);
+                if (spawn == 1)
+                {
+                    int x = random.Next(1, 890);
+                    int r = random.Next(0, 256);
+                    int g = random.Next(0, 256);
+                    int b = random.Next(0, 256);
+                    Color color = new Color(r, g, b);
+                    FallingObject falling = new FallingObject();
+                    falling.SetText("O");
+                    falling.SetFontSize(FONT_SIZE);
+                    falling.SetColor(color);
+                    falling.SetPosition(new Point(x,0));
 
-                int r = random.Next(0, 256);
-                int g = random.Next(0, 256);
-                int b = random.Next(0, 256);
-                Color color = new Color(r, g, b);
-                FallingObject falling = new FallingObject();
-                falling.SetText("O");
-                falling.SetFontSize(FONT_SIZE);
-                falling.SetColor(color);
-                falling.SetPosition(new Point(x,0));
+                    Point velocityF = keyboardService.GetDirection("down");
+                    falling.SetVelocity(velocityF);
 
-                Point velocityF = keyboardService.GetDirection("down");
-                falling.SetVelocity(velocityF);
-
-                cast.AddActor("falling", falling);
+                    cast.AddActor("falling", falling);
+                }
+                
             }                        
         }
 
@@ -118,9 +122,10 @@ namespace unit04_greed
                 }
                 Point robotPosition = robot.GetPosition();
                 Point fPosition = f.GetPosition();
-                if ((Math.Abs(robotPosition.GetX() - fPosition.GetX()) <= 5) & (Math.Abs(robotPosition.GetY() - fPosition.GetY()) <= 5))
+                if ((Math.Abs(robotPosition.GetX() - fPosition.GetX()) <= 8) & (Math.Abs(robotPosition.GetY() - fPosition.GetY()) <= 8))
                 {                    
                     _score += 10;
+                    cast.RemoveActor("falling", f);
                     //Console.WriteLine("Score activated");
                 }
             }            
