@@ -25,7 +25,7 @@ namespace unit04_greed
         /// <param name="keyboardService">The given KeyboardService.</param>
         /// <param name="videoService">The given VideoService.</param>
 
-        public void Collissions()
+        public void Collisions()
         {
             return;
         }
@@ -62,44 +62,27 @@ namespace unit04_greed
             Point velocity = keyboardService.GetDirection("dontMove");
             robot.SetVelocity(velocity);
 
-        
-            
-            Random random = new Random();
-            int x = random.Next(1, 890);
+            List<Actor> fallings = cast.GetActors("falling");
+            if (fallings.Count < 10)
+            {
+                Random random = new Random();
+                int x = random.Next(1, 890);
 
-            int r = random.Next(0, 256);
-            int g = random.Next(0, 256);
-            int b = random.Next(0, 256);
-            Color color = new Color(r, g, b);
-            FallingObject falling = new FallingObject();
-            falling.SetText("O");
-            falling.SetFontSize(FONT_SIZE);
-            falling.SetColor(color);
-            falling.SetPosition(new Point(x,0));
+                int r = random.Next(0, 256);
+                int g = random.Next(0, 256);
+                int b = random.Next(0, 256);
+                Color color = new Color(r, g, b);
+                FallingObject falling = new FallingObject();
+                falling.SetText("O");
+                falling.SetFontSize(FONT_SIZE);
+                falling.SetColor(color);
+                falling.SetPosition(new Point(x,0));
 
-            // List<Actor> fallings = cast.GetActors("falling");
-            // foreach (Actor faller in fallings)
-            // {
-            //     Point velocityF = keyboardService.GetDirection("down");
-            // falling.SetVelocity(velocityF);
-            // }
-            Point velocityF = keyboardService.GetDirection("down");
-            falling.SetVelocity(velocityF);
+                Point velocityF = keyboardService.GetDirection("down");
+                falling.SetVelocity(velocityF);
 
-            
-
-            //Point velocityF = keyboardService.GetDirection("down");
-            //falling.SetVelocity(VelocityF)
-            cast.AddActor("falling", falling);
-
-            
-            int max = videoService.GetWidth();
-            int may = videoService.GetHeight();
-            
-            falling.MoveNext(max, may);
-
-    
-
+                cast.AddActor("falling", falling);
+            }                        
         }
 
         /// <summary>
@@ -119,31 +102,32 @@ namespace unit04_greed
 
             Actor robot = cast.GetFirstActor("robot");
 
-            //Actor falling = cast.GetFirstActor("falling");
-            Actor falling = cast.GetFirstActor("falling");
-
             int max = videoService.GetWidth();
             int may = videoService.GetHeight();
             robot.MoveNext(max, may);
-            
-            falling.MoveNext(max, may);
 
-            if (robot.GetPosition() == (falling.GetPosition()))
+            // Get all the falling objects to fall
+            List<Actor> fallings = cast.GetActors("falling");
+            foreach (Actor f in fallings)
             {
-                _score = bannerScore.UpdateScore(_score);
+                f.MoveNext(max, may);
             }
 
-            List<Actor> fallings = cast.GetActors("falling");
-            foreach (Actor actor in fallings)
-            {
-                
-                if (robot.GetPosition().Equals(falling.GetPosition()))
-                {
-                    _score = _score + 10;
-                }
-            } 
+            // SCORE STUFF???
+            // if (robot.GetPosition() == (falling.GetPosition()))
+            // {
+            //     _score = bannerScore.UpdateScore(_score);
+            // }
+            //List<Actor> fallings = cast.GetActors("falling");            
+            // foreach (Actor actor in fallings)
+            // {                
+            //     if (robot.GetPosition().Equals(falling.GetPosition()))
+            //     {
+            //         _score = _score + 10;
+            //     }
+            // } 
 
-
+            // FALLING OBJECT STUFF
             //Actor fall = cast.GetFirstActor("fall");
             //fall.SetVelocity(new Point(0, 20));
             //FallingObject fo = new FallingObject(fall);
