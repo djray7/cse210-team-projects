@@ -110,7 +110,12 @@ namespace unit04_greed
             List<Actor> fallings = cast.GetActors("falling");
             foreach (Actor f in fallings)
             {
-                f.MoveNext(max, may);
+                //f.MoveNext(max, may);
+                f.MoveNext();
+                if (f.GetPosition().GetY() > may)
+                {
+                    cast.RemoveActor("falling", f);
+                }
             }
 
             // SCORE STUFF???

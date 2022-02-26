@@ -83,6 +83,14 @@ namespace unit04_greed
             int y = ((position.GetY() + velocity.GetY()) + maxY) % maxY;
             position = new Point(x, y);
         }
+        public void MoveNext()
+        {
+            int x = position.GetX() + velocity.GetX();
+            int y = position.GetY() + velocity.GetY();
+            //Console.WriteLine($"x: {x}");
+            //Console.WriteLine($"y: {y}");
+            position = new Point(x, y);
+        }
 
         /// <summary>
         /// Sets the actor's color to the given value.
