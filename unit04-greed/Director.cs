@@ -141,7 +141,7 @@ namespace unit04_greed
                 // if robot position is close enough to a falling object, add score, remove falling object
                 Point robotPosition = robot.GetPosition();
                 Point fPosition = f.GetPosition();
-                if ((Math.Abs(robotPosition.GetX() - fPosition.GetX()) <= 8) & (Math.Abs(robotPosition.GetY() - fPosition.GetY()) <= 8))
+                if ((Math.Abs(robotPosition.GetX() - fPosition.GetX()) <= 10) & (Math.Abs(robotPosition.GetY() - fPosition.GetY()) <= 10))
                 {                    
                     if (f.GetText() == "O")
                     {

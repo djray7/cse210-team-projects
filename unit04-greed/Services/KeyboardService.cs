@@ -36,7 +36,7 @@ namespace unit04_greed.Services
             {
                 Random random = new Random();
                 int speed = random.Next(1, 3);
-                dy = speed;
+                dy = speed;                               
             }
             else 
             {
