@@ -106,8 +106,6 @@ namespace unit04_greed
             int may = videoService.GetHeight();
             robot.MoveNext(max, may);
 
-            // determines if robot collided with falling object
-            //bool isHit = false;
             // Get all the falling objects to fall
             List<Actor> fallings = cast.GetActors("falling");
             foreach (Actor f in fallings)
@@ -120,18 +118,12 @@ namespace unit04_greed
                 }
                 Point robotPosition = robot.GetPosition();
                 Point fPosition = f.GetPosition();
-                if ((robotPosition.GetX() - fPosition.GetX() <= 5)
-                    & (robotPosition.GetY() - fPosition.GetY() <= 5))
-                {
-                    //isHit = true;
+                if ((Math.Abs(robotPosition.GetX() - fPosition.GetX()) <= 5) & (Math.Abs(robotPosition.GetY() - fPosition.GetY()) <= 5))
+                {                    
                     _score += 10;
                     //Console.WriteLine("Score activated");
                 }
-            }
-            // if (isHit)
-            // {
-            //     _score += 10;
-            // }
+            }            
             // SCORE STUFF???
             // if (robot.GetPosition() == (falling.GetPosition()))
             // {
