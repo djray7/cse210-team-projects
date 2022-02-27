@@ -9,6 +9,18 @@ namespace unit04_greed
         {
 
         }
+        
+
+
+        public void SetVelocityF(Point velocity)
+        {
+            if (velocity == null)
+            {
+                throw new ArgumentException("velocity can't be null");
+            }
+            this.velocity = velocity;
+        }
+
     
         public int UpdateScore(int newScore)
         {

@@ -5,11 +5,12 @@ namespace unit04_greed
     class FallingObject : Actor
     {
         Actor _actor;
-
+        
         public FallingObject(Actor actor)
         {
             _actor = actor;
         }
+        position = 
         public FallingObject()
         {
 

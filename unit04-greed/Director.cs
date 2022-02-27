@@ -62,7 +62,6 @@ namespace unit04_greed
             Point velocity = keyboardService.GetDirection("dontMove");
             robot.SetVelocity(velocity);
 
-        
             
             Random random = new Random();
             int x = random.Next(1, 890);
@@ -77,19 +76,20 @@ namespace unit04_greed
             falling.SetColor(color);
             falling.SetPosition(new Point(x,0));
             Point velocityF = keyboardService.GetDirection("down");
-            falling.SetVelocity(velocityF);
-
-            
-
-            //Point velocityF = keyboardService.GetDirection("down");
-            //falling.SetVelocity(VelocityF)
-            cast.AddActor("falling", falling);
-
             
             int max = videoService.GetWidth();
             int may = videoService.GetHeight();
+            robot.MoveNext(max, may);
+           
+            //Point velocityFall = keyboardService.GetDirection("down");
+            //falling.SetVelocityF(velocityFall);
+
+            cast.AddActor("falling", falling);
+
+            //Point velocityF = keyboardService.GetDirection("down");
+            //falling.SetVelocity(VelocityF)
             
-            falling.MoveNext(max, may);
+            
 
     
 
@@ -126,15 +126,15 @@ namespace unit04_greed
                 _score = bannerScore.UpdateScore(_score);
             }
 
-            List<Actor> fallings = cast.GetActors("falling");
-            foreach (Actor actor in fallings)
-            {
-                
-                if (robot.GetPosition().Equals(falling.GetPosition()))
-                {
-                    _score = _score + 10;
-                }
-            } 
+            //List<Actor> fallings = cast.GetActors("falling");
+            //foreach (Actor actor in fallings)
+            //{
+            //    
+            //    if (robot.GetPosition().Equals(falling.GetPosition()))
+            //    {
+            //        _score = _score + 10;
+            //    }
+            //} 
 
 
             //Actor fall = cast.GetFirstActor("fall");
