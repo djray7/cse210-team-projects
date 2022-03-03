@@ -16,7 +16,7 @@ namespace Unit05.Game.Scripting
         /// The responsibility of MoveActorsAction is to move all the actors.
         /// </para>
         /// </summary>
-        private string _moveActors;
+        List<Actor> actors;
 
         // 2) Create the class constructor. Use the following method comment.
 
@@ -36,10 +36,11 @@ namespace Unit05.Game.Scripting
         public void Execute(Cast cast, Script script)
         {
             //Cast theCast = new Cast();
-        
-            foreach (cast.GetAllActors in _moveactors)
+            actors = cast.GetAllActors();
+            
+            foreach (Actor actor in actors)
             {
-                _moveactors.MoveNext();
+                actor.MoveNext();
             }
         }
         

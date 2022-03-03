@@ -1,7 +1,7 @@
-﻿using unit05-cycle.Game.Casting;
-using unit05-cycle.Game.Directing;
-using unit05-cycle.Game.Scripting;
-using unit05-cycle.Game.Services;
+﻿using Unit05.Game.Casting;
+using Unit05.Game.Directing;
+using Unit05.Game.Scripting;
+using Unit05.Game.Services;
 
 
 namespace Unit05
