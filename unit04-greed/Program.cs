@@ -51,7 +51,10 @@ namespace unit04_greed
             robot.SetPosition(new Point(MAX_X / 2, 580));
             cast.AddActor("robot", robot);
 
-           
+            // TODO
+            // move the creation of falling objects here
+            // so it doesn't infinitely spawn           
+
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
             VideoService videoService 

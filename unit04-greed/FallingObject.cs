@@ -4,21 +4,23 @@ namespace unit04_greed
 {
     class FallingObject : Actor
     {
-        Actor _actor;
-        
+        private Actor _actor;
+        public Point _velocity;
+
+        public FallingObject()
+        {
+            //_velocity = new Point(0,1);            
+        }
         public FallingObject(Actor actor)
         {
             _actor = actor;
         }
-        position = 
-        public FallingObject()
-        {
-
-        }
         public void MoveNext()
         {
-            int x = ((position.GetX() + velocity.GetX()));
-            int y = ((position.GetY() + velocity.GetY()));
+            int x = position.GetX() + velocity.GetX();
+            int y = position.GetY() + velocity.GetY();
+            //Console.WriteLine($"x: {x}");
+            //Console.WriteLine($"y: {y}");
             position = new Point(x, y);
         }
         public Actor GetActor()

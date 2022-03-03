@@ -1,6 +1,6 @@
 using Raylib_cs;
 using unit04_greed;
-
+using System;
 
 namespace unit04_greed.Services
 {
@@ -34,7 +34,9 @@ namespace unit04_greed.Services
             int dy = 0;
             if (moveFall == "down")
             {
-                dy = 1;
+                Random random = new Random();
+                int speed = random.Next(1, 3);
+                dy = speed;                               
             }
             else 
             {

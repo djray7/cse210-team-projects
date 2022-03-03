@@ -1,7 +1,7 @@
 using System;
 
 
-namespace unit04_greed
+namespace Unit05.Game.Casting
 {
     /// <summary>
     /// <para>A thing that participates in the game.</para>
@@ -14,9 +14,9 @@ namespace unit04_greed
     {
         private string text = "";
         private int fontSize = 15;
-        private Color color = new Color(255, 255, 255); // white
-        protected Point position = new Point(0, 0);
-        protected Point velocity = new Point(0, 0);
+        private Color color = Constants.WHITE;
+        private Point position = new Point(0, 0);
+        private Point velocity = new Point(0, 0);
 
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -75,20 +75,10 @@ namespace unit04_greed
         /// from one side of the screen to the other when it reaches the maximum x and y 
         /// values.
         /// </summary>
-        /// <param name="maxX">The maximum x value.</param>
-        /// <param name="maxY">The maximum y value.</param>
-        public void MoveNext(int maxX, int maxY)
+        public virtual void MoveNext()
         {
-            int x = ((position.GetX() + velocity.GetX()) + maxX) % maxX;
-            int y = ((position.GetY() + velocity.GetY()) + maxY) % maxY;
-            position = new Point(x, y);
-        }
-        public void MoveNext()
-        {
-            int x = position.GetX() + velocity.GetX();
-            int y = position.GetY() + velocity.GetY();
-            //Console.WriteLine($"x: {x}");
-            //Console.WriteLine($"y: {y}");
+            int x = ((position.GetX() + velocity.GetX()) + Constants.MAX_X) % Constants.MAX_X;
+            int y = ((position.GetY() + velocity.GetY()) + Constants.MAX_Y) % Constants.MAX_Y;
             position = new Point(x, y);
         }
 

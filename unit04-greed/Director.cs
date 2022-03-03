@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using unit04_greed.Services;
 //using unit04-greed.Services;
-
+//using System.Diagnostics;
 
 namespace unit04_greed
 {
@@ -16,7 +16,7 @@ namespace unit04_greed
     {
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
-        private static int FONT_SIZE = 15;
+        private static int FONT_SIZE = 20;
         
         private int _score = 0;
         /// <summary>
@@ -25,7 +25,7 @@ namespace unit04_greed
         /// <param name="keyboardService">The given KeyboardService.</param>
         /// <param name="videoService">The given VideoService.</param>
 
-        public void Collissions()
+        public void Collisions()
         {
             return;
         }
@@ -62,37 +62,48 @@ namespace unit04_greed
             Point velocity = keyboardService.GetDirection("dontMove");
             robot.SetVelocity(velocity);
 
-            
-            Random random = new Random();
-            int x = random.Next(1, 890);
+            List<Actor> fallings = cast.GetActors("falling");            
+            if (fallings.Count < 20)
+            {
+                Random random = new Random();
+                int spawn = random.Next(0, 10);
+                if (spawn == 1)
+                {
+                    int x = random.Next(1, 890);
+                    int r = random.Next(0, 256);
+                    int g = random.Next(0, 256);
+                    int b = random.Next(0, 256);
+                    Color color = new Color(r, g, b);
+                    FallingObject falling = new FallingObject();
+                    falling.SetText("O");
+                    falling.SetFontSize(FONT_SIZE);
+                    falling.SetColor(color);
+                    falling.SetPosition(new Point(x,0));
 
-            int r = random.Next(0, 256);
-            int g = random.Next(0, 256);
-            int b = random.Next(0, 256);
-            Color color = new Color(r, g, b);
-            FallingObject falling = new FallingObject();
-            falling.SetText("O");
-            falling.SetFontSize(FONT_SIZE);
-            falling.SetColor(color);
-            falling.SetPosition(new Point(x,0));
-            Point velocityF = keyboardService.GetDirection("down");
-            
-            int max = videoService.GetWidth();
-            int may = videoService.GetHeight();
-            robot.MoveNext(max, may);
-           
-            //Point velocityFall = keyboardService.GetDirection("down");
-            //falling.SetVelocityF(velocityFall);
+                    Point velocityF = keyboardService.GetDirection("down");
+                    falling.SetVelocity(velocityF);
 
-            cast.AddActor("falling", falling);
+                    cast.AddActor("falling", falling);
+                }
+                if (spawn == 2)
+                {
+                    int x = random.Next(1, 890);
+                    int r = random.Next(0, 256);
+                    int g = random.Next(0, 256);
+                    int b = random.Next(0, 256);
+                    Color color = new Color(r, g, b);
+                    FallingObject falling = new FallingObject();
+                    falling.SetText("*");
+                    falling.SetFontSize(FONT_SIZE);
+                    falling.SetColor(color);
+                    falling.SetPosition(new Point(x,0));
 
-            //Point velocityF = keyboardService.GetDirection("down");
-            //falling.SetVelocity(VelocityF)
-            
-            
+                    Point velocityF = keyboardService.GetDirection("down");
+                    falling.SetVelocity(velocityF);
 
-    
-
+                    cast.AddActor("falling", falling);
+                }
+            }                        
         }
 
         /// <summary>
@@ -102,9 +113,9 @@ namespace unit04_greed
         private void DoUpdates(Cast cast)
         {
             Actor banner = cast.GetFirstActor("banner");
-            ScoreBoard bannerScore = new ScoreBoard();
-            _score = bannerScore.UpdateScore(_score);
-            banner.SetText($"Score: {_score}" );
+            //ScoreBoard bannerScore = new ScoreBoard();
+            //_score = bannerScore.UpdateScore(_score);
+            banner.SetText($"Score: {_score}");
 
             // this code will be for adding to the score board.
             //if colide then _score = _score + add or subtract  
@@ -112,38 +123,39 @@ namespace unit04_greed
 
             Actor robot = cast.GetFirstActor("robot");
 
-            //Actor falling = cast.GetFirstActor("falling");
-            Actor falling = cast.GetFirstActor("falling");
-
             int max = videoService.GetWidth();
             int may = videoService.GetHeight();
             robot.MoveNext(max, may);
-            
-            falling.MoveNext(max, may);
 
-            if (robot.GetPosition() == (falling.GetPosition()))
+            // Get all the falling objects to fall
+            List<Actor> fallings = cast.GetActors("falling");
+            foreach (Actor f in fallings)
             {
-                _score = bannerScore.UpdateScore(_score);
-            }
-
-            //List<Actor> fallings = cast.GetActors("falling");
-            //foreach (Actor actor in fallings)
-            //{
-            //    
-            //    if (robot.GetPosition().Equals(falling.GetPosition()))
-            //    {
-            //        _score = _score + 10;
-            //    }
-            //} 
-
-
-            //Actor fall = cast.GetFirstActor("fall");
-            //fall.SetVelocity(new Point(0, 20));
-            //FallingObject fo = new FallingObject(fall);
-            //fo.MoveNext();
-
-            // fall = fo.GetActor();
-            // cast.AddActor("fall", fall);
+                // if falling object goes out of screen, remove it
+                f.MoveNext();
+                if (f.GetPosition().GetY() > may)
+                {
+                    cast.RemoveActor("falling", f);
+                }
+                // COLLISION
+                // if robot position is close enough to a falling object, add score, remove falling object
+                Point robotPosition = robot.GetPosition();
+                Point fPosition = f.GetPosition();
+                if ((Math.Abs(robotPosition.GetX() - fPosition.GetX()) <= 10) & (Math.Abs(robotPosition.GetY() - fPosition.GetY()) <= 10))
+                {                    
+                    if (f.GetText() == "O")
+                    {
+                        _score += 15;
+                    }
+                    else
+                    {
+                        _score -= 10;
+                    }
+                    cast.RemoveActor("falling", f);
+                    //Console.WriteLine("Score activated");
+                }
+            }            
+                   
         }
 
         /// <summary>
