@@ -31,19 +31,16 @@ namespace Unit05.Game.Scripting
             if (isGameOver == false)
             {
                 //HandleFoodCollisions(cast);
-                HandleGrowth(cast);
                 HandleSegmentCollisions(cast);
                 HandleGameOver(cast);
+                Snake snake = (Snake)cast.GetFirstActor("snake");
+                
+                int points = 1;
+                points = points +1;
+                snake.GrowTail(points);
             }
         }
 
-        private void HandleGrowth(Cast cast);
-        {
-            // Grows the tail from strating posistion.
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            int points = 1;
-            snake.GrowTail(points);
-        }
         /// <summary>
         /// Updates the score nd moves the food if the snake collides with it.
         /// </summary>
@@ -57,7 +54,7 @@ namespace Unit05.Game.Scripting
             // if (snake.GetHead().GetPosition().Equals(food.GetPosition()))
             // {
             //     int points = food.GetPoints();
-            
+            //     snake.GrowTail(points);
             //     score.AddPoints(points);
             //     food.Reset();
             // }
@@ -69,12 +66,9 @@ namespace Unit05.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-           
-
             Snake snake = (Snake)cast.GetFirstActor("snake");
             Actor head = snake.GetHead();
             List<Actor> body = snake.GetBody();
-
 
             foreach (Actor segment in body)
             {
