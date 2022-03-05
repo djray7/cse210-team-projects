@@ -35,6 +35,7 @@ namespace Unit05.Game.Scripting
         
         public void Execute(Cast cast, Script script)
         {
+            GrowSnake(cast);
             //Cast theCast = new Cast();
             actors = cast.GetAllActors();
             
@@ -42,6 +43,14 @@ namespace Unit05.Game.Scripting
             {
                 actor.MoveNext();
             }
+        }
+
+        public void GrowSnake(Cast cast)
+        {
+            Snake snake = (Snake)cast.GetFirstActor("snake");
+
+            int points = 1;
+            snake.GrowTail(points);
         }
         
 

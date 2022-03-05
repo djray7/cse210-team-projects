@@ -33,11 +33,7 @@ namespace Unit05.Game.Scripting
                 //HandleFoodCollisions(cast);
                 HandleSegmentCollisions(cast);
                 HandleGameOver(cast);
-                Snake snake = (Snake)cast.GetFirstActor("snake");
                 
-                int points = 1;
-                points = points +1;
-                snake.GrowTail(points);
             }
         }
 
