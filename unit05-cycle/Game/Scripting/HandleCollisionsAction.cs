@@ -31,11 +31,19 @@ namespace Unit05.Game.Scripting
             if (isGameOver == false)
             {
                 //HandleFoodCollisions(cast);
+                HandleGrowth(cast);
                 HandleSegmentCollisions(cast);
                 HandleGameOver(cast);
             }
         }
 
+        private void HandleGrowth(Cast cast);
+        {
+            // Grows the tail from strating posistion.
+            Snake snake = (Snake)cast.GetFirstActor("snake");
+            int points = 1;
+            snake.GrowTail(points);
+        }
         /// <summary>
         /// Updates the score nd moves the food if the snake collides with it.
         /// </summary>
@@ -67,9 +75,6 @@ namespace Unit05.Game.Scripting
             Actor head = snake.GetHead();
             List<Actor> body = snake.GetBody();
 
-            // Grows the tail from strating posistion.
-            int points = 1;
-            snake.GrowTail(points);
 
             foreach (Actor segment in body)
             {
