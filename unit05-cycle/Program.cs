@@ -21,11 +21,10 @@ namespace Unit05
             Cast cast = new Cast();
 
             //cast.AddActor("food", new Food());
-            //cast.AddActor("snake", new Snake());
-        
-        //------------ player 1 and 2 created ---------
-            cast.addActor("player1", new player1());
-            //cast.addActor("player2"), new player2();
+            cast.AddActor("snake", new Snake());
+            //---- for payers 
+            //cast.AddActor("player1", new Player1());
+            //cast.AddActor("player2", new Player2());
 
             cast.AddActor("score", new Score());
 

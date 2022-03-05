@@ -25,6 +25,7 @@ namespace Unit05.Game.Casting
                 segment.SetColor(color);
                 segments.Add(segment);
             base.PrepareBody();
+            }
         }
     }
 }
