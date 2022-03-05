@@ -10,7 +10,7 @@ namespace Unit05.Game.Casting
     /// </summary>
     public class Snake : Actor
     {
-        private List<Actor> segments = new List<Actor>();
+        protected List<Actor> segments = new List<Actor>();
 
         /// <summary>
         /// Constructs a new instance of a Snake.
@@ -98,7 +98,7 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
-        private void PrepareBody()
+        protected virtual void PrepareBody()
         {
             int x = Constants.MAX_X / 2;
             int y = Constants.MAX_Y / 2;
