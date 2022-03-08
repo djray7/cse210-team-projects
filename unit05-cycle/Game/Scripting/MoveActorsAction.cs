@@ -48,7 +48,6 @@ namespace Unit05.Game.Scripting
         public void GrowSnake(Cast cast)
         {
             Snake snake = (Snake)cast.GetFirstActor("snake");
-
             int points = 1;
             snake.GrowTail(points);
         }
