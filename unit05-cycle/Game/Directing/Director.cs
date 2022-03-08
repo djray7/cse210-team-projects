@@ -41,6 +41,24 @@ namespace Unit05.Game.Directing
             }
             videoService.CloseWindow();
         }
+        // public bool StartGame(Cast cast, Script script, KeyboardService keyboardService)
+        // {
+        //     bool isRDown = false;                        
+        //     videoService.OpenWindow();
+        //     while (videoService.IsWindowOpen())
+        //     {
+        //         ExecuteActions("input", cast, script);                        
+        //         ExecuteActions("update", cast, script);
+        //         ExecuteActions("output", cast, script);
+        //         if (keyboardService.IsKeyDown("r"))
+        //         {
+        //             isRDown = true;
+        //             break;
+        //         }
+        //     }
+        //     videoService.CloseWindow();
+        //     return isRDown;          
+        // }
 
         /// <summary>
         /// Calls execute for each action in the given group.
@@ -55,6 +73,11 @@ namespace Unit05.Game.Directing
             {
                 action.Execute(cast, script);
             }
+        }
+
+        public VideoService GetVideoService()
+        {
+            return videoService;
         }
     }
 }
