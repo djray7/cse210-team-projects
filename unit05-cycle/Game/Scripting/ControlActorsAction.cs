@@ -88,9 +88,9 @@ namespace Unit05.Game.Scripting
                 snakes.Add((Snake)actor);
             }
             Snake player1 = snakes[0];
-            Snake player2 = snakes[1];
+            // Snake player2 = snakes[1];
             player1.TurnHead(direction);
-            player2.TurnHead(direction2);
+            // player2.TurnHead(direction2);
         }
     }
 }

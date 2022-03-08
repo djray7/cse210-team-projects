@@ -10,13 +10,19 @@ namespace Unit05.Game.Casting
     /// </summary>
     public class Snake : Actor
     {
+        protected Color snakeBodyColor;
+        protected Color snakeHeadColor;
+        protected int snake_x;
         protected List<Actor> segments = new List<Actor>();
 
         /// <summary>
         /// Constructs a new instance of a Snake.
         /// </summary>
-        public Snake()
+        public Snake(int x, Color body, Color head)
         {
+            snakeBodyColor = body;
+            snakeHeadColor = head;
+            snake_x = x;
             PrepareBody();
         }
 
@@ -100,15 +106,15 @@ namespace Unit05.Game.Casting
         /// </summary>
         protected virtual void PrepareBody()
         {
-            int x = Constants.MAX_X / 2;
-            int y = Constants.MAX_Y / 2;
+            int x = snake_x;
+            int y = 300;
 
             for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
             {
                 Point position = new Point(x - i * Constants.CELL_SIZE, y);
                 Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
                 string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+                Color color = i == 0 ? snakeHeadColor : snakeBodyColor;
 
                 Actor segment = new Actor();
                 segment.SetPosition(position);
