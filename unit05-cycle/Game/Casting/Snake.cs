@@ -15,9 +15,9 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Constructs a new instance of a Snake.
         /// </summary>
-        public Snake()
+        public Snake(int x)
         {
-            PrepareBody();
+            private int snake_x = x;
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Unit05.Game.Casting
         /// </summary>
         protected virtual void PrepareBody()
         {
-            int x = Constants.MAX_X / 2;
+            int x = 100;
             int y = Constants.MAX_Y / 2;
 
             for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
