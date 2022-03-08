@@ -1,7 +1,7 @@
 using Unit05.Game.Casting;
 using Unit05.Game.Services;
 using System.Collections.Generic;
-
+using Unit05.Game.Directing;
 
 namespace Unit05.Game.Scripting
 {
@@ -16,13 +16,19 @@ namespace Unit05.Game.Scripting
         private KeyboardService keyboardService;
         private Point direction = new Point(0, -Constants.CELL_SIZE);
         private Point direction2 = new Point(0, -Constants.CELL_SIZE);
+        private Director _director;
 
         /// <summary>
         /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
         /// </summary>
         public ControlActorsAction(KeyboardService keyboardService)
         {
+            this.keyboardService = keyboardService;            
+        }
+        public ControlActorsAction(KeyboardService keyboardService, Director director)
+        {
             this.keyboardService = keyboardService;
+            _director = director;
         }
 
         /// <inheritdoc/>
@@ -75,6 +81,14 @@ namespace Unit05.Game.Scripting
             {
                 direction2 = new Point(0, Constants.CELL_SIZE);
             }
+
+            // restart
+            // if (keyboardService.IsKeyDown("r"))
+            // {
+            //     //_director.GetVideoService().CloseWindow();
+            //     //_director.GetVideoService().OpenWindow();
+            //     //_director.StartGame(cast, script);
+            // }
 
             // Snake snake = (Snake)cast.GetFirstActor("snake");
             // snake.TurnHead(direction);

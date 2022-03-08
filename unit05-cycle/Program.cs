@@ -32,8 +32,10 @@ namespace Unit05
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);
            
+            //Director director = new Director(videoService);
             // create the script
             Script script = new Script();
+            //script.AddAction("input", new ControlActorsAction(keyboardService, director));
             script.AddAction("input", new ControlActorsAction(keyboardService));
             script.AddAction("update", new MoveActorsAction());
             script.AddAction("update", new HandleCollisionsAction());
@@ -42,6 +44,16 @@ namespace Unit05
             // start the game
             Director director = new Director(videoService);
             director.StartGame(cast, script);
+            // bool isRDown = false;
+            // do
+            // {
+            //     isRDown = false;
+            //     isRDown = director.StartGame(cast, script, keyboardService);
+            //     if (isRDown == false)
+            //     {
+            //         break;
+            //     }
+            // } while (isRDown);          
         }
     }
 }
