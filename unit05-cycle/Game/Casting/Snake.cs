@@ -74,6 +74,23 @@ namespace Unit05.Game.Casting
                 segments.Add(segment);
             }
         }
+        public void GrowTail(int numberOfSegments, Color tailColor)
+        {
+            for (int i = 0; i < numberOfSegments; i++)
+            {
+                Actor tail = segments.Last<Actor>();
+                Point velocity = tail.GetVelocity();
+                Point offset = velocity.Reverse();
+                Point position = tail.GetPosition().Add(offset);
+
+                Actor segment = new Actor();
+                segment.SetPosition(position);
+                segment.SetVelocity(velocity);
+                segment.SetText("#");
+                segment.SetColor(tailColor);
+                segments.Add(segment);
+            }
+        }
 
         /// <inheritdoc/>
         public override void MoveNext()

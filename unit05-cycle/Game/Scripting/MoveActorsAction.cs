@@ -54,10 +54,16 @@ namespace Unit05.Game.Scripting
             {
                 snakes.Add((Snake)actor);
             }
-            foreach (Snake snake in snakes)
+            for (int i = 0; i < snakes.Count; i++)
             {
+                Snake snake = snakes[i];
                 int points = 1;
-                snake.GrowTail(points);
+                Color tailColor = Constants.GREEN;
+                if (i != 0)                
+                {
+                    tailColor = Constants.BLUE;
+                }
+                snake.GrowTail(points, tailColor);
             }
         }
         
