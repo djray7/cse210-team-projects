@@ -90,6 +90,15 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == true)
             {
+                
+                
+                List<Actor> snakes = cast.GetActors("snake");
+                foreach (Actor actor in snakes)
+                {
+                    snakes.Add((Snake)actor);
+                    
+                }
+                
                 Snake snake = (Snake)cast.GetFirstActor("snake");
                 List<Actor> segments = snake.GetSegments();
                 //Food food = (Food)cast.GetFirstActor("food");
