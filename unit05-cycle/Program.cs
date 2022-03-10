@@ -25,7 +25,7 @@ namespace Unit05
             cast.AddActor("snake", new Snake(300, Constants.RED, Constants.YELLOW));
             cast.AddActor("snake", new Snake(600, Constants.WHITE, Constants.GREEN));
             cast.AddActor("player1", new Player(1, 0));
-            cast.AddActor("player2", new Player(2, 400));
+            cast.AddActor("player2", new Player(2, 830));
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();

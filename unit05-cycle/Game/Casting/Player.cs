@@ -17,7 +17,6 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Constructs a new instance of an Food.
         /// </summary>
-        protected List<Actor> segments = new List<Actor>();
         public Player(int player, int numberPoint)
         {
             AddPoints(numberPoint, player);
@@ -30,13 +29,10 @@ namespace Unit05.Game.Casting
         /// <param name="points">The points to add.</param>
         public void AddPoints(int points, int player)
         {
-            Point position = new Point(points, 300);
-            Actor segment = new Actor();
-            segment.SetPosition(position);
-            segment.SetText($"player {player}");
-            segments.Add(segment);
-            
+            SetPosition(new Point(points, 0));
+            SetText($"Player {player}");
 
         }
+
     }
 }
