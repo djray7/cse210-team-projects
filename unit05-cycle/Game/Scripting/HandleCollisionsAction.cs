@@ -90,8 +90,24 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == true)
             {
-                Snake snake = (Snake)cast.GetFirstActor("snake");
-                List<Actor> segments = snake.GetSegments();
+                List<Actor> actors = cast.GetActors("snake");
+                List<Snake> snakes = new List<Snake>();
+                List<Actor> segments = new List<Actor>();
+                foreach (Actor actor in actors)
+                {
+                    snakes.Add((Snake)actor);                    
+                }
+                foreach (Snake snake in snakes)
+                {
+                    List<Actor> body = snake.GetSegments();
+                    foreach (Actor s in body)
+                    {
+                        segments.Add(s);
+                    }                    
+                }
+                
+                //Snake snake = (Snake)cast.GetFirstActor("snake");
+                //List<Actor> segments = snake.GetSegments();
                 //Food food = (Food)cast.GetFirstActor("food");
 
                 // create a "game over" message
@@ -107,7 +123,7 @@ namespace Unit05.Game.Scripting
                 // make everything white
                 foreach (Actor segment in segments)
                 {
-                    segment.SetColor(Constants.WHITE);
+                    segment.SetColor(Constants.BLUE);
                 }
                 //food.SetColor(Constants.WHITE);
             }
