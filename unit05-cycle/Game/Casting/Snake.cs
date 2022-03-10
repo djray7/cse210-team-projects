@@ -70,7 +70,7 @@ namespace Unit05.Game.Casting
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
-                segment.SetColor(Constants.GREEN);
+                segment.SetColor(snakeBodyColor);
                 segments.Add(segment);
             }
         }
@@ -87,7 +87,7 @@ namespace Unit05.Game.Casting
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
-                segment.SetColor(tailColor);
+                segment.SetColor(snakeBodyColor);
                 segments.Add(segment);
             }
         }

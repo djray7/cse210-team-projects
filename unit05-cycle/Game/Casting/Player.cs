@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Unit05.Game.Casting
@@ -9,26 +11,28 @@ namespace Unit05.Game.Casting
     /// The responsibility of Food is to select a random position and points that it's worth.
     /// </para>
     /// </summary>
-    public class Score : Actor
+    public class Player : Actor
     {
-        private int points = 0;
 
         /// <summary>
         /// Constructs a new instance of an Food.
         /// </summary>
-        public Score()
+        public Player(int player, int numberPoint)
         {
-            AddPoints(0);
+            AddPoints(numberPoint, player);
+           
         }
 
         /// <summary>
         /// Adds the given points to the score.
         /// </summary>
         /// <param name="points">The points to add.</param>
-        public void AddPoints(int points)
+        public void AddPoints(int points, int player)
         {
-            this.points += points;
-            SetText($"Score: {this.points}");
-        } 
+            SetPosition(new Point(points, 0));
+            SetText($"Player {player}");
+
+        }
+
     }
 }
