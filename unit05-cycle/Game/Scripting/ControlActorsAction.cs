@@ -92,7 +92,6 @@ namespace Unit05.Game.Scripting
 
             // Snake snake = (Snake)cast.GetFirstActor("snake");
             // snake.TurnHead(direction);
-
             // Snake snake2 = (Snake)cast.GetFirstActor("snake");
             // snake2.TurnHead(direction2);
             List<Actor> actors = cast.GetActors("snake");
@@ -100,11 +99,23 @@ namespace Unit05.Game.Scripting
             foreach (Actor actor in actors)
             {
                 snakes.Add((Snake)actor);
+            }            
+            for (int i = 0; i < snakes.Count; i++)
+            {
+                Snake snake = snakes[i];
+                if (i == 0)
+                {
+                    snake.TurnHead(direction);
+                }
+                else
+                {
+                    snake.TurnHead(direction2);
+                }
             }
-            Snake player1 = snakes[0];
-            Snake player2 = snakes[1];
-            player1.TurnHead(direction);
-            player2.TurnHead(direction2);
+            // Snake player1 = snakes[0];
+            // // Snake player2 = snakes[1];
+            // player1.TurnHead(direction);
+            // // player2.TurnHead(direction2);
         }
     }
 }

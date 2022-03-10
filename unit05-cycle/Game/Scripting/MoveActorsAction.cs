@@ -47,9 +47,24 @@ namespace Unit05.Game.Scripting
 
         public void GrowSnake(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            int points = 1;
-            snake.GrowTail(points);
+            //Snake snake = (Snake)cast.GetFirstActor("snake");
+            List<Actor> actors = cast.GetActors("snake");
+            List<Snake> snakes = new List<Snake>();
+            foreach (Actor actor in actors)
+            {
+                snakes.Add((Snake)actor);
+            }
+            for (int i = 0; i < snakes.Count; i++)
+            {
+                Snake snake = snakes[i];
+                int points = 1;
+                Color tailColor = Constants.GREEN;
+                if (i != 0)                
+                {
+                    tailColor = Constants.BLUE;
+                }
+                snake.GrowTail(points, tailColor);
+            }
         }
         
 

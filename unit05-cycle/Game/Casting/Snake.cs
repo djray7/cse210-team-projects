@@ -10,14 +10,20 @@ namespace Unit05.Game.Casting
     /// </summary>
     public class Snake : Actor
     {
+        protected Color snakeBodyColor;
+        protected Color snakeHeadColor;
+        protected int snake_x;
         protected List<Actor> segments = new List<Actor>();
 
         /// <summary>
         /// Constructs a new instance of a Snake.
         /// </summary>
-        public Snake(int x)
+        public Snake(int x, Color body, Color head)
         {
-            private int snake_x = x;
+            snakeBodyColor = body;
+            snakeHeadColor = head;
+            //snake_x = x;
+            PrepareBody(x);
         }
 
         /// <summary>
@@ -64,7 +70,24 @@ namespace Unit05.Game.Casting
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
                 segment.SetText("#");
-                segment.SetColor(Constants.GREEN);
+                segment.SetColor(snakeBodyColor);
+                segments.Add(segment);
+            }
+        }
+        public void GrowTail(int numberOfSegments, Color tailColor)
+        {
+            for (int i = 0; i < numberOfSegments; i++)
+            {
+                Actor tail = segments.Last<Actor>();
+                Point velocity = tail.GetVelocity();
+                Point offset = velocity.Reverse();
+                Point position = tail.GetPosition().Add(offset);
+
+                Actor segment = new Actor();
+                segment.SetPosition(position);
+                segment.SetVelocity(velocity);
+                segment.SetText("#");
+                segment.SetColor(snakeBodyColor);
                 segments.Add(segment);
             }
         }
@@ -100,15 +123,41 @@ namespace Unit05.Game.Casting
         /// </summary>
         protected virtual void PrepareBody()
         {
-            int x = 100;
+            // int x = Constants.MAX_X / 4;
+            // int y = Constants.MAX_Y / 2;
+            int x = snake_x;
+            int y = 300;
+
+            for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
+            {
+                // Point position = new Point(x - i * Constants.CELL_SIZE, y);
+                // Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
+                Point position = new Point(x, y + i * Constants.CELL_SIZE);
+                Point velocity = new Point(0, -1 * Constants.CELL_SIZE);
+                string text = i == 0 ? "8" : "#";
+                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+
+                Actor segment = new Actor();
+                segment.SetPosition(position);
+                segment.SetVelocity(velocity);
+                segment.SetText(text);
+                segment.SetColor(color);
+                segments.Add(segment);
+            }
+        }
+        protected virtual void PrepareBody(int startX)
+        {
+            int x = startX;
             int y = Constants.MAX_Y / 2;
 
             for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
             {
-                Point position = new Point(x - i * Constants.CELL_SIZE, y);
-                Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
+                // Point position = new Point(x - i * Constants.CELL_SIZE, y);
+                // Point velocity = new Point(1 * Constants.CELL_SIZE, 0);
+                Point position = new Point(x, y + i * Constants.CELL_SIZE);
+                Point velocity = new Point(0, -1 * Constants.CELL_SIZE);
                 string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
+                Color color = i == 0 ? snakeHeadColor : snakeBodyColor;
 
                 Actor segment = new Actor();
                 segment.SetPosition(position);
