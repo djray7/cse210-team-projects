@@ -29,6 +29,6 @@ namespace Unit05.Game.Casting
         {
             this.points += points;
             SetText($"Score: {this.points}");
-        }
+        } 
     }
 }
