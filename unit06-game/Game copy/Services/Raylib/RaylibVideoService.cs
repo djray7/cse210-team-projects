@@ -38,16 +38,16 @@ namespace Unit06.Game.Services
         /// </inheritdoc>
         public void DrawImage(Casting.Image image, Casting.Point position)
         {
-            string filename = image.GetFilename();
-            if (!textures.ContainsKey(filename))
-            {
-                Raylib_cs.Texture2D loaded = Raylib.LoadTexture(filename);
-                textures[filename] = loaded;
-            }
-            Raylib_cs.Texture2D texture = textures[filename];
-            int x = position.GetX();
-            int y = position.GetY();
-            Raylib.DrawTexture(texture, x, y, Raylib_cs.Color.WHITE);
+            // string filename = image.GetFilename();
+            // if (!textures.ContainsKey(filename))
+            // {
+            //     Raylib_cs.Texture2D loaded = Raylib.LoadTexture(filename);
+            //     textures[filename] = loaded;
+            // }
+            // Raylib_cs.Texture2D texture = textures[filename];
+            // int x = position.GetX();
+            // int y = position.GetY();
+            // Raylib.DrawTexture(texture, x, y, Raylib_cs.Color.WHITE);
         }
 
         /// </inheritdoc>
@@ -168,8 +168,8 @@ namespace Unit06.Game.Services
             List<string> results = new List<string>();
             foreach (string filter in filters)
             {
-                string[] filepaths = Directory.GetFiles(directory, filter);
-                results.AddRange(filepaths);
+                //string[] filepaths = Directory.GetFiles(directory, filter);
+                //results.AddRange(filepaths);
             }
             return results;
         }

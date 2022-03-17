@@ -38,12 +38,12 @@ namespace Unit06.Game.Services
         /// </inheritdoc>
         public void PlaySound(Casting.Sound sound)
         {
-            string filename = sound.GetFilename();
-            if (sounds.ContainsKey(filename))
-            {
-                Raylib_cs.Sound raylibSound = sounds[filename];
-                Raylib.PlaySound(raylibSound);
-            }
+            // string filename = sound.GetFilename();
+            // if (sounds.ContainsKey(filename))
+            // {
+            //     Raylib_cs.Sound raylibSound = sounds[filename];
+            //     Raylib.PlaySound(raylibSound);
+            // }
         }
 
         /// </inheritdoc>
@@ -67,8 +67,8 @@ namespace Unit06.Game.Services
             List<string> results = new List<string>();
             foreach (string filter in filters)
             {
-                string[] filepaths = Directory.GetFiles(directory, filter);
-                results.AddRange(filepaths);
+                //string[] filepaths = Directory.GetFiles(directory, filter);
+                //results.AddRange(filepaths);
             }
             return results;
         }
