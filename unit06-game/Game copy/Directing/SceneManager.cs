@@ -192,6 +192,21 @@ namespace Unit06.Game.Directing
             }
         }
 
+        private void AddSquares(Cast cast)
+        {
+            cast.ClearActors(Constants.SQUARE_GROUP);
+
+            // it all connects together not sure if need it all. But drawing the squares of board should be similar
+            // to all the blocks of the batter game.
+
+            // int x = Constants.FIELD_LEFT + c * Constants.SQUARE_WIDTH;
+            // int y = Constants.FIELD_TOP + r * Constants.SQUARE_HEIGHT;
+
+            // Point position = new Point(x, y);
+            Point size = new Point(Constants.SQUARE_WIDTH, Constants.SQUARE_HEIGHT);
+            Point velocity = new Point(0, 0);
+        }
+
         private void AddDialog(Cast cast, string message)
         {
             cast.ClearActors(Constants.DIALOG_GROUP);
