@@ -15,8 +15,8 @@ namespace Unit06
         public static int FRAME_RATE = 60;
 
         // SCREEN
-        public static int SCREEN_WIDTH = 1040;
-        public static int SCREEN_HEIGHT = 680;
+        public static int SCREEN_WIDTH = 1000;
+        public static int SCREEN_HEIGHT = 1000;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
 
@@ -173,6 +173,12 @@ namespace Unit06
         public static double BRICK_DELAY = 0.5;
         public static int BRICK_RATE = 4;
         public static int BRICK_POINTS = 50;
+
+        // SQUARE (for chess board)
+
+        public static string SQUARE_GROUP = "squares";
+        public static int SQUARE_WIDTH = 100;
+        public static int SQUARE_HEIGHT = 100;
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
