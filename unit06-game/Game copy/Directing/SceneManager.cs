@@ -51,7 +51,7 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-            AddBall(cast);
+            AddChess(cast);
             AddBricks(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
@@ -68,15 +68,15 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-        private void ActivateBall(Cast cast)
+        private void ActivateChess(Cast cast)
         {
-            //Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            //ball.Release();
+            ChessPlayers Chess = (ChessPlayers)cast.GetFirstActor(Constants.CHESS_GROUP);
+            //Chess.Release();
         }
 
         private void PrepareNextLevel(Cast cast, Script script)
         {
-            AddBall(cast);
+            AddChess(cast);
             AddBricks(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
@@ -94,7 +94,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareTryAgain(Cast cast, Script script)
         {
-            AddBall(cast);
+            AddChess(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
@@ -109,7 +109,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareInPlay(Cast cast, Script script)
         {
-            ActivateBall(cast);
+            ActivateChess(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
@@ -124,7 +124,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareGameOver(Cast cast, Script script)
         {
-            AddBall(cast);
+            AddChess(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
@@ -140,15 +140,15 @@ namespace Unit06.Game.Directing
         // casting methods
         // -----------------------------------------------------------------------------------------
 
-        private void AddBall(Cast cast)
+        private void AddChess(Cast cast)
         {
-            cast.ClearActors(Constants.BALL_GROUP);
+            cast.ClearActors(Constants.CHESS_GROUP);
         
-            int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
+            int x = Constants.CENTER_X - Constants.CHESS_WIDTH / 2;
+            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.CHESS_HEIGHT;
         
             Point position = new Point(x, y);
-            Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
+            Point size = new Point(Constants.CHESS_WIDTH, Constants.CHESS_HEIGHT);
             Point velocity = new Point(0, 0);
         
             //Body body = new Body(position, size, velocity);
@@ -315,7 +315,7 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
+            //script.AddAction(Constants.OUTPUT, new DrawChessAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));

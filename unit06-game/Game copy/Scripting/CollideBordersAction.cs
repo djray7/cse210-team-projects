@@ -17,8 +17,8 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            // Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            // Body body = ball.GetBody();
+            ChessPlayers Chess = (ChessPlayers)cast.GetFirstActor(Constants.CHESS_GROUP);
+            Body body = Chess.GetBody();
             // Point position = body.GetPosition();
             // int x = position.GetX();
             // int y = position.GetY();
@@ -38,7 +38,7 @@ namespace Unit06.Game.Scripting
 
             // if (y < Constants.FIELD_TOP)
             // {
-            //     ball.BounceY();
+            //     Chess.BounceY();
             //     audioService.PlaySound(bounceSound);
             // }
             // else if (y >= Constants.FIELD_BOTTOM - Constants.BALL_WIDTH)
@@ -55,7 +55,7 @@ namespace Unit06.Game.Scripting
             //         callback.OnNext(Constants.GAME_OVER);
             //         audioService.PlaySound(overSound);
             //     }
-            //}
+            // }
         }
     }
 }

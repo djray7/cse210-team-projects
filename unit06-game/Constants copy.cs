@@ -96,11 +96,12 @@ namespace Unit06
         public static string SCORE_FORMAT = "SCORE: {0}";
 
         // Chess
-        public static string BALL_GROUP = "Chess";
-        public static string BALL_PLAYER = "K";
-        public static int BALL_WIDTH = 28;
-        public static int BALL_HEIGHT = 28;
-        //public static int BALL_VELOCITY = 6;
+        public static string CHESS_GROUP = "Chess";
+        public static string CHESS_PLAYER = "Assets/Images/000.png";
+        public static int CHESS_WIDTH = 28;
+        public static int CHESS_HEIGHT = 28;
+
+        //public static CHESS_VELOCITY = 6;
 
         // RACKET
         public static string RACKET_GROUP = "rackets";
