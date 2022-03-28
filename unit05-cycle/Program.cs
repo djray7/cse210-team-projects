@@ -21,11 +21,50 @@ namespace Unit05
             // create the cast
             Cast cast = new Cast();
 
-            //cast.AddActor("food", new Food());
-            cast.AddActor("snake", new Snake(300, Constants.RED, Constants.YELLOW));
-            cast.AddActor("snake", new Snake(600, Constants.WHITE, Constants.GREEN));
-            cast.AddActor("player1", new Player(1, 0));
-            cast.AddActor("player2", new Player(2, 830));
+            int x = Constants.CELL_SIZE+10;
+            int y = Constants.CELL_SIZE+5;
+            //player 1
+            cast.AddActor("pieces", new Pieces(y*8, x, Constants.RED, Constants.YELLOW, "C" ));
+            cast.AddActor("pieces", new Pieces(y*7, x, Constants.RED, Constants.YELLOW, "H" ));
+            cast.AddActor("pieces", new Pieces(y*6, x, Constants.RED, Constants.YELLOW, "B" ));
+            cast.AddActor("pieces", new Pieces(y*5, x, Constants.RED, Constants.YELLOW, "K" ));
+            cast.AddActor("pieces", new Pieces(y*4, x, Constants.RED, Constants.YELLOW, "Q" ));
+            cast.AddActor("pieces", new Pieces(y*3, x, Constants.RED, Constants.YELLOW, "B" ));
+            cast.AddActor("pieces", new Pieces(y*2, x, Constants.RED, Constants.YELLOW, "H" ));
+            cast.AddActor("pieces", new Pieces(y, x, Constants.RED, Constants.YELLOW, "C" ));
+
+            cast.AddActor("pieces", new Pieces(y*8, x*2, Constants.RED, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*7, x*2, Constants.RED, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*6, x*2, Constants.RED, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*5, x*2, Constants.RED, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*4, x*2, Constants.RED, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*3, x*2, Constants.RED, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*2, x*2, Constants.RED, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y, x*2, Constants.RED, Constants.YELLOW, "P" ));
+            
+
+            //player 2
+            cast.AddActor("pieces", new Pieces(y*8, x*7, Constants.BLUE, Constants.GREEN, "C" ));
+            cast.AddActor("pieces", new Pieces(y*7, x*7, Constants.BLUE, Constants.GREEN, "H" ));
+            cast.AddActor("pieces", new Pieces(y*6, x*7, Constants.BLUE, Constants.GREEN, "B" ));
+            cast.AddActor("pieces", new Pieces(y*5, x*7, Constants.BLUE, Constants.GREEN, "K" ));
+            cast.AddActor("pieces", new Pieces(y*4, x*7, Constants.BLUE, Constants.GREEN, "Q" ));
+            cast.AddActor("pieces", new Pieces(y*3, x*7, Constants.BLUE, Constants.GREEN, "B" ));
+            cast.AddActor("pieces", new Pieces(y*2, x*7, Constants.BLUE, Constants.GREEN, "H" ));
+            cast.AddActor("pieces", new Pieces(y, x*7, Constants.BLUE, Constants.GREEN, "C" ));
+
+            cast.AddActor("pieces", new Pieces(y*8, x*6, Constants.BLUE, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*7, x*6, Constants.BLUE, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*6, x*6, Constants.BLUE, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*5, x*6, Constants.BLUE, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*4, x*6, Constants.BLUE, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*3, x*6, Constants.BLUE, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y*2, x*6, Constants.BLUE, Constants.YELLOW, "P" ));
+            cast.AddActor("pieces", new Pieces(y, x*6, Constants.BLUE, Constants.YELLOW, "P" ));
+
+            // to pring the players 
+            cast.AddActor("player1", new Player(1, 0, 0));
+            cast.AddActor("player2", new Player(2, 0, x*8));
 
             // create the services
             KeyboardService keyboardService = new KeyboardService();

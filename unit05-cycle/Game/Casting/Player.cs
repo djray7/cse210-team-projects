@@ -17,9 +17,9 @@ namespace Unit05.Game.Casting
         /// <summary>
         /// Constructs a new instance of an Food.
         /// </summary>
-        public Player(int player, int numberPoint)
+        public Player(int player, int numberPoint, int y)
         {
-            AddPoints(numberPoint, player);
+            AddPoints(numberPoint, player, y);
            
         }
 
@@ -27,9 +27,9 @@ namespace Unit05.Game.Casting
         /// Adds the given points to the score.
         /// </summary>
         /// <param name="points">The points to add.</param>
-        public void AddPoints(int points, int player)
+        public void AddPoints(int points, int player, int y)
         {
-            SetPosition(new Point(points, 0));
+            SetPosition(new Point(points, y));
             SetText($"Player {player}");
 
         }
