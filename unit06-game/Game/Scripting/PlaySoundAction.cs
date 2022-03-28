@@ -17,9 +17,9 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            // Sound sound = new Sound(filename);
-            // audioService.PlaySound(sound);
-            // script.RemoveAction(Constants.OUTPUT, this);
+            Sound sound = new Sound(filename);
+            audioService.PlaySound(sound);
+            script.RemoveAction(Constants.OUTPUT, this);
         }
     }
 }

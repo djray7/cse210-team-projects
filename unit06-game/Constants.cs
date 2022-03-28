@@ -15,8 +15,8 @@ namespace Unit06
         public static int FRAME_RATE = 60;
 
         // SCREEN
-        public static int SCREEN_WIDTH = 1000;
-        public static int SCREEN_HEIGHT = 1000;
+        public static int SCREEN_WIDTH = 800;
+        public static int SCREEN_HEIGHT = 875;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
 
@@ -95,13 +95,12 @@ namespace Unit06
         public static string LIVES_FORMAT = "LIVES: {0}";
         public static string SCORE_FORMAT = "SCORE: {0}";
 
-        // Chess
-        public static string CHESS_GROUP = "Chess";
-        public static string CHESS_PLAYER = "Assets/Images/000.png";
-        public static int CHESS_WIDTH = 28;
-        public static int CHESS_HEIGHT = 28;
-
-        //public static CHESS_VELOCITY = 6;
+        // BALL
+        public static string BALL_GROUP = "balls";
+        public static string BALL_IMAGE = "Assets/Images/000.png";
+        public static int BALL_WIDTH = 28;
+        public static int BALL_HEIGHT = 28;
+        public static int BALL_VELOCITY = 6;
 
         // RACKET
         public static string RACKET_GROUP = "rackets";
@@ -124,7 +123,7 @@ namespace Unit06
         public static Dictionary<string, List<string>> BRICK_IMAGES
             = new Dictionary<string, List<string>>() {
                 { "b", new List<string>() {
-                    "Assets/Images/010.png",
+                    "Assets/Images/white_square.png",
                     "Assets/Images/011.png",
                     "Assets/Images/012.png",
                     "Assets/Images/013.png",
@@ -135,15 +134,15 @@ namespace Unit06
                     "Assets/Images/018.png"
                 } },
                 { "g", new List<string>() {
-                    "Assets/Images/020.png",
-                    "Assets/Images/021.png",
-                    "Assets/Images/022.png",
-                    "Assets/Images/023.png",
-                    "Assets/Images/024.png",
-                    "Assets/Images/025.png",
-                    "Assets/Images/026.png",
-                    "Assets/Images/027.png",
-                    "Assets/Images/028.png"
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png"
                 } },
                 { "p", new List<string>() {
                     "Assets/Images/030.png",
@@ -174,12 +173,6 @@ namespace Unit06
         public static double BRICK_DELAY = 0.5;
         public static int BRICK_RATE = 4;
         public static int BRICK_POINTS = 50;
-
-        // SQUARE (for chess board)
-
-        public static string SQUARE_GROUP = "squares";
-        public static int SQUARE_WIDTH = 100;
-        public static int SQUARE_HEIGHT = 100;  
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

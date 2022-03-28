@@ -51,7 +51,7 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-            AddChess(cast);
+            AddBall(cast);
             AddBricks(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
@@ -68,15 +68,15 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-        private void ActivateChess(Cast cast)
+        private void ActivateBall(Cast cast)
         {
-            ChessPlayers Chess = (ChessPlayers)cast.GetFirstActor(Constants.CHESS_GROUP);
-            //Chess.Release();
+            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
+            ball.Release();
         }
 
         private void PrepareNextLevel(Cast cast, Script script)
         {
-            AddChess(cast);
+            AddBall(cast);
             AddBricks(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
@@ -94,7 +94,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareTryAgain(Cast cast, Script script)
         {
-            AddChess(cast);
+            AddBall(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
@@ -109,7 +109,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareInPlay(Cast cast, Script script)
         {
-            ActivateChess(cast);
+            ActivateBall(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
@@ -124,7 +124,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareGameOver(Cast cast, Script script)
         {
-            AddChess(cast);
+            AddBall(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
@@ -140,22 +140,22 @@ namespace Unit06.Game.Directing
         // casting methods
         // -----------------------------------------------------------------------------------------
 
-        private void AddChess(Cast cast)
+        private void AddBall(Cast cast)
         {
-            cast.ClearActors(Constants.CHESS_GROUP);
+            cast.ClearActors(Constants.BALL_GROUP);
         
-            int x = Constants.CENTER_X - Constants.CHESS_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.CHESS_HEIGHT;
+            int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
+            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
         
             Point position = new Point(x, y);
-            Point size = new Point(Constants.CHESS_WIDTH, Constants.CHESS_HEIGHT);
+            Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
             Point velocity = new Point(0, 0);
         
-            //Body body = new Body(position, size, velocity);
-            //Image image = new Image(Constants.BALL_IMAGE);
-            //Ball ball = new Ball(body, image, false);
-        //
-            //cast.AddActor(Constants.BALL_GROUP, ball);
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.BALL_IMAGE);
+            Ball ball = new Ball(body, image, false);
+        
+            cast.AddActor(Constants.BALL_GROUP, ball);
         }
 
         private void AddBricks(Cast cast)
@@ -169,43 +169,27 @@ namespace Unit06.Game.Directing
 
             for (int r = 0; r < rows.Count; r++)
             {
-               for (int c = 0; c < rows[r].Count; c++)
-               {
-                   int x = Constants.FIELD_LEFT + c * Constants.BRICK_WIDTH;
-                   int y = Constants.FIELD_TOP + r * Constants.BRICK_HEIGHT;
+                for (int c = 0; c < rows[r].Count; c++)
+                {
+                    int x = Constants.FIELD_LEFT + c * Constants.BRICK_WIDTH;
+                    int y = Constants.FIELD_TOP + r * Constants.BRICK_HEIGHT;
 
-                   string color = rows[r][c][0].ToString();
-                   int frames = (int)Char.GetNumericValue(rows[r][c][1]);
-                   int points = Constants.BRICK_POINTS;
+                    string color = rows[r][c][0].ToString();
+                    int frames = (int)Char.GetNumericValue(rows[r][c][1]);
+                    int points = Constants.BRICK_POINTS;
 
-                   Point position = new Point(x, y);
-                   Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
-                   Point velocity = new Point(0, 0);
-                   List<string> images = Constants.BRICK_IMAGES[color].GetRange(0, frames);
+                    Point position = new Point(x, y);
+                    Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
+                    Point velocity = new Point(0, 0);
+                    List<string> images = Constants.BRICK_IMAGES[color].GetRange(0, frames);
 
-                   Body body = new Body(position, size, velocity);
-                   Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
-                   
-                   Brick brick = new Brick(body, animation, points, false);
-                   cast.AddActor(Constants.BRICK_GROUP, brick);
-               }
+                    Body body = new Body(position, size, velocity);
+                    Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
+                    
+                    Brick brick = new Brick(body, animation, points, false);
+                    cast.AddActor(Constants.BRICK_GROUP, brick);
+                }
             }
-        }
-
-        private void AddSquares(Cast cast)
-        {
-            cast.ClearActors(Constants.SQUARE_GROUP);
-
-       
-            // it all connects together not sure if need it all. But drawing the squares of board should be similar
-            // to all the blocks of the batter game.
-
-            // int x = Constants.FIELD_LEFT + c * Constants.SQUARE_WIDTH;
-            // int y = Constants.FIELD_TOP + r * Constants.SQUARE_HEIGHT;
-
-            // Point position = new Point(x, y);
-            Point size = new Point(Constants.SQUARE_WIDTH, Constants.SQUARE_HEIGHT);
-            Point velocity = new Point(0, 0);
         }
 
         private void AddDialog(Cast cast, string message)
@@ -316,7 +300,7 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            //script.AddAction(Constants.OUTPUT, new DrawChessAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
@@ -340,7 +324,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
             script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
-            // script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
     }
