@@ -62,6 +62,7 @@ namespace Unit06
 
         // LEVELS
         public static string LEVEL_FILE = "Assets/Data/level-001.txt";
+        public static string LEVEL_FILE1 = "Assets/Data/level-002.txt";
         public static int BASE_LEVELS = 5;
 
         // ----------------------------------------------------------------------------------------- 
@@ -145,7 +146,7 @@ namespace Unit06
                     "Assets/Images/black_square.png"
                 } },
                 { "p", new List<string>() {
-                    "Assets/Images/030.png",
+                    "Assets/Images/black_pawn.png",
                     "Assets/Images/031.png",
                     "Assets/Images/032.png",
                     "Assets/Images/033.png",
