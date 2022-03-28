@@ -61,7 +61,7 @@ namespace Unit06
         public static string GAME_OVER = "game_over";
 
         // LEVELS
-        public static string LEVEL_FILE = "Assets/Data/level-{0:000}.txt";
+        public static string LEVEL_FILE = "Assets/Data/level-001.txt";
         public static int BASE_LEVELS = 5;
 
         // ----------------------------------------------------------------------------------------- 
@@ -169,8 +169,8 @@ namespace Unit06
                 } }
         };
 
-        public static int BRICK_WIDTH = 80;
-        public static int BRICK_HEIGHT = 28;
+        public static int BRICK_WIDTH = 100;
+        public static int BRICK_HEIGHT = 100;
         public static double BRICK_DELAY = 0.5;
         public static int BRICK_RATE = 4;
         public static int BRICK_POINTS = 50;
@@ -179,7 +179,7 @@ namespace Unit06
 
         public static string SQUARE_GROUP = "squares";
         public static int SQUARE_WIDTH = 100;
-        public static int SQUARE_HEIGHT = 100;
+        public static int SQUARE_HEIGHT = 100;  
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

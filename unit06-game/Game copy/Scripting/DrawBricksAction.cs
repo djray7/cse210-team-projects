@@ -16,25 +16,25 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-        //     List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
-        //     foreach (Actor actor in bricks)
-        //     {
-        //         Brick brick = (Brick)actor;
-        //         Body body = brick.GetBody();
+            List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
+            foreach (Actor actor in bricks)
+            {
+                Brick brick = (Brick)actor;
+                Body body = brick.GetBody();
 
-        //         if (brick.IsDebug())
-        //         {
-        //             Rectangle rectangle = body.GetRectangle();
-        //             Point size = rectangle.GetSize();
-        //             Point pos = rectangle.GetPosition();
-        //             videoService.DrawRectangle(size, pos, Constants.PURPLE, false);
-        //         }
+                if (brick.IsDebug())
+                {
+                    Rectangle rectangle = body.GetRectangle();
+                    Point size = rectangle.GetSize();
+                    Point pos = rectangle.GetPosition();
+                    videoService.DrawRectangle(size, pos, Constants.PURPLE, false);
+                }
 
-        //         Animation animation = brick.GetAnimation();
-        //         Image image = animation.NextImage();
-        //         Point position = body.GetPosition();
-        //         videoService.DrawImage(image, position);
-        //     }
+                Animation animation = brick.GetAnimation();
+                Image image = animation.NextImage();
+                Point position = body.GetPosition();
+                videoService.DrawImage(image, position);
+            }
         }
     }
 }
