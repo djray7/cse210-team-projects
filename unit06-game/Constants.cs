@@ -170,6 +170,8 @@ namespace Unit06
         };
 
         public static int BRICK_WIDTH = 100;
+
+         public static int PIECE_WIDTH = 50;
         public static int BRICK_HEIGHT = 100;
         public static double BRICK_DELAY = 0.5;
         public static int BRICK_RATE = 4;

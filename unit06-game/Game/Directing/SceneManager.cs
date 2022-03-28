@@ -215,7 +215,7 @@ namespace Unit06.Game.Directing
                     int points = Constants.BRICK_POINTS;
 
                     Point position = new Point(x, y);
-                    Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
+                    Point size = new Point(Constants.PIECE_WIDTH, Constants.BRICK_HEIGHT);
                     Point velocity = new Point(0, 0);
                     List<string> images = Constants.BRICK_IMAGES[color].GetRange(0, frames);
 
