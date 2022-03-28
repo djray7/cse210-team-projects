@@ -11,6 +11,7 @@ namespace Unit06.Game.Directing
     public class SceneManager
     {
         public static AudioService AudioService = new RaylibAudioService();
+        // use --------------------------------------------------------
         public static KeyboardService KeyboardService = new RaylibKeyboardService();
         public static MouseService MouseService = new RaylibMouseService();
         public static PhysicsService PhysicsService = new RaylibPhysicsService();
@@ -60,6 +61,7 @@ namespace Unit06.Game.Directing
             AddInitActions(script);
             AddLoadActions(script);
 
+            // ---------------------------------------------------------------------
             ChangeSceneAction a = new ChangeSceneAction(KeyboardService, Constants.NEXT_LEVEL);
             script.AddAction(Constants.INPUT, a);
 
@@ -114,6 +116,7 @@ namespace Unit06.Game.Directing
 
             script.ClearAllActions();
 
+            // use --------------------------------------------
             ControlRacketAction action = new ControlRacketAction(KeyboardService);
             script.AddAction(Constants.INPUT, action);
 

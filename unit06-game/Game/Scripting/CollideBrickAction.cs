@@ -21,7 +21,9 @@ namespace Unit06.Game.Scripting
             Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
             List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
-            
+            // to make it disapear :) ----------------------------------------------------------
+
+            // ---------------------------------------------------------------------------------
             foreach (Actor actor in bricks)
             {
                 Brick brick = (Brick)actor;
