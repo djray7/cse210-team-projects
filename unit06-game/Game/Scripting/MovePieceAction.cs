@@ -1,7 +1,7 @@
 using Unit06.Game.Casting;
 namespace Unit06.Game.Scripting
 {
-    public class MovePieceAction : Action
+    public class MovePieceAction //: Action
     {
         // public MovePieceAction()
         // {

@@ -4,7 +4,7 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class CollidePieceAction : Action
+    public class CollidePieceAction //: Action
     {
         // private AudioService audioService;
         // private PhysicsService physicsService;
