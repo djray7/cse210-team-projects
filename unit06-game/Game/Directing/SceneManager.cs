@@ -73,8 +73,8 @@ namespace Unit06.Game.Directing
 
         private void ActivateBall(Cast cast)
         {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            ball.Release();
+            // Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
+            // ball.Release();
         }
 
         private void PrepareNextLevel(Cast cast, Script script)
@@ -158,9 +158,9 @@ namespace Unit06.Game.Directing
         
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.BALL_IMAGE);
-            Ball ball = new Ball(body, image, false);
+            // Ball ball = new Ball(body, image, false);
         
-            cast.AddActor(Constants.BALL_GROUP, ball);
+            // cast.AddActor(Constants.BALL_GROUP, ball);
         }
 
         private void AddBricks(Cast cast)
@@ -199,7 +199,7 @@ namespace Unit06.Game.Directing
 
         private void AddPieces(Cast cast)
         {
-            cast.ClearActors(Constants.BRICK_GROUP);
+            //cast.ClearActors(Constants.BRICK_GROUP);
 
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
             int level = stats.GetLevel() % Constants.BASE_LEVELS;
@@ -218,7 +218,7 @@ namespace Unit06.Game.Directing
                     int points = Constants.BRICK_POINTS;
 
                     Point position = new Point(x, y);
-                    Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
+                    Point size = new Point(Constants.PIECE_WIDTH, Constants.BRICK_HEIGHT);
                     Point velocity = new Point(0, 0);
                     List<string> images = Constants.BRICK_IMAGES[color].GetRange(0, frames);
 
@@ -339,7 +339,7 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
+            //script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
@@ -361,9 +361,9 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.UPDATE, new MoveBallAction());
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
-            script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
+            //script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
+            //script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
+            //script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
     }

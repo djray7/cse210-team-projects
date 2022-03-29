@@ -172,6 +172,7 @@ namespace Unit06
 
         public static int BRICK_WIDTH = 100;
 
+         public static int PIECE_WIDTH = 50;
         public static int BRICK_HEIGHT = 100;
         public static double BRICK_DELAY = 0.5;
         public static int BRICK_RATE = 4;
@@ -179,58 +180,58 @@ namespace Unit06
 
 
         // PIECES 
-        public static string PIECE_GROUP = "pieces";
-         public static Dictionary<string, List<string>> PIECE_IMAGES
-            = new Dictionary<string, List<string>>() {
-                { "b", new List<string>() {
-                    "Assets/Images/white_square.png",
-                    "Assets/Images/011.png",
-                    "Assets/Images/012.png",
-                    "Assets/Images/013.png",
-                    "Assets/Images/014.png",
-                    "Assets/Images/015.png",
-                    "Assets/Images/016.png",
-                    "Assets/Images/017.png",
-                    "Assets/Images/018.png"
-                } },
-                { "g", new List<string>() {
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png"
-                } },
-                { "p", new List<string>() {
-                    "Assets/Images/black_pawn.png",
-                    "Assets/Images/031.png",
-                    "Assets/Images/032.png",
-                    "Assets/Images/033.png",
-                    "Assets/Images/034.png",
-                    "Assets/Images/035.png",
-                    "Assets/Images/036.png",
-                    "Assets/Images/037.png",
-                    "Assets/Images/038.png"
-                } },
-                { "y", new List<string>() {
-                    "Assets/Images/040.png",
-                    "Assets/Images/041.png",
-                    "Assets/Images/042.png",
-                    "Assets/Images/043.png",
-                    "Assets/Images/044.png",
-                    "Assets/Images/045.png",
-                    "Assets/Images/046.png",
-                    "Assets/Images/047.png",
-                    "Assets/Images/048.png"
-                } }
-        };
-        public static int PIECE_WIDTH = 100;
-        public static int PIECE_HEIGHT = 100;
-        public static double PIECE_DELAY = 0.5;
-        public static int PIECE_RATE = 4;
+        // public static string PIECE_GROUP = "pieces";
+        //  public static Dictionary<string, List<string>> PIECE_IMAGES
+        //     = new Dictionary<string, List<string>>() {
+        //         { "b", new List<string>() {
+        //             "Assets/Images/white_square.png",
+        //             "Assets/Images/011.png",
+        //             "Assets/Images/012.png",
+        //             "Assets/Images/013.png",
+        //             "Assets/Images/014.png",
+        //             "Assets/Images/015.png",
+        //             "Assets/Images/016.png",
+        //             "Assets/Images/017.png",
+        //             "Assets/Images/018.png"
+        //         } },
+        //         { "g", new List<string>() {
+        //             "Assets/Images/black_square.png",
+        //             "Assets/Images/black_square.png",
+        //             "Assets/Images/black_square.png",
+        //             "Assets/Images/black_square.png",
+        //             "Assets/Images/black_square.png",
+        //             "Assets/Images/black_square.png",
+        //             "Assets/Images/black_square.png",
+        //             "Assets/Images/black_square.png",
+        //             "Assets/Images/black_square.png"
+        //         } },
+        //         { "p", new List<string>() {
+        //             "Assets/Images/black_pawn.png",
+        //             "Assets/Images/031.png",
+        //             "Assets/Images/032.png",
+        //             "Assets/Images/033.png",
+        //             "Assets/Images/034.png",
+        //             "Assets/Images/035.png",
+        //             "Assets/Images/036.png",
+        //             "Assets/Images/037.png",
+        //             "Assets/Images/038.png"
+        //         } },
+        //         { "y", new List<string>() {
+        //             "Assets/Images/040.png",
+        //             "Assets/Images/041.png",
+        //             "Assets/Images/042.png",
+        //             "Assets/Images/043.png",
+        //             "Assets/Images/044.png",
+        //             "Assets/Images/045.png",
+        //             "Assets/Images/046.png",
+        //             "Assets/Images/047.png",
+        //             "Assets/Images/048.png"
+        //         } }
+        // };
+        // public static int PIECE_WIDTH = 100;
+        // public static int PIECE_HEIGHT = 100;
+        // public static double PIECE_DELAY = 0.5;
+        // public static int PIECE_RATE = 4;
         //public static int BRICK_POINTS = 50;
         
 
