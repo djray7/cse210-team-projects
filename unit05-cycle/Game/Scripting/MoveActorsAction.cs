@@ -49,20 +49,21 @@ namespace Unit05.Game.Scripting
         {
             //Snake snake = (Snake)cast.GetFirstActor("snake");
             List<Actor> actors = cast.GetActors("snake");
-            List<Snake> snakes = new List<Snake>();
+            List<Pieces> snakes = new List<Pieces>();
             foreach (Actor actor in actors)
             {
-                snakes.Add((Snake)actor);
+                snakes.Add((Pieces)actor);
             }
             for (int i = 0; i < snakes.Count; i++)
             {
-                Snake snake = snakes[i];
+                Pieces snake = snakes[i];
                 int points = 1;
                 Color tailColor = Constants.GREEN;
                 if (i != 0)                
                 {
                     tailColor = Constants.BLUE;
                 }
+                 
                 snake.GrowTail(points, tailColor);
             }
         }

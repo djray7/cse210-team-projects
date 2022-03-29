@@ -4,16 +4,16 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class CollideRacketAction //: Action
+    public class CollidePieceAction //: Action
     {
-        private AudioService audioService;
-        private PhysicsService physicsService;
+        // private AudioService audioService;
+        // private PhysicsService physicsService;
         
-        public CollideRacketAction(PhysicsService physicsService, AudioService audioService)
-        {
-            this.physicsService = physicsService;
-            this.audioService = audioService;
-        }
+        // public CollidePieceAction(PhysicsService physicsService, AudioService audioService)
+        // {
+        //     this.physicsService = physicsService;
+        //     this.audioService = audioService;
+        // }
 
         // public void Execute(Cast cast, Script script, ActionCallback callback)
         // {
@@ -28,6 +28,6 @@ namespace Unit06.Game.Scripting
         //         Sound sound = new Sound(Constants.BOUNCE_SOUND);
         //         audioService.PlaySound(sound);
         //     }
-        // }
+        //}
     }
 }

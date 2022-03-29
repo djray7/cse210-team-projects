@@ -22,19 +22,19 @@ namespace Unit05.Game.Scripting
         }
 
         /// <inheritdoc/>
-        public void Execute(Cast cast, Script script)
+        public async void Execute(Cast cast, Script script)
         {
             videoService.ClearBuffer();            
 
-            List<Actor> actors = cast.GetActors("snake");
+            List<Actor> actors = cast.GetActors("pieces");
             
             foreach (Actor actor in actors)
             {
-                Snake snake = (Snake)actor;
+                Pieces snake = (Pieces)actor;
                 List<Actor> segments = snake.GetSegments();
                 videoService.DrawActors(segments);
             }            
-            
+           
             Actor player1 = cast.GetFirstActor("player1");
             Actor player2 = cast.GetFirstActor("player2");
             //Actor food = cast.GetFirstActor("food");

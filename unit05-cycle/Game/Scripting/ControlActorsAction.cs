@@ -94,15 +94,15 @@ namespace Unit05.Game.Scripting
             // snake.TurnHead(direction);
             // Snake snake2 = (Snake)cast.GetFirstActor("snake");
             // snake2.TurnHead(direction2);
-            List<Actor> actors = cast.GetActors("snake");
-            List<Snake> snakes = new List<Snake>();
+            List<Actor> actors = cast.GetActors("pieces");
+            List<Pieces> snakes = new List<Pieces>();
             foreach (Actor actor in actors)
             {
-                snakes.Add((Snake)actor);
+                snakes.Add((Pieces)actor);
             }            
             for (int i = 0; i < snakes.Count; i++)
             {
-                Snake snake = snakes[i];
+                Pieces snake = snakes[i];
                 if (i == 0)
                 {
                     snake.TurnHead(direction);

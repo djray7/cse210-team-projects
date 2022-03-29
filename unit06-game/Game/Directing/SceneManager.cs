@@ -11,6 +11,7 @@ namespace Unit06.Game.Directing
     public class SceneManager
     {
         public static AudioService AudioService = new RaylibAudioService();
+        // use --------------------------------------------------------
         public static KeyboardService KeyboardService = new RaylibKeyboardService();
         public static MouseService MouseService = new RaylibMouseService();
         public static PhysicsService PhysicsService = new RaylibPhysicsService();
@@ -61,6 +62,7 @@ namespace Unit06.Game.Directing
             AddInitActions(script);
             AddLoadActions(script);
 
+            // ---------------------------------------------------------------------
             ChangeSceneAction a = new ChangeSceneAction(KeyboardService, Constants.NEXT_LEVEL);
             script.AddAction(Constants.INPUT, a);
 
@@ -71,8 +73,8 @@ namespace Unit06.Game.Directing
 
         private void ActivateBall(Cast cast)
         {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            ball.Release();
+            // Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
+            // ball.Release();
         }
 
         private void PrepareNextLevel(Cast cast, Script script)
@@ -116,6 +118,7 @@ namespace Unit06.Game.Directing
 
             script.ClearAllActions();
 
+            // use --------------------------------------------
             ControlRacketAction action = new ControlRacketAction(KeyboardService);
             script.AddAction(Constants.INPUT, action);
 
@@ -155,9 +158,9 @@ namespace Unit06.Game.Directing
         
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.BALL_IMAGE);
-            Ball ball = new Ball(body, image, false);
+            // Ball ball = new Ball(body, image, false);
         
-            cast.AddActor(Constants.BALL_GROUP, ball);
+            // cast.AddActor(Constants.BALL_GROUP, ball);
         }
 
         private void AddBricks(Cast cast)
@@ -196,7 +199,7 @@ namespace Unit06.Game.Directing
 
         private void AddPieces(Cast cast)
         {
-            cast.ClearActors(Constants.BRICK_GROUP);
+            //cast.ClearActors(Constants.BRICK_GROUP);
 
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
             int level = stats.GetLevel() % Constants.BASE_LEVELS;
@@ -336,7 +339,7 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
+            //script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
@@ -358,9 +361,9 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.UPDATE, new MoveBallAction());
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
-            script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
+            //script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
+            //script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
+            //script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
     }

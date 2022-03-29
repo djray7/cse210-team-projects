@@ -12,16 +12,17 @@ namespace Unit05.Game
     /// </summary>
     public class Constants
     {
-        public static int COLUMNS = 40;
-        public static int ROWS = 20;
-        public static int CELL_SIZE = 15;
-        public static int MAX_X = 900;
+        public static int COLUMNS = 8;
+        public static int ROWS = 8;
+        public static int CELL_SIZE = 60;
+        public static int MAX_X = 600;
         public static int MAX_Y = 600;
 
         public static int FRAME_RATE = 15;
-        public static int FONT_SIZE = 15;
-        public static string CAPTION = "Cycles";
-        public static int SNAKE_LENGTH = 4;
+        public static int FONT_SIZE = 20;
+        public static string CAPTION = "Chess Game";
+        
+        //public static int SNAKE_LENGTH = 4;
 
         public static Color RED = new Color(255, 0, 0);
         public static Color WHITE = new Color(255, 255, 255);

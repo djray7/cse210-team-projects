@@ -43,7 +43,7 @@ namespace Unit05.Game.Scripting
         /// <param name="cast">The cast of actors.</param>
         private void HandleFoodCollisions(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
+            Pieces snake = (Pieces)cast.GetFirstActor("pieces");
             
         }
 
@@ -54,18 +54,18 @@ namespace Unit05.Game.Scripting
         private void HandleSegmentCollisions(Cast cast)
         {
             //Snake snake = (Snake)cast.GetFirstActor("snake");
-            List<Actor> actors = cast.GetActors("snake");
-            List<Snake> snakes = new List<Snake>();
+            List<Actor> actors = cast.GetActors("pieces");
+            List<Pieces> snakes = new List<Pieces>();
             foreach (Actor actor in actors)
             {
-                snakes.Add((Snake)actor);
+                snakes.Add((Pieces)actor);
             }
             List<Actor> heads = new List<Actor>();
             List<Actor> segments = new List<Actor>();
-            foreach (Snake snake in snakes)
+            foreach (Pieces snake in snakes)
             {
-                Actor head = snake.GetHead();
-                heads.Add(head);
+                //Actor head = snake.GetHead();
+                //heads.Add(head);
 
                 List<Actor> body = snake.GetBody();
                 foreach (Actor segment in body)
@@ -90,14 +90,14 @@ namespace Unit05.Game.Scripting
         {
             if (isGameOver == true)
             {
-                List<Actor> actors = cast.GetActors("snake");
-                List<Snake> snakes = new List<Snake>();
+                List<Actor> actors = cast.GetActors("pieces");
+                List<Pieces> snakes = new List<Pieces>();
                 List<Actor> segments = new List<Actor>();
                 foreach (Actor actor in actors)
                 {
-                    snakes.Add((Snake)actor);                    
+                    snakes.Add((Pieces)actor);                    
                 }
-                foreach (Snake snake in snakes)
+                foreach (Pieces snake in snakes)
                 {
                     List<Actor> body = snake.GetSegments();
                     foreach (Actor s in body)
