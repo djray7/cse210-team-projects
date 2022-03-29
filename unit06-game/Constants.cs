@@ -125,7 +125,7 @@ namespace Unit06
         public static Dictionary<string, List<string>> BRICK_IMAGES
             = new Dictionary<string, List<string>>() {
                 { "b", new List<string>() {
-                    "Assets/Images/white_square.png",
+                    "Assets/Images/light_gray_square.png",
                     "Assets/Images/011.png",
                     "Assets/Images/012.png",
                     "Assets/Images/013.png",
@@ -144,7 +144,7 @@ namespace Unit06
                     "Assets/Images/black_square.png",
                     "Assets/Images/black_square.png",
                     "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png"
+                    "Assets/Images/dark_gray_square.png"
                 } },
                 { "p", new List<string>() {
                     "Assets/Images/black_pawn.png",
