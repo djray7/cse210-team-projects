@@ -135,14 +135,14 @@ namespace Unit06
                     "Assets/Images/018.png"
                 } },
                 { "g", new List<string>() {
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
-                    "Assets/Images/black_square.png",
+                    "Assets/Images/dark_gray_square.png",
+                    "Assets/Images/dark_gray_square.png",
+                    "Assets/Images/dark_gray_square.png",
+                    "Assets/Images/dark_gray_square.png",
+                    "Assets/Images/dark_gray_square.png",
+                    "Assets/Images/dark_gray_square.png",
+                    "Assets/Images/dark_gray_square.png",
+                    "Assets/Images/dark_gray_square.png",
                     "Assets/Images/dark_gray_square.png"
                 } },
                 { "p", new List<string>() {
