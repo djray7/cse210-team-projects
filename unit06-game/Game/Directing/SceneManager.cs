@@ -55,6 +55,7 @@ namespace Unit06.Game.Directing
             AddBall(cast);
             AddBricks(cast);
             AddPieces(cast);
+            AddMouse(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
@@ -82,6 +83,7 @@ namespace Unit06.Game.Directing
             AddBall(cast);
             AddBricks(cast);
             AddPieces(cast);
+            AddMouse(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
@@ -118,9 +120,9 @@ namespace Unit06.Game.Directing
 
             script.ClearAllActions();
 
-            // use --------------------------------------------
+            // use ----------------------------```````````````----------------
             // ControlPieceAction action = new ControlPieceAction(MouseService);
-            // script.AddAction(Constants.INPUT, action);
+            //script.AddAction(Constants.INPUT, action);
 
             AddUpdateActions(script);    
             AddOutputActions(script);
@@ -131,6 +133,7 @@ namespace Unit06.Game.Directing
         {
             AddBall(cast);
             AddRacket(cast);
+            //addMouse(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
             script.ClearAllActions();
@@ -145,6 +148,23 @@ namespace Unit06.Game.Directing
         // casting methods
         // -----------------------------------------------------------------------------------------
 
+        private void AddMouse(Cast cast)
+        {
+            // cast.ClearActors(Constants.MOUSE_GROUP);
+        
+            // int x = ;
+            // int y = ;
+        
+            // Point position = new Point(x, y);
+            // Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
+            // Point velocity = new Point(0, 0);
+        
+            // Body body = new Body(position, size, velocity);
+            // Image image = new Image(Constants.MOUSE_IMAGE);
+            // Mouse mouse = new Mouse(body, image, false);
+        
+            // cast.AddActor(Constants.MOUSE_GROUP, mouse);
+        }
         private void AddBall(Cast cast)
         {
             cast.ClearActors(Constants.BALL_GROUP);
@@ -226,9 +246,11 @@ namespace Unit06.Game.Directing
                     Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
                     
                     Brick brick = new Brick(body, animation, points, false);
+                    //cast.ClearActors(Constants.BRICK_GROUP);
                     cast.AddActor(Constants.BRICK_GROUP, brick);
                 }
             }
+            
         }
 
         private void AddDialog(Cast cast, string message)
