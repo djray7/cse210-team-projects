@@ -119,8 +119,8 @@ namespace Unit06.Game.Directing
             script.ClearAllActions();
 
             // use --------------------------------------------
-            ControlRacketAction action = new ControlRacketAction(KeyboardService);
-            script.AddAction(Constants.INPUT, action);
+            // ControlPieceAction action = new ControlPieceAction(MouseService);
+            // script.AddAction(Constants.INPUT, action);
 
             AddUpdateActions(script);    
             AddOutputActions(script);

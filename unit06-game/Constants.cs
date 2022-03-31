@@ -47,6 +47,9 @@ namespace Unit06
         public static Color WHITE = new Color(255, 255, 255);
         public static Color PURPLE = new Color(255, 0, 255);
 
+        // Mouse 
+        public static string CLICK = "click";
+
         // KEYS
         public static string LEFT = "left";
         public static string RIGHT = "right";
@@ -104,6 +107,10 @@ namespace Unit06
         public static int BALL_HEIGHT = 28;
         public static int BALL_VELOCITY = 6;
 
+        // Mouse 
+
+        public static string MOUSE_GROUP = "mouse";
+        
         // RACKET
         public static string RACKET_GROUP = "rackets";
         

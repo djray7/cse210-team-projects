@@ -4,30 +4,39 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class CollidePieceAction //: Action
+    public class ControlPieceAction //: Action
     {
-        // private AudioService audioService;
-        // private PhysicsService physicsService;
-        
-        // public CollidePieceAction(PhysicsService physicsService, AudioService audioService)
-        // {
-        //     this.physicsService = physicsService;
-        //     this.audioService = audioService;
-        // }
+        private MouseService MouseService;
+
+        public ControlPieceAction(MouseService mouseService)
+        {
+            this.MouseService = mouseService;
+        }
 
         // public void Execute(Cast cast, Script script, ActionCallback callback)
         // {
-        //     Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-        //     Racket racket = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
-        //     Body ballBody = ball.GetBody();
-        //     Body racketBody = racket.GetBody();
-
-        //     if (physicsService.HasCollided(racketBody, ballBody))
-        //     {
-        //         ball.BounceY();
-        //         Sound sound = new Sound(Constants.BOUNCE_SOUND);
-        //         audioService.PlaySound(sound);
-        //     }
+            // List<Actor> brick = cast.GetActors(Constants.BRICK_GROUP);
+            // Pieces racket = (Pieces)cast.GetFirstActor(Constants.BRICK_GROUP);
+            // if (MouseService.IsButtonDown(Constants.CLICK));
+            // {
+            //     foreach (Actor actor in brick)
+            //     {
+            //         Brick brick = (Brick)actor;
+            //         Body brickBody = brick.GetBody();
+            //         MouseService = mouse.GetBody();
+            //     }
+                
+            // }
+            // else if (MouseService.IsButtonDown(Constants.RIGHT))
+            // {
+            //     Mouse mouse = new Mouse());
+            //     Body mousebody = mouse.GetPosition();
+            //     racket.MoveNext();
+            // }
+            // else
+            // {
+            //     racket.StopMoving();
+            // }
         //}
     }
 }

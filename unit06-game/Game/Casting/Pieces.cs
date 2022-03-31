@@ -28,6 +28,9 @@ namespace Unit06.Game.Casting
             return animation;
         }
 
+
+        
+
         /// <summary>
         /// Gets the body.
         /// </summary>
@@ -44,6 +47,42 @@ namespace Unit06.Game.Casting
         public int GetPoints()
         {
             return points;
+        }
+
+
+         public void MoveNext()
+        {
+            Point position = body.GetPosition();
+            Point velocity = body.GetVelocity();
+            Point newPosition = position.Add(velocity);
+            body.SetPosition(newPosition);
+        }
+
+        /// <summary>
+        /// Swings the racket to the left.
+        /// </summary>
+        public void SwingLeft()
+        {
+            Point velocity = new Point(-Constants.RACKET_VELOCITY, 0);
+            body.SetVelocity(velocity);
+        }
+
+        /// <summary>
+        /// Swings the racket to the right.
+        /// </summary>
+        public void SwingRight()
+        {
+            Point velocity = new Point(Constants.RACKET_VELOCITY, 0);
+            body.SetVelocity(velocity);
+        }
+
+        /// <summary>
+        /// Stops the racket from moving.
+        /// </summary>
+        public void StopMoving()
+        {
+            Point velocity = new Point(0, 0);
+            body.SetVelocity(velocity);
         }
         
     }
