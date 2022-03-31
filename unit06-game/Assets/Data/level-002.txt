@@ -1,8 +1,8 @@
+y4, y3, y2, y5, y6, y2, y3, y4
+y1, y1, y1, y1, y1, y1, y1, y1
 b1, g9, b1, g9, b1, g9, b1, g9
+g9, b1, g9, b1, g9, b1, g9, b1
+b1, g9, b1, g9, b1, g9, b1, g9
+g9, b1, g9, b1, g9, b1, g9, b1
 p1, p1, p1, p1, p1, p1, p1, p1
-b1, g9, b1, g9, b1, g9, b1, g9
-g9, b1, g9, b1, g9, b1, g9, b1
-b1, g9, b1, g9, b1, g9, b1, g9
-g9, b1, g9, b1, g9, b1, g9, b1
-b1, g9, b1, g9, b1, g9, b1, g9
-g9, b1, g9, b1, g9, b1, g9, b1
+p4, p3, p2, p5, p6, p2, p3, p4
