@@ -1,33 +1,43 @@
+using System.Collections.Generic;
 using Unit06.Game.Casting;
 using Unit06.Game.Services;
 
 
 namespace Unit06.Game.Scripting
 {
-    public class CollidePieceAction //: Action
+    public class ControlPieceAction //: Action
     {
-        // private AudioService audioService;
-        // private PhysicsService physicsService;
-        
-        // public CollidePieceAction(PhysicsService physicsService, AudioService audioService)
-        // {
-        //     this.physicsService = physicsService;
-        //     this.audioService = audioService;
-        // }
+        private MouseService MouseService;
+
+        public ControlPieceAction(MouseService mouseService)
+        {
+            this.MouseService = mouseService;
+        }
 
         // public void Execute(Cast cast, Script script, ActionCallback callback)
         // {
-        //     Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-        //     Racket racket = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
-        //     Body ballBody = ball.GetBody();
-        //     Body racketBody = racket.GetBody();
-
-        //     if (physicsService.HasCollided(racketBody, ballBody))
+        //     Mouse mouse = new Mouse();
+        //     List<Actor> brick = cast.GetActors(Constants.BRICK_GROUP);
+        //     Pieces bricks = (Pieces)cast.GetFirstActor(Constants.BRICK_GROUP);
+        //     if (MouseService.IsButtonDown(Constants.CLICK));
         //     {
-        //         ball.BounceY();
-        //         Sound sound = new Sound(Constants.BOUNCE_SOUND);
-        //         audioService.PlaySound(sound);
+        //         foreach (Actor actor in brick)
+        //         {
+        //             Brick brick = (Brick)actor;
+        //             Body brickBody = brick.GetBody();
+        //             Point MouseCoordinates = MouseService.GetCoordinates();
+        //         }
+                
         //     }
-        //}
+        //     if (MouseService.IsButtonDown(Constants.CLICK))
+        //     {
+        //         Body mousebody = mouse.GetPosition();
+        //         bricks.MoveNext();
+        //     }
+        //     else
+        //     {
+        //         bricks.StopMoving();
+        //     }
+        // }
     }
 }
