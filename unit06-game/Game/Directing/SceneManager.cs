@@ -155,20 +155,22 @@ namespace Unit06.Game.Directing
 
         private void AddMouse(Cast cast)
         {
-            // cast.ClearActors(Constants.MOUSE_GROUP);
+            cast.ClearActors(Constants.MOUSE_GROUP);
         
-            // int x = ;
-            // int y = ;
+            int x = 400;
+            int y = 400;
         
-            // Point position = new Point(x, y);
-            // Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
-            // Point velocity = new Point(0, 0);
+            Point position = new Point(x, y);
+            Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
+            Point velocity = new Point(0, 0);
         
-            // Body body = new Body(position, size, velocity);
-            // Image image = new Image(Constants.MOUSE_IMAGE);
-            // Mouse mouse = new Mouse(body, image, false);
+            Body body = new Body(position, size, velocity);
+            Image image = new Image(Constants.MOUSE_IMAGE);
+            List<string> images = Constants.MOUSE_IMAGE;
+            Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
+            Mouse mouse = new Mouse(body, animation, false);
         
-            // cast.AddActor(Constants.MOUSE_GROUP, mouse);
+            cast.AddActor(Constants.MOUSE_GROUP, mouse);
         }
         private void AddBall(Cast cast)
         {
