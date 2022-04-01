@@ -156,14 +156,29 @@ namespace Unit06
                 } },
                 { "p", new List<string>() {
                     "Assets/Images/yellow_pawn.png",
-                    "Assets/Images/yellow_bishop.png",
-                    "Assets/Images/yellow_knight.png",
+                    "Assets/Images/00.png",
+                    "Assets/Images/00.png",
                     "Assets/Images/yellow_rook.png",
                     "Assets/Images/yellow_queen.png",
                     "Assets/Images/yellow_king.png",
                     "Assets/Images/036.png",
                     "Assets/Images/037.png",
                     "Assets/Images/038.png"
+                } },
+                { "a", new List<string>() {
+                    "Assets/Images/yellow_bishop.png"
+                } },
+                { "c", new List<string>() {
+                    "Assets/Images/yellow_knight.png"
+                } },
+                { "d", new List<string>() {
+                    "Assets/Images/yellow_rook.png"
+                } },
+                { "e", new List<string>() {
+                    "Assets/Images/yellow_queen.png"
+                } },
+                { "f", new List<string>() {
+                    "Assets/Images/yellow_king.png"
                 } },
                 { "z", new List<string>() {
                     "Assets/Images/red_pawn.png"
