@@ -20,7 +20,7 @@ namespace Unit06.Game.Scripting
             Mouse mouse = (Mouse)cast.GetFirstActor(Constants.MOUSE_GROUP);
             List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
             //Pieces bricks = (Pieces)cast.GetFirstActor(Constants.BRICK_GROUP);
-            if (MouseService.IsButtonPressed(Constants.CLICK))
+            if (MouseService.IsButtonPressed("left"))
             {
                 foreach (Actor actor in bricks)
                 {
@@ -33,10 +33,11 @@ namespace Unit06.Game.Scripting
                     }                    
                 }                
             }
-            if (MouseService.IsButtonReleased(Constants.CLICK)){
+            if (MouseService.IsButtonReleased("left")){
                 Point MouseCoordinates = MouseService.GetCoordinates();
                 Body brickBody = _brick.GetBody();
                 brickBody.SetPosition(MouseCoordinates);
+                _brick.MoveNext();
             }
         }
     }

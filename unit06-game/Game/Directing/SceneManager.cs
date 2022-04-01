@@ -166,7 +166,7 @@ namespace Unit06.Game.Directing
         
             Body body = new Body(position, size, velocity);
             Image image = new Image(Constants.MOUSE_IMAGE);
-            List<string> images = Constants.MOUSE_IMAGE;
+            List<string> images = Constants.MOUSE_IMAGES;
             Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
             Mouse mouse = new Mouse(body, animation, false);
         
