@@ -8,31 +8,49 @@ namespace Unit06.Game.Scripting
     public class ControlPieceAction //: Action
     {
         private MouseService MouseService;
+        private PhysicsService physicsService;
+        private Body pieceActor;
 
-        public ControlPieceAction(MouseService mouseService)
-        {
-            this.MouseService = mouseService;
-        }
+        // public ControlPieceAction(MouseService mouseService, PhysicsService physicsService)
+        // {
+        //     this.MouseService = mouseService;
+        //     this.physicsService= physicsService;
+        // }
 
         // public void Execute(Cast cast, Script script, ActionCallback callback)
         // {
-        //     Mouse mouse = new Mouse();
+        //     //Mouse mouse = new Mouse();
         //     List<Actor> brick = cast.GetActors(Constants.BRICK_GROUP);
-        //     Pieces bricks = (Pieces)cast.GetFirstActor(Constants.BRICK_GROUP);
-        //     if (MouseService.IsButtonDown(Constants.CLICK));
+        //     Brick bricks = (Brick)cast.GetFirstActor(Constants.BRICK_GROUP);
+        //     Point MouseCoordinates = MouseService.GetCoordinates();
+        //     Mouse mouse = (Mouse)cast.GetFirstActor(Constants.MOUSE_GROUP);
+        //     Brick piece = (Brick)cast.GetFirstActor(Constants.BRICK_GROUP);
+            
+
+        //     if (MouseService.IsButtonPressed(Constants.CLICK));
         //     {
+        //         // if ()
+        //         // {
+        //             // to do a list 
+        //         // }
+        //         Body mouseBody = mouse.GetBody();
+        //         Body brickBody = piece.GetBody();
+                
         //         foreach (Actor actor in brick)
         //         {
-        //             Brick brick = (Brick)actor;
-        //             Body brickBody = brick.GetBody();
-        //             Point MouseCoordinates = MouseService.GetCoordinates();
+
+
+        //             if (physicsService.HasCollided(mouseBody, brickBody))
+        //             {
+        //                 pieceActor = brickBody;
+        //             }
+
         //         }
                 
         //     }
-        //     if (MouseService.IsButtonDown(Constants.CLICK))
+        //     if (MouseService.IsButtonPressed(Constants.CLICK))
         //     {
-        //         Body mousebody = mouse.GetPosition();
-        //         bricks.MoveNext();
+        //         //pieceActor = mouseBody;
         //     }
         //     else
         //     {
