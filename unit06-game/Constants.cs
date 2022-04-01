@@ -110,7 +110,9 @@ namespace Unit06
         // Mouse 
 
         public static string MOUSE_GROUP = "mouse";
-        public static string MOUSE_IMAGE = "Assents/Images/mouse_image.png";
+        public static string MOUSE_IMAGE = "Assets/Images/mouse_image.png";
+        public static List<string> MOUSE_IMAGES = new List<string>() 
+        {"Assets/Images/mouse_image.png"};
         
         // RACKET
         public static string RACKET_GROUP = "rackets";
