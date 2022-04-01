@@ -45,6 +45,21 @@ namespace Unit06.Game.Casting
         {
             return points;
         }
+
+
+         public void MoveNext()
+        {
+            Point position = body.GetPosition();
+            Point velocity = body.GetVelocity();
+            Point newPosition = position.Add(velocity);
+            body.SetPosition(newPosition);
+        }
+
+        public void StopMoving()
+        {
+            Point velocity = new Point(0, 0);
+            body.SetVelocity(velocity);
+        }
         
     }
 }

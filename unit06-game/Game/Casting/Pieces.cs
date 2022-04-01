@@ -50,13 +50,7 @@ namespace Unit06.Game.Casting
         }
 
 
-         public void MoveNext()
-        {
-            Point position = body.GetPosition();
-            Point velocity = body.GetVelocity();
-            Point newPosition = position.Add(velocity);
-            body.SetPosition(newPosition);
-        }
+        
 
         /// <summary>
         /// Swings the racket to the left.
