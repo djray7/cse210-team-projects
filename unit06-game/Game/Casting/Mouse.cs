@@ -17,7 +17,7 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Mouse(Body body, bool debug) : base(debug)
+        public Mouse(Body body, Animation animation, bool debug) : base(debug)
         {
             this.body = body;
             this.animation = animation;
