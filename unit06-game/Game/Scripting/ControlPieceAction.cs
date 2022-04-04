@@ -46,15 +46,10 @@ namespace Unit06.Game.Scripting
                     foreach (Actor actor in bricks)
                     {
                         Brick brick = (Brick)actor;
-                        Body brickBody = brick.GetBody();
 
                         Point mouseCoordinates = MouseService.GetCoordinates();
-                        Point pieceCoordinates = brickBody.GetPosition();
                         
-                        if (mouseCoordinates.GetX() > pieceCoordinates.GetX()
-                            && mouseCoordinates.GetX() < pieceCoordinates.GetX() + Constants.PIECE_WIDTH
-                            && mouseCoordinates.GetY() > pieceCoordinates.GetY() 
-                            && mouseCoordinates.GetY() < pieceCoordinates.GetY() + Constants.PIECE_HEIGHT)
+                        if (brick.IsOverlapping(mouseCoordinates))
                         {
                             brick.SelectPiece();
                             Console.WriteLine("Found something!");
