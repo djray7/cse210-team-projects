@@ -237,24 +237,24 @@ namespace Unit06.Game.Directing
             {
                 for (int c = 0; c < rows[r].Count; c++)
                 {
-                    int x = Constants.FIELD_LEFT + c * Constants.BRICK_WIDTH;
-                    int y = Constants.FIELD_TOP + r * Constants.BRICK_HEIGHT;
+                    int x = Constants.FIELD_LEFT + c * Constants.PIECE_WIDTH;
+                    int y = Constants.FIELD_TOP + r * Constants.PIECE_HEIGHT;
 
                     string color = rows[r][c][0].ToString();
                     int frames = (int)Char.GetNumericValue(rows[r][c][1]);
-                    int points = Constants.BRICK_POINTS;
+                    int points = Constants.PIECE_POINTS;
 
                     Point position = new Point(x, y);
-                    Point size = new Point(Constants.PIECE_WIDTH, Constants.BRICK_HEIGHT);
+                    Point size = new Point(Constants.PIECE_WIDTH, Constants.PIECE_HEIGHT);
                     Point velocity = new Point(0, 0);
-                    List<string> images = Constants.BRICK_IMAGES[color].GetRange(0, frames);
+                    List<string> images = Constants.PIECE_IMAGES[color].GetRange(0, frames);
 
                     Body body = new Body(position, size, velocity);
-                    Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
+                    Animation animation = new Animation(images, Constants.PIECE_RATE, 1);
                     
-                    Brick brick = new Brick(body, animation, points, false);
+                    Piece piece = new Piece(body, animation, points, false);
                     //cast.ClearActors(Constants.BRICK_GROUP);
-                    cast.AddActor(Constants.BRICK_GROUP, brick);
+                    cast.AddActor(Constants.PIECE_GROUP, piece);
                 }
             }
             

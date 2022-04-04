@@ -155,6 +155,40 @@ namespace Unit06
                     "Assets/Images/black_square.png",
                     "Assets/Images/black_square.png",
                     "Assets/Images/black_square.png"
+                } }                
+        };
+
+        public static int BRICK_WIDTH = 100;
+        public static int BRICK_HEIGHT = 100;
+        public static double BRICK_DELAY = 0.5;
+        public static int BRICK_RATE = 4;
+        public static int BRICK_POINTS = 50;
+
+        // PIECE
+        public static string PIECE_GROUP = "pieces";
+        public static Dictionary<string, List<string>> PIECE_IMAGES
+            = new Dictionary<string, List<string>>() {
+                { "b", new List<string>() {
+                    "Assets/Images/white_square.png",
+                    "Assets/Images/011.png",
+                    "Assets/Images/012.png",
+                    "Assets/Images/013.png",
+                    "Assets/Images/014.png",
+                    "Assets/Images/015.png",
+                    "Assets/Images/016.png",
+                    "Assets/Images/017.png",
+                    "Assets/Images/018.png"
+                } },
+                { "g", new List<string>() {
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png",
+                    "Assets/Images/black_square.png"
                 } },
                 { "p", new List<string>() {
                     "Assets/Images/yellow_pawn.png",
@@ -200,21 +234,13 @@ namespace Unit06
                 { "u", new List<string>() {
                     "Assets/Images/red_king.png"
                 } }
-
         };
-
-        public static int BRICK_WIDTH = 100;
-
-         public static int PIECE_WIDTH = 50;
-
-        public static int BRICK_HEIGHT = 100;
+        public static int PIECE_WIDTH = 50;
         public static int PIECE_HEIGHT = BRICK_HEIGHT;
-        public static double BRICK_DELAY = 0.5;
-        public static int BRICK_RATE = 4;
-        public static int BRICK_POINTS = 50;
-
+        public static double PIECE_DELAY = 0.5;
+        public static int PIECE_RATE = 4;
+        public static int PIECE_POINTS = 50;
         
-
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
