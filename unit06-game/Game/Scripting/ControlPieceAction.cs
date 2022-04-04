@@ -19,7 +19,7 @@ namespace Unit06.Game.Scripting
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
             Mouse mouse = (Mouse)cast.GetFirstActor(Constants.MOUSE_GROUP);
-            List<Actor> bricks = cast.GetActors(Constants.BRICK_GROUP);
+            List<Actor> pieces = cast.GetActors(Constants.PIECE_GROUP);
             //Pieces bricks = (Pieces)cast.GetFirstActor(Constants.BRICK_GROUP);
             if (MouseService.IsButtonPressed("left"))
             {
@@ -29,7 +29,7 @@ namespace Unit06.Game.Scripting
                     // we should look for squares now, and move the piece there
                     // then don't forget to deselect the piece at that point
 
-                    Brick piece = cast.FindSelectedPiece();
+                    Piece piece = cast.FindSelectedPiece();
 
                     // foreach (Square square in cast.GetActors(Constants.SQAURE_GROUP))
                     // {
@@ -43,16 +43,18 @@ namespace Unit06.Game.Scripting
                     // and see if the mouse overlaps any of them.
                     // If it does, we'll select that one.
                     
-                    foreach (Actor actor in bricks)
+                    foreach (Actor actor in pieces)
                     {
-                        Brick brick = (Brick)actor;
+                        Piece piece = (Piece)actor;
+                        Body pieceBody = piece.GetBody();
 
                         Point mouseCoordinates = MouseService.GetCoordinates();
+                        Point pieceCoordinates = pieceBody.GetPosition();
                         
                         if (brick.IsOverlapping(mouseCoordinates))
                         {
-                            brick.SelectPiece();
-                            Console.WriteLine("Found something!");
+                            piece.SelectPiece();
+                            Console.WriteLine($"Found {piece}");
                         }
                     }
 
