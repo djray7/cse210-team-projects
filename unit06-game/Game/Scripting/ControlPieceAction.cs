@@ -137,18 +137,18 @@ namespace Unit06.Game.Scripting
             // }
         }
 
-        // public void Collision(Cast cast)
-        // {
-        //     List<Point> positions = new List<Point>();
-        //     foreach (Actor actor in cast)
-        //     {
-        //         Point position = actor.GetBody().GetPosition();
-        //         positions.Add(position);                
-        //     }
-        //     for (int i = 0; i < positions.Count; i++)
-        //     {
-
-        //     }
-        // }
+        public void Collision(Cast cast)
+        {
+            List<Point> positions = new List<Point>();
+            foreach (Actor actor in cast)
+            {
+                Point position = actor.GetBody().GetPosition();
+                positions.Add(position);                
+            }
+            for (int i = 0; i < positions.Count; i++)
+            {
+                print();
+            }
+        }
     }
 }
