@@ -120,15 +120,15 @@ namespace Unit06.Game.Casting
 
         public bool IsAnyPieceSelected()
         {
-            Brick piece = FindSelectedPiece();
+            Piece piece = FindSelectedPiece();
             return piece != null;
         }
 
-        public Brick FindSelectedPiece()
+        public Piece FindSelectedPiece()
         {
-            Brick selectedPiece = null;
+            Piece selectedPiece = null;
 
-            foreach (Brick piece in GetActors(Constants.BRICK_GROUP))
+            foreach (Piece piece in GetActors(Constants.PIECE_GROUP))
             {
                 if (piece.IsSelected())
                 {

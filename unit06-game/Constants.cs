@@ -235,7 +235,7 @@ namespace Unit06
                     "Assets/Images/red_king.png"
                 } }
         };
-        public static int PIECE_WIDTH = 50;
+        public static int PIECE_WIDTH = BRICK_WIDTH;
         public static int PIECE_HEIGHT = BRICK_HEIGHT;
         public static double PIECE_DELAY = 0.5;
         public static int PIECE_RATE = 4;
