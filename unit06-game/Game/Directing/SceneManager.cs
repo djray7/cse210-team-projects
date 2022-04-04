@@ -126,8 +126,8 @@ namespace Unit06.Game.Directing
 
 
            // -------------------Commented out `----------------------------------------------------
-            // ControlPieceAction action = new ControlPieceAction(new RaylibMouseService(), new RaylibPhysicsService());
-            // script.AddAction(Constants.INPUT, action);
+            ControlPieceAction action = new ControlPieceAction(new RaylibMouseService());
+            script.AddAction(Constants.INPUT, action);
 
             AddUpdateActions(script);    
             AddOutputActions(script);

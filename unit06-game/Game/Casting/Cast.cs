@@ -118,5 +118,26 @@ namespace Unit06.Game.Casting
             }
         }
 
+        public bool IsAnyPieceSelected()
+        {
+            Brick piece = FindSelectedPiece();
+            return piece != null;
+        }
+
+        public Brick FindSelectedPiece()
+        {
+            Brick selectedPiece = null;
+
+            foreach (Brick piece in GetActors(Constants.BRICK_GROUP))
+            {
+                if (piece.IsSelected())
+                {
+                    selectedPiece = piece;
+                    break;
+                }
+            }
+
+            return selectedPiece;
+        }
     }
 }

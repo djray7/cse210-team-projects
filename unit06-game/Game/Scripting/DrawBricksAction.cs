@@ -34,6 +34,14 @@ namespace Unit06.Game.Scripting
                 Image image = animation.NextImage();
                 Point position = body.GetPosition();
                 videoService.DrawImage(image, position);
+                
+                if (brick.IsSelected())
+                {
+                    Rectangle rectangle = body.GetRectangle();
+                    Point size = rectangle.GetSize();
+                    Point pos = rectangle.GetPosition();
+                    videoService.DrawRectangle(size, pos, Constants.PURPLE, false);
+                }
             }
         }
     }

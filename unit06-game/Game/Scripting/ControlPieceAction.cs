@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unit06.Game.Casting;
 using Unit06.Game.Services;
@@ -5,7 +6,7 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class ControlPieceAction //: Action
+    public class ControlPieceAction : Action
     {
         private MouseService MouseService;
         private Brick _brick;
@@ -22,23 +23,46 @@ namespace Unit06.Game.Scripting
             //Pieces bricks = (Pieces)cast.GetFirstActor(Constants.BRICK_GROUP);
             if (MouseService.IsButtonPressed("left"))
             {
-                foreach (Actor actor in bricks)
+                if (cast.IsAnyPieceSelected())
                 {
-                    Brick brick = (Brick)actor;
-                    Body brickBody = brick.GetBody();
-                    Point MouseCoordinates = MouseService.GetCoordinates();
-                    if (MouseCoordinates.Equals(brickBody.GetPosition()))
+                    // we already have one selected to move
+                    // we should look for squares now, and move the piece there
+                    // then don't forget to deselect the piece at that point
+
+                    Brick piece = cast.FindSelectedPiece();
+
+                    // foreach (Square square in cast.GetActors(Constants.SQAURE_GROUP))
+                    // {
+
+                    // }
+                }
+                else
+                {
+                    // we have not selected a piece at this point
+                    // we should look through all the pieces in the piece group
+                    // and see if the mouse overlaps any of them.
+                    // If it does, we'll select that one.
+                    
+                    foreach (Actor actor in bricks)
                     {
-                        _brick = brick;
-                    }                    
+                        Brick brick = (Brick)actor;
+                        Body brickBody = brick.GetBody();
+
+                        Point mouseCoordinates = MouseService.GetCoordinates();
+                        Point pieceCoordinates = brickBody.GetPosition();
+                        
+                        if (mouseCoordinates.GetX() > pieceCoordinates.GetX()
+                            && mouseCoordinates.GetX() < pieceCoordinates.GetX() + Constants.PIECE_WIDTH
+                            && mouseCoordinates.GetY() > pieceCoordinates.GetY() 
+                            && mouseCoordinates.GetY() < pieceCoordinates.GetY() + Constants.PIECE_HEIGHT)
+                        {
+                            brick.SelectPiece();
+                            Console.WriteLine("Found something!");
+                        }
+                    }
+
                 }                
-            }
-            if (MouseService.IsButtonReleased("left")){
-                Point MouseCoordinates = MouseService.GetCoordinates();
-                Body brickBody = _brick.GetBody();
-                brickBody.SetPosition(MouseCoordinates);
-                _brick.MoveNext();
-            }
+            } // end of is mouse clicked
         }
     }
 }

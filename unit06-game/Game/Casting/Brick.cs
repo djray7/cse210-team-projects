@@ -9,6 +9,9 @@ namespace Unit06.Game.Casting
         private Animation animation;
         private int points;
 
+        private bool isSelected;
+        private bool isWhite;
+
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
@@ -17,6 +20,8 @@ namespace Unit06.Game.Casting
             this.body = body;
             this.animation = animation;
             this.points = points;
+            this.isSelected = false;
+            this.isWhite = true;
         }
 
         /// <summary>
@@ -35,6 +40,21 @@ namespace Unit06.Game.Casting
         public Body GetBody()
         {
             return body;
+        }
+
+        public bool IsSelected()
+        {
+            return isSelected;
+        }
+
+        public void SelectPiece()
+        {
+            isSelected = true;
+        }
+
+        public void DeselectPiece()
+        {
+            isSelected = false;
         }
 
         /// <summary>
@@ -59,6 +79,36 @@ namespace Unit06.Game.Casting
         {
             Point velocity = new Point(0, 0);
             body.SetVelocity(velocity);
+        }
+
+        // returns true if the given coordinaes are within the bounds of this piece
+        public bool IsOverlapping(Point otherPosition)
+        {
+            Point pieceCoordinates = body.GetPosition();
+
+            if (otherPosition.GetX() > pieceCoordinates.GetX()
+                && otherPosition.GetX() < pieceCoordinates.GetX() + Constants.PIECE_WIDTH
+                && otherPosition.GetY() > pieceCoordinates.GetY() 
+                && otherPosition.GetY() < pieceCoordinates.GetY() + Constants.PIECE_HEIGHT)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
+        public bool IsExactPositionMatch(Brick otherPiece)
+        {
+            return body.GetPosition().Equals(otherPiece.GetBody().GetPosition());
+        }
+
+        public bool IsOnSameTeam(Brick otherPiece)
+        {
+            return isWhite == otherPiece.isWhite;
         }
         
     }
