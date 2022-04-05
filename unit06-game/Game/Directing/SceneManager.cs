@@ -226,7 +226,7 @@ namespace Unit06.Game.Directing
 
         private void AddPieces(Cast cast)
         {
-            //cast.ClearActors(Constants.BRICK_GROUP);
+            cast.ClearActors(Constants.PIECE_GROUP);
 
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
             int level = stats.GetLevel() % Constants.BASE_LEVELS;
@@ -253,7 +253,7 @@ namespace Unit06.Game.Directing
                     Animation animation = new Animation(images, Constants.PIECE_RATE, 1);
                     
                     Piece piece = new Piece(body, animation, points, false);
-                    //cast.ClearActors(Constants.BRICK_GROUP);
+                    //cast.ClearActors(Constants.PIECE_GROUP);
                     cast.AddActor(Constants.PIECE_GROUP, piece);
                 }
             }
