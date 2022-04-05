@@ -59,6 +59,7 @@ namespace Unit06.Game.Directing
             AddRacket(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
+
             script.ClearAllActions();
             AddInitActions(script);
             AddLoadActions(script);
@@ -101,6 +102,9 @@ namespace Unit06.Game.Directing
         private void PrepareTryAgain(Cast cast, Script script)
         {
             AddBall(cast);
+            AddBricks(cast);
+            AddPieces(cast);
+            AddMouse(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
@@ -119,10 +123,6 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
-
-            // use ----------------------------```````````````----------------
-            // ControlRacketAction action = new ControlPieceAction(MouseService);
-            //script.AddAction(Constants.INPUT, action);
 
 
            // -------------------Commented out `----------------------------------------------------

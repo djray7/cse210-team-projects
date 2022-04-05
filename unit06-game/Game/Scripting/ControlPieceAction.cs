@@ -9,6 +9,7 @@ namespace Unit06.Game.Scripting
     public class ControlPieceAction : Action
     {
         private MouseService MouseService;
+        private PhysicsService physicsService;
         //private Brick _brick;
 
         public ControlPieceAction(MouseService mouseService)
@@ -74,6 +75,7 @@ namespace Unit06.Game.Scripting
                     && mouseCoordinates.GetY() < brickCoordinates.GetY() + Constants.BRICK_HEIGHT)
                 {
                     brick.SelectPiece();
+
                     Console.WriteLine($"Found {brick}");
                 }
             }
@@ -95,10 +97,13 @@ namespace Unit06.Game.Scripting
                             brick.DeselectPiece();
                             Console.WriteLine("square deselected");
                             Console.WriteLine("Piece moved");
+                            Collision(piece, cast);
                         }
                     }
                 }
             }
+            
+            
 
             // if (cast.IsAnyPieceSelected())
             // {
@@ -141,18 +146,48 @@ namespace Unit06.Game.Scripting
             // }
         }
 
-        // public void Collision(Cast cast)
-        // {
-        //     List<Point> positions = new List<Point>();
-        //     foreach (Actor actor in cast)
+        public void Collision(Piece piece, Cast cast)
+        {
+            List<Actor> piecess = cast.GetActors(Constants.PIECE_GROUP);
+
+            // foreach (Piece piecess in pieces)
+            // {
+            //     if ( piece.Equals pieces)
+
+
+            // }
+            // foreach (Actor actor in piecess)
+            // {
+            //     Piece pices = (Piece)actor;
+            //     Body piecesBody = piece.GetBody();
+            //     Body pieceBody = piece.GetBody();
+
+            //     if (physicsService.HasCollided(piecesBody, pieceBody))
+            //     {
+            //         ball.BounceY();
+            //         Sound sound = new Sound(Constants.BOUNCE_SOUND);
+            //         audioService.PlaySound(sound);
+            //         int points = brick.GetPoints();
+            //         stats.AddPoints(points);
+            //         cast.RemoveActor(Constants.BRICK_GROUP, brick);
+            //     }
+            // }
+            //     foreach (Actor actor in bricks)
         //     {
-        //         Point position = actor.GetBody().GetPosition();
-        //         positions.Add(position);                
+        //         Brick brick = (Brick)actor;
+        //         Body brickBody = brick.GetBody();
+        //         Body ballBody = ball.GetBody();
+
+        //         if (physicsService.HasCollided(brickBody, ballBody))
+        //         {
+        //             ball.BounceY();
+        //             Sound sound = new Sound(Constants.BOUNCE_SOUND);
+        //             audioService.PlaySound(sound);
+        //             int points = brick.GetPoints();
+        //             stats.AddPoints(points);
+        //             cast.RemoveActor(Constants.BRICK_GROUP, brick);
+        //         }
         //     }
-        //     for (int i = 0; i < positions.Count; i++)
-        //     {
-        //         print();
-        //     }
-        // }
+        }
     }
 }
