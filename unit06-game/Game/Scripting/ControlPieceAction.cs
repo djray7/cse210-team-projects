@@ -26,7 +26,8 @@ namespace Unit06.Game.Scripting
                 if (cast.IsAnyPieceSelected())
                 {
                     selectBrick(mouse, bricks);
-                    movePiece(cast, mouse);
+                        movePiece(cast, mouse);
+                    
                     //collision(cast);
                 }
                 else
@@ -88,9 +89,12 @@ namespace Unit06.Game.Scripting
                     {
                         if (brick.IsSelected())
                         {
-                            piece.GetBody().SetPosition(brick.GetBody().GetPosition());
+                            piece.GetBody().SetPosition(brick.GetBody().GetPosition()); // this line??
                             piece.DeselectPiece();
+                            Console.WriteLine("piece deselected");
                             brick.DeselectPiece();
+                            Console.WriteLine("square deselected");
+                            Console.WriteLine("Piece moved");
                         }
                     }
                 }
@@ -137,18 +141,18 @@ namespace Unit06.Game.Scripting
             // }
         }
 
-        public void Collision(Cast cast)
-        {
-            List<Point> positions = new List<Point>();
-            foreach (Actor actor in cast)
-            {
-                Point position = actor.GetBody().GetPosition();
-                positions.Add(position);                
-            }
-            for (int i = 0; i < positions.Count; i++)
-            {
-                print();
-            }
-        }
+        // public void Collision(Cast cast)
+        // {
+        //     List<Point> positions = new List<Point>();
+        //     foreach (Actor actor in cast)
+        //     {
+        //         Point position = actor.GetBody().GetPosition();
+        //         positions.Add(position);                
+        //     }
+        //     for (int i = 0; i < positions.Count; i++)
+        //     {
+        //         print();
+        //     }
+        // }
     }
 }

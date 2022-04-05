@@ -238,7 +238,7 @@ namespace Unit06
         public static int PIECE_WIDTH = BRICK_WIDTH;
         public static int PIECE_HEIGHT = BRICK_HEIGHT;
         public static double PIECE_DELAY = 0.5;
-        public static int PIECE_RATE = 4;
+        public static int PIECE_RATE = 2000;
         public static int PIECE_POINTS = 50;
         
         // DIALOG
