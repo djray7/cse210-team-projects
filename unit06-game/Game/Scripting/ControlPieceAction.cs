@@ -9,7 +9,7 @@ namespace Unit06.Game.Scripting
     public class ControlPieceAction : Action
     {
         private MouseService MouseService;
-        private PhysicsService physicsService;
+        
         //private Brick _brick;
 
         public ControlPieceAction(MouseService mouseService)

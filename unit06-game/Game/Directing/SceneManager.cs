@@ -71,6 +71,7 @@ namespace Unit06.Game.Directing
             AddOutputActions(script);
             AddUnloadActions(script);
             AddReleaseActions(script);
+            
         }
 
         private void ActivateBall(Cast cast)
@@ -81,9 +82,10 @@ namespace Unit06.Game.Directing
 
         private void PrepareNextLevel(Cast cast, Script script)
         {
+            AddPieces(cast);
             AddBall(cast);
             AddBricks(cast);
-            AddPieces(cast);
+            
             AddMouse(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
@@ -101,10 +103,11 @@ namespace Unit06.Game.Directing
 
         private void PrepareTryAgain(Cast cast, Script script)
         {
+            
             AddBall(cast);
             AddBricks(cast);
-            AddPieces(cast);
             AddMouse(cast);
+            AddPieces(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
@@ -232,13 +235,22 @@ namespace Unit06.Game.Directing
             int level = stats.GetLevel() % Constants.BASE_LEVELS;
             string filename = string.Format(Constants.LEVEL_FILE1, level);
             List<List<string>> rows = LoadLevel(filename);
-
+            int countUpRows = 0;
+            //int changex = 0;
+            int changey = 0;
             for (int r = 0; r < rows.Count; r++)
             {
+                countUpRows = countUpRows + 1;
+
                 for (int c = 0; c < rows[r].Count; c++)
                 {
+                    if (countUpRows == 3)
+                    {
+                        //changex = 6;
+                        changey = 4;
+                    }
                     int x = Constants.FIELD_LEFT + c * Constants.PIECE_WIDTH;
-                    int y = Constants.FIELD_TOP + r * Constants.PIECE_HEIGHT;
+                    int y = Constants.FIELD_TOP + (r+changey) * Constants.PIECE_HEIGHT;
 
                     string color = rows[r][c][0].ToString();
                     int frames = (int)Char.GetNumericValue(rows[r][c][1]);
@@ -253,9 +265,9 @@ namespace Unit06.Game.Directing
                     Animation animation = new Animation(images, Constants.PIECE_RATE, 1);
                     
                     Piece piece = new Piece(body, animation, points, false);
-                    //cast.ClearActors(Constants.PIECE_GROUP);
                     cast.AddActor(Constants.PIECE_GROUP, piece);
                 }
+                
             }
             
         }
