@@ -82,24 +82,24 @@ namespace Unit06.Game.Casting
         }
 
         // returns true if the given coordinaes are within the bounds of this piece
-        public bool IsOverlapping(Point otherPosition)
-        {
-            Point pieceCoordinates = body.GetPosition();
+        // public bool IsOverlapping(Point otherPosition)
+        // {
+        //     Point pieceCoordinates = body.GetPosition();
 
-            if (otherPosition.GetX() > pieceCoordinates.GetX()
-                && otherPosition.GetX() < pieceCoordinates.GetX() + Constants.PIECE_WIDTH
-                && otherPosition.GetY() > pieceCoordinates.GetY() 
-                && otherPosition.GetY() < pieceCoordinates.GetY() + Constants.PIECE_HEIGHT)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+        //     if (otherPosition.GetX() > pieceCoordinates.GetX()
+        //         && otherPosition.GetX() < pieceCoordinates.GetX() + Constants.PIECE_WIDTH
+        //         && otherPosition.GetY() > pieceCoordinates.GetY() 
+        //         && otherPosition.GetY() < pieceCoordinates.GetY() + Constants.PIECE_HEIGHT)
+        //     {
+        //         return true;
+        //     }
+        //     else
+        //     {
+        //         return false;
+        //     }
 
 
-        }
+        // }
 
         public bool IsExactPositionMatch(Brick otherPiece)
         {
