@@ -26,7 +26,7 @@ namespace Unit06.Game.Scripting
                 if (cast.IsAnyPieceSelected())
                 {
                     selectBrick(mouse, bricks);
-                        movePiece(cast, mouse);
+                        movePiece1(cast, mouse);
                     
                     //collision(cast);
                 }
@@ -89,7 +89,37 @@ namespace Unit06.Game.Scripting
                     {
                         if (brick.IsSelected())
                         {
-                            piece.GetBody().SetPosition(brick.GetBody().GetPosition()); // this line??
+                            piece.GetBody().SetPosition(brick.GetBody().GetPosition());
+                            piece.DeselectPiece();
+                            Console.WriteLine("piece deselected");
+                            brick.DeselectPiece();
+                            Console.WriteLine("square deselected");
+                            Console.WriteLine("Piece moved");
+                        }
+                    }
+                }
+            }
+        }
+
+            public void movePiece1(Cast cast, Mouse mouse)
+        {            
+            foreach(Piece piece in cast.GetActors(Constants.PIECE_GROUP))
+            {
+                if (piece.IsSelected())
+                {
+                    foreach(Brick brick in cast.GetActors(Constants.BRICK_GROUP))
+                    {
+                        if (brick.IsSelected())
+                        {
+                            foreach(Piece otherpiece in cast.GetActors(Constants.PIECE_GROUP))
+                            {
+                                if (otherpiece.GetBody().GetPosition() == brick.GetBody().GetPosition())
+                                {
+                                    otherpiece.GetBody().SetPosition(new Point(900,200));
+                                }
+                            }
+
+                            piece.GetBody().SetPosition(brick.GetBody().GetPosition());
                             piece.DeselectPiece();
                             Console.WriteLine("piece deselected");
                             brick.DeselectPiece();

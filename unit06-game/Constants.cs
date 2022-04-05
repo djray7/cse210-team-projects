@@ -15,7 +15,7 @@ namespace Unit06
         public static int FRAME_RATE = 60;
 
         // SCREEN
-        public static int SCREEN_WIDTH = 800;
+        public static int SCREEN_WIDTH = 1000;
         public static int SCREEN_HEIGHT = 875;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
